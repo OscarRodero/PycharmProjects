@@ -1,0 +1,30 @@
+Date: 18/9/2023
+Time: 12:54
+Phone Number: +34926260062
+Message: prueba
+--------------------
+Date: 18/9/2023
+Time: 12:55
+Phone Number: +34692270350
+Message: prueba
+--------------------
+Date: 18/9/2023
+Time: 12:56
+Phone Number: +34692270350
+Message: Hola Airón, te he mandado un wp desde python xd
+--------------------
+Date: 18/9/2023
+Time: 12:57
+Phone Number: +34692270350
+Message: Hola Airón, te he mandado un wp desde python xd
+--------------------
+Date: 18/9/2023
+Time: 13:1
+Phone Number: +34692270350
+Message: Airón puto
+--------------------
+Date: 18/9/2023
+Time: 13:9
+Phone Number: +34692270350
+Message: Airón puto
+--------------------
