@@ -1,4 +1,4 @@
-class Direccion:
+class direccion:
     def __init__(self, calle, numero, ciudad, provincia):
         self.calle = calle
         self.numero = numero
