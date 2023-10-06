@@ -1,0 +1,1477 @@
+2023-10-06 08:48:17,549 1 WARNING ? py.warnings: /usr/lib/python3/dist-packages/odoo/tools/config.py:565: DeprecationWarning: The longpolling-port is a deprecated alias to the gevent-port option, please use the latter.
+  File "/usr/bin/odoo", line 8, in <module>
+    odoo.cli.main()
+  File "/usr/lib/python3/dist-packages/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 127, in main
+    odoo.tools.config.parse_config(args)
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 378, in parse_config
+    self._warn_deprecated_options()
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 565, in _warn_deprecated_options
+    warnings.warn(
+ 
+2023-10-06 08:48:17,551 1 INFO ? odoo: Odoo version 16.0-20230908 
+2023-10-06 08:48:17,551 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2023-10-06 08:48:17,552 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/16.0', '/mnt/extra-addons'] 
+2023-10-06 08:48:17,553 1 INFO ? odoo: database: odoo@db:5432 
+2023-10-06 08:48:17,809 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2023-10-06 08:48:18,245 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 2f1545d30199:8069 
+2023-10-06 08:48:21,092 1 INFO testeo odoo.modules.loading: loading 1 modules... 
+2023-10-06 08:48:21,099 1 INFO testeo odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-06 08:48:21,108 1 WARNING testeo odoo.modules.graph: module fetchmail: not installable, skipped 
+2023-10-06 08:48:21,125 1 WARNING testeo odoo.modules.graph: module account_edi_facturx: not installable, skipped 
+2023-10-06 08:48:21,178 1 WARNING testeo odoo.modules.graph: module payment_transfer: not installable, skipped 
+2023-10-06 08:48:21,193 1 INFO testeo odoo.modules.graph: module stock_sms: Unmet dependencies: stock 
+2023-10-06 08:48:21,194 1 INFO testeo odoo.modules.graph: module sale: Unmet dependencies: account_payment 
+2023-10-06 08:48:21,195 1 INFO testeo odoo.modules.graph: module sale_sms: Unmet dependencies: sale 
+2023-10-06 08:48:21,196 1 INFO testeo odoo.modules.graph: module sale_crm: Unmet dependencies: sale 
+2023-10-06 08:48:21,197 1 INFO testeo odoo.modules.graph: module sale_purchase_stock: Unmet dependencies: sale_stock, purchase_stock, sale_purchase 
+2023-10-06 08:48:21,197 1 INFO testeo odoo.modules.graph: module sale_purchase: Unmet dependencies: sale 
+2023-10-06 08:48:21,198 1 INFO testeo odoo.modules.graph: module sale_management: Unmet dependencies: sale 
+2023-10-06 08:48:21,199 1 INFO testeo odoo.modules.graph: module purchase_stock: Unmet dependencies: stock_account 
+2023-10-06 08:48:21,200 1 INFO testeo odoo.modules.graph: module sale_stock: Unmet dependencies: sale, stock_account 
+2023-10-06 08:48:21,200 1 INFO testeo odoo.modules.graph: module stock: Unmet dependencies: barcodes_gs1_nomenclature 
+2023-10-06 08:48:21,202 1 INFO testeo odoo.modules.graph: module stock_account: Unmet dependencies: stock 
+2023-10-06 08:48:21,202 1 INFO testeo odoo.modules.loading: loading 49 modules... 
+2023-10-06 08:48:21,933 1 INFO testeo odoo.modules.loading: 49 modules loaded in 0.73s, 0 queries (+0 extra) 
+2023-10-06 08:48:21,939 1 ERROR testeo odoo.sql_db: bad query: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'
+ERROR: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+ 
+2023-10-06 08:48:21,943 1 WARNING testeo odoo.modules.loading: Transient module states were reset 
+2023-10-06 08:48:21,944 1 ERROR testeo odoo.modules.registry: Failed to load registry 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 64, in __new__
+    return cls.registries[db_name]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: 'testeo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 90, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 510, in load_modules
+    registry.setup_models(cr)
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 280, in setup_models
+    env['ir.model']._add_manual_models()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_model.py", line 446, in _add_manual_models
+    cr.execute("SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'")
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 321, in execute
+    res = self._obj.execute(query, params)
+psycopg2.errors.UndefinedFunction: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2023-10-06 08:48:21,967 1 INFO testeo werkzeug: 192.168.65.1 - - [06/Oct/2023 08:48:21] "GET / HTTP/1.1" 303 - 12 0.066 0.898
+2023-10-06 08:48:21,981 1 INFO testeo odoo.modules.loading: loading 1 modules... 
+2023-10-06 08:48:21,988 1 INFO testeo odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-06 08:48:21,990 1 WARNING testeo odoo.modules.graph: module fetchmail: not installable, skipped 
+2023-10-06 08:48:21,991 1 WARNING testeo odoo.modules.graph: module account_edi_facturx: not installable, skipped 
+2023-10-06 08:48:21,992 1 WARNING testeo odoo.modules.graph: module payment_transfer: not installable, skipped 
+2023-10-06 08:48:21,994 1 INFO testeo odoo.modules.graph: module stock_sms: Unmet dependencies: stock 
+2023-10-06 08:48:21,995 1 INFO testeo odoo.modules.graph: module sale: Unmet dependencies: account_payment 
+2023-10-06 08:48:21,996 1 INFO testeo odoo.modules.graph: module sale_sms: Unmet dependencies: sale 
+2023-10-06 08:48:21,997 1 INFO testeo odoo.modules.graph: module sale_crm: Unmet dependencies: sale 
+2023-10-06 08:48:21,997 1 INFO testeo odoo.modules.graph: module sale_purchase_stock: Unmet dependencies: sale_stock, purchase_stock, sale_purchase 
+2023-10-06 08:48:21,998 1 INFO testeo odoo.modules.graph: module sale_purchase: Unmet dependencies: sale 
+2023-10-06 08:48:21,999 1 INFO testeo odoo.modules.graph: module sale_management: Unmet dependencies: sale 
+2023-10-06 08:48:22,000 1 INFO testeo odoo.modules.graph: module purchase_stock: Unmet dependencies: stock_account 
+2023-10-06 08:48:22,000 1 INFO testeo odoo.modules.graph: module sale_stock: Unmet dependencies: sale, stock_account 
+2023-10-06 08:48:22,001 1 INFO testeo odoo.modules.graph: module stock: Unmet dependencies: barcodes_gs1_nomenclature 
+2023-10-06 08:48:22,002 1 INFO testeo odoo.modules.graph: module stock_account: Unmet dependencies: stock 
+2023-10-06 08:48:22,003 1 INFO testeo odoo.modules.loading: loading 49 modules... 
+2023-10-06 08:48:22,031 1 INFO testeo odoo.modules.loading: 49 modules loaded in 0.03s, 0 queries (+0 extra) 
+2023-10-06 08:48:22,032 1 ERROR testeo odoo.sql_db: bad query: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'
+ERROR: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+ 
+2023-10-06 08:48:22,034 1 WARNING testeo odoo.modules.loading: Transient module states were reset 
+2023-10-06 08:48:22,036 1 ERROR testeo odoo.modules.registry: Failed to load registry 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 64, in __new__
+    return cls.registries[db_name]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: 'testeo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 90, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 510, in load_modules
+    registry.setup_models(cr)
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 280, in setup_models
+    env['ir.model']._add_manual_models()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_model.py", line 446, in _add_manual_models
+    cr.execute("SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'")
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 321, in execute
+    res = self._obj.execute(query, params)
+psycopg2.errors.UndefinedFunction: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2023-10-06 08:48:22,037 1 ERROR testeo odoo.http: Exception during request handling. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 64, in __new__
+    return cls.registries[db_name]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: 'testeo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1998, in __call__
+    response = request._serve_db()
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 1563, in _serve_db
+    self.registry = Registry(self.db).check_signaling()
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 66, in __new__
+    return cls.new(db_name)
+  File "<decorator-gen-14>", line 2, in new
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 90, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 510, in load_modules
+    registry.setup_models(cr)
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 280, in setup_models
+    env['ir.model']._add_manual_models()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_model.py", line 446, in _add_manual_models
+    cr.execute("SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'")
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 321, in execute
+    res = self._obj.execute(query, params)
+psycopg2.errors.UndefinedFunction: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2023-10-06 08:48:22,039 1 INFO testeo werkzeug: 192.168.65.1 - - [06/Oct/2023 08:48:22] "GET /web HTTP/1.1" 500 - 12 0.005 0.061
+2023-10-06 08:48:22,108 1 INFO testeo odoo.modules.loading: loading 1 modules... 
+2023-10-06 08:48:22,117 1 INFO testeo odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-06 08:48:22,120 1 WARNING testeo odoo.modules.graph: module fetchmail: not installable, skipped 
+2023-10-06 08:48:22,121 1 WARNING testeo odoo.modules.graph: module account_edi_facturx: not installable, skipped 
+2023-10-06 08:48:22,122 1 WARNING testeo odoo.modules.graph: module payment_transfer: not installable, skipped 
+2023-10-06 08:48:22,124 1 INFO testeo odoo.modules.graph: module stock_sms: Unmet dependencies: stock 
+2023-10-06 08:48:22,125 1 INFO testeo odoo.modules.graph: module sale: Unmet dependencies: account_payment 
+2023-10-06 08:48:22,126 1 INFO testeo odoo.modules.graph: module sale_sms: Unmet dependencies: sale 
+2023-10-06 08:48:22,127 1 INFO testeo odoo.modules.graph: module sale_crm: Unmet dependencies: sale 
+2023-10-06 08:48:22,128 1 INFO testeo odoo.modules.graph: module sale_purchase_stock: Unmet dependencies: sale_stock, purchase_stock, sale_purchase 
+2023-10-06 08:48:22,128 1 INFO testeo odoo.modules.graph: module sale_purchase: Unmet dependencies: sale 
+2023-10-06 08:48:22,129 1 INFO testeo odoo.modules.graph: module sale_management: Unmet dependencies: sale 
+2023-10-06 08:48:22,130 1 INFO testeo odoo.modules.graph: module purchase_stock: Unmet dependencies: stock_account 
+2023-10-06 08:48:22,131 1 INFO testeo odoo.modules.graph: module sale_stock: Unmet dependencies: sale, stock_account 
+2023-10-06 08:48:22,132 1 INFO testeo odoo.modules.graph: module stock: Unmet dependencies: barcodes_gs1_nomenclature 
+2023-10-06 08:48:22,133 1 INFO testeo odoo.modules.graph: module stock_account: Unmet dependencies: stock 
+2023-10-06 08:48:22,137 1 INFO testeo odoo.modules.loading: loading 49 modules... 
+2023-10-06 08:48:22,166 1 INFO testeo odoo.modules.loading: 49 modules loaded in 0.03s, 0 queries (+0 extra) 
+2023-10-06 08:48:22,172 1 ERROR testeo odoo.sql_db: bad query: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'
+ERROR: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+ 
+2023-10-06 08:48:22,174 1 WARNING testeo odoo.modules.loading: Transient module states were reset 
+2023-10-06 08:48:22,177 1 ERROR testeo odoo.modules.registry: Failed to load registry 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 64, in __new__
+    return cls.registries[db_name]
+  File "<decorator-gen-6>", line 2, in __getitem__
+  File "/usr/lib/python3/dist-packages/odoo/tools/func.py", line 87, in locked
+    return func(inst, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/tools/lru.py", line 34, in __getitem__
+    a = self.d[obj]
+KeyError: 'testeo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 90, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/usr/lib/python3/dist-packages/odoo/modules/loading.py", line 510, in load_modules
+    registry.setup_models(cr)
+  File "/usr/lib/python3/dist-packages/odoo/modules/registry.py", line 280, in setup_models
+    env['ir.model']._add_manual_models()
+  File "/usr/lib/python3/dist-packages/odoo/addons/base/models/ir_model.py", line 446, in _add_manual_models
+    cr.execute("SELECT *, name->>'en_US' AS name FROM ir_model WHERE state = 'manual'")
+  File "/usr/lib/python3/dist-packages/odoo/sql_db.py", line 321, in execute
+    res = self._obj.execute(query, params)
+psycopg2.errors.UndefinedFunction: operator does not exist: character varying ->> unknown
+LINE 1: SELECT *, name->>'en_US' AS name FROM ir_model WHERE state =...
+                      ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+2023-10-06 08:48:22,178 1 INFO testeo werkzeug: 192.168.65.1 - - [06/Oct/2023 08:48:22] "GET /favicon.ico HTTP/1.1" 404 - 12 0.006 0.073
+2023-10-06 08:48:43,528 1 INFO ? odoo.service.server: Initiating shutdown 
+2023-10-06 08:48:43,530 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2023-10-06 08:48:43,625 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 3 connections  
+2023-10-06 08:50:28,560 1 WARNING ? py.warnings: /usr/lib/python3/dist-packages/odoo/tools/config.py:565: DeprecationWarning: The longpolling-port is a deprecated alias to the gevent-port option, please use the latter.
+  File "/usr/bin/odoo", line 8, in <module>
+    odoo.cli.main()
+  File "/usr/lib/python3/dist-packages/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 127, in main
+    odoo.tools.config.parse_config(args)
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 378, in parse_config
+    self._warn_deprecated_options()
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 565, in _warn_deprecated_options
+    warnings.warn(
+ 
+2023-10-06 08:50:28,561 1 INFO ? odoo: Odoo version 16.0-20230925 
+2023-10-06 08:50:28,562 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2023-10-06 08:50:28,563 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/16.0', '/mnt/extra-addons'] 
+2023-10-06 08:50:28,564 1 INFO ? odoo: database: odoo@db:5432 
+2023-10-06 08:50:29,047 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2023-10-06 08:50:29,623 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on aecf8c788a5e:8069 
+2023-10-06 08:50:29,824 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:29] "GET /web HTTP/1.1" 303 - 2 0.003 0.024
+2023-10-06 08:50:32,161 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/database/selector HTTP/1.1" 200 - 2 0.003 2.327
+2023-10-06 08:50:32,207 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/src/libs/fontawesome/css/font-awesome.css HTTP/1.1" 200 - 1 0.002 0.018
+2023-10-06 08:50:32,207 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/dist/css/bootstrap.css HTTP/1.1" 200 - 1 0.002 0.016
+2023-10-06 08:50:32,210 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/jquery/jquery.js HTTP/1.1" 200 - 1 0.004 0.018
+2023-10-06 08:50:32,239 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/dom/data.js HTTP/1.1" 200 - 1 0.002 0.018
+2023-10-06 08:50:32,240 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/dom/event-handler.js HTTP/1.1" 200 - 1 0.002 0.010
+2023-10-06 08:50:32,264 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/dom/manipulator.js HTTP/1.1" 200 - 1 0.006 0.017
+2023-10-06 08:50:32,265 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/base-component.js HTTP/1.1" 200 - 1 0.001 0.009
+2023-10-06 08:50:32,267 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/dom/selector-engine.js HTTP/1.1" 200 - 1 0.001 0.013
+2023-10-06 08:50:32,283 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/src/public/database_manager.js HTTP/1.1" 200 - 1 0.002 0.004
+2023-10-06 08:50:32,283 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/lib/bootstrap/js/dist/modal.js HTTP/1.1" 200 - 1 0.001 0.010
+2023-10-06 08:50:32,297 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/img/logo2.png HTTP/1.1" 200 - 1 0.002 0.006
+2023-10-06 08:50:32,486 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 - 1 0.001 0.007
+2023-10-06 08:50:32,526 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:50:32] "GET /web/static/img/favicon.ico HTTP/1.1" 200 - 1 0.002 0.005
+2023-10-06 08:51:36,997 1 INFO None odoo.service.db: Create database `prueba`. 
+2023-10-06 08:51:38,481 1 INFO prueba odoo.modules.loading: loading 1 modules... 
+2023-10-06 08:51:38,483 1 INFO prueba odoo.modules.loading: Loading module base (1/1) 
+2023-10-06 08:51:38,508 1 INFO prueba odoo.modules.registry: module base: creating or updating database tables 
+2023-10-06 08:51:40,799 1 INFO prueba odoo.models: Prepare computation of ir.module.module.menus_by_module 
+2023-10-06 08:51:40,800 1 INFO prueba odoo.models: Prepare computation of ir.module.module.reports_by_module 
+2023-10-06 08:51:40,801 1 INFO prueba odoo.models: Prepare computation of ir.module.module.views_by_module 
+2023-10-06 08:51:41,524 1 INFO prueba odoo.models: Prepare computation of res.partner.user_id 
+2023-10-06 08:51:41,525 1 INFO prueba odoo.models: Prepare computation of res.partner.commercial_partner_id 
+2023-10-06 08:51:41,526 1 INFO prueba odoo.models: Prepare computation of res.partner.display_name 
+2023-10-06 08:51:41,527 1 INFO prueba odoo.models: Prepare computation of res.partner.company_registry 
+2023-10-06 08:51:41,528 1 INFO prueba odoo.models: Prepare computation of res.partner.commercial_company_name 
+2023-10-06 08:51:41,529 1 INFO prueba odoo.models: Prepare computation of res.partner.partner_share 
+2023-10-06 08:51:41,751 1 INFO prueba odoo.models: Prepare computation of res.currency.decimal_places 
+2023-10-06 08:51:41,870 1 INFO prueba odoo.models: Prepare computation of res.company.logo_web 
+2023-10-06 08:51:42,001 1 INFO prueba odoo.models: Prepare computation of res.users.signature 
+2023-10-06 08:51:42,002 1 INFO prueba odoo.models: Prepare computation of res.users.share 
+2023-10-06 08:51:44,729 1 INFO prueba odoo.modules.loading: loading base/data/res_bank.xml 
+2023-10-06 08:51:44,737 1 INFO prueba odoo.modules.loading: loading base/data/res.lang.csv 
+2023-10-06 08:51:44,779 1 INFO prueba odoo.modules.loading: loading base/data/res_lang_data.xml 
+2023-10-06 08:51:44,817 1 INFO prueba odoo.modules.loading: loading base/data/res_partner_data.xml 
+2023-10-06 08:51:44,889 1 INFO prueba odoo.modules.loading: loading base/data/res_currency_data.xml 
+2023-10-06 08:51:45,246 1 INFO prueba odoo.modules.loading: loading base/data/res_company_data.xml 
+2023-10-06 08:51:45,267 1 INFO prueba odoo.modules.loading: loading base/data/res_users_data.xml 
+2023-10-06 08:51:45,812 1 INFO prueba odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2023-10-06 08:51:45,820 1 INFO prueba odoo.modules.loading: loading base/data/res_country_data.xml 
+2023-10-06 08:51:46,194 1 INFO prueba odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2023-10-06 08:51:46,204 1 INFO prueba odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2023-10-06 08:51:46,212 1 INFO prueba odoo.modules.loading: loading base/security/base_groups.xml 
+2023-10-06 08:51:46,761 1 INFO prueba odoo.modules.loading: loading base/security/base_security.xml 
+2023-10-06 08:51:46,884 1 INFO prueba odoo.modules.loading: loading base/views/base_menus.xml 
+2023-10-06 08:51:46,963 1 INFO prueba odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2023-10-06 08:51:46,994 1 INFO prueba odoo.modules.loading: loading base/views/res_config_views.xml 
+2023-10-06 08:51:47,007 1 INFO prueba odoo.modules.loading: loading base/data/res.country.state.csv 
+2023-10-06 08:51:47,922 1 INFO prueba odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2023-10-06 08:51:48,025 1 INFO prueba odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2023-10-06 08:51:48,044 1 INFO prueba odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2023-10-06 08:51:48,064 1 INFO prueba odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2023-10-06 08:51:48,108 1 INFO prueba odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2023-10-06 08:51:48,124 1 INFO prueba odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2023-10-06 08:51:48,143 1 INFO prueba odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2023-10-06 08:51:48,163 1 INFO prueba odoo.modules.loading: loading base/views/ir_model_views.xml 
+2023-10-06 08:51:48,297 1 INFO prueba odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2023-10-06 08:51:48,318 1 INFO prueba odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2023-10-06 08:51:48,343 1 INFO prueba odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2023-10-06 08:51:48,363 1 INFO prueba odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2023-10-06 08:51:48,383 1 INFO prueba odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2023-10-06 08:51:48,429 1 INFO prueba odoo.modules.loading: loading base/views/ir_default_views.xml 
+2023-10-06 08:51:48,448 1 INFO prueba odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2023-10-06 08:51:48,456 1 INFO prueba odoo.modules.loading: loading base/report/ir_model_report.xml 
+2023-10-06 08:51:48,464 1 INFO prueba odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2023-10-06 08:51:48,476 1 INFO prueba odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2023-10-06 08:51:48,494 1 INFO prueba odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2023-10-06 08:51:48,504 1 INFO prueba odoo.modules.loading: loading base/views/ir_module_views.xml 
+2023-10-06 08:51:48,566 1 INFO prueba odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2023-10-06 08:51:48,618 1 INFO prueba odoo.modules.loading: loading base/data/ir_module_module.xml 
+2023-10-06 08:51:48,677 1 INFO prueba odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2023-10-06 08:51:48,684 1 INFO prueba odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2023-10-06 08:51:48,695 1 INFO prueba odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2023-10-06 08:51:48,719 1 INFO prueba odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2023-10-06 08:51:48,739 1 INFO prueba odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2023-10-06 08:51:48,750 1 INFO prueba odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2023-10-06 08:51:48,767 1 INFO prueba odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2023-10-06 08:51:48,775 1 INFO prueba odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2023-10-06 08:51:48,787 1 INFO prueba odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2023-10-06 08:51:48,801 1 INFO prueba odoo.modules.loading: loading base/data/ir_actions_data.xml 
+2023-10-06 08:51:48,806 1 INFO prueba odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2023-10-06 08:51:48,819 1 INFO prueba odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2023-10-06 08:51:48,839 1 INFO prueba odoo.modules.loading: loading base/views/res_company_views.xml 
+2023-10-06 08:51:48,864 1 INFO prueba odoo.modules.loading: loading base/views/res_lang_views.xml 
+2023-10-06 08:51:48,888 1 INFO prueba odoo.modules.loading: loading base/views/res_partner_views.xml 
+2023-10-06 08:51:48,991 1 INFO prueba odoo.modules.loading: loading base/views/res_bank_views.xml 
+2023-10-06 08:51:49,024 1 INFO prueba odoo.modules.loading: loading base/views/res_country_views.xml 
+2023-10-06 08:51:49,064 1 INFO prueba odoo.modules.loading: loading base/views/res_currency_views.xml 
+2023-10-06 08:51:49,105 1 INFO prueba odoo.modules.loading: loading base/views/res_users_views.xml 
+2023-10-06 08:51:49,234 1 INFO prueba odoo.modules.loading: loading base/views/ir_property_views.xml 
+2023-10-06 08:51:49,256 1 INFO prueba odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2023-10-06 08:51:49,263 1 INFO prueba odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2023-10-06 08:51:49,288 1 INFO prueba odoo.modules.loading: loading base/views/onboarding_views.xml 
+2023-10-06 08:51:49,309 1 INFO prueba odoo.modules.loading: loading base/security/ir.model.access.csv 
+2023-10-06 08:51:49,415 1 INFO prueba odoo.addons.base.models.ir_module: module base: loading translation file es for language es_ES 
+2023-10-06 08:51:49,994 1 INFO prueba odoo.modules.loading: Module base loaded in 11.51s, 7872 queries (+7873 other) 
+2023-10-06 08:51:49,995 1 INFO prueba odoo.modules.loading: 1 modules loaded in 11.51s, 7872 queries (+7873 extra) 
+2023-10-06 08:51:50,018 1 INFO prueba odoo.addons.base.models.ir_module: module base: loading translation file es for language es_ES 
+2023-10-06 08:51:50,514 1 INFO prueba odoo.modules.loading: updating modules list 
+2023-10-06 08:51:50,516 1 INFO prueba odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2023-10-06 08:51:50,971 1 INFO prueba odoo.modules.loading: loading 8 modules... 
+2023-10-06 08:51:50,972 1 INFO prueba odoo.modules.loading: Loading module web (2/8) 
+2023-10-06 08:51:50,992 1 INFO prueba odoo.modules.registry: module web: creating or updating database tables 
+2023-10-06 08:51:51,398 1 INFO prueba odoo.modules.loading: loading web/security/ir.model.access.csv 
+2023-10-06 08:51:51,407 1 INFO prueba odoo.modules.loading: loading web/views/webclient_templates.xml 
+2023-10-06 08:51:51,455 1 INFO prueba odoo.modules.loading: loading web/views/report_templates.xml 
+2023-10-06 08:51:51,528 1 INFO prueba odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2023-10-06 08:51:51,540 1 INFO prueba odoo.modules.loading: loading web/views/speedscope_template.xml 
+2023-10-06 08:51:51,548 1 INFO prueba odoo.modules.loading: loading web/views/lazy_assets.xml 
+2023-10-06 08:51:51,555 1 INFO prueba odoo.modules.loading: loading web/views/neutralize_views.xml 
+2023-10-06 08:51:51,563 1 INFO prueba odoo.modules.loading: loading web/data/ir_attachment.xml 
+2023-10-06 08:51:51,570 1 INFO prueba odoo.modules.loading: loading web/data/report_layout.xml 
+2023-10-06 08:51:51,599 1 INFO prueba odoo.addons.base.models.ir_module: module web: loading translation file es for language es_ES 
+2023-10-06 08:51:51,731 1 INFO prueba odoo.modules.loading: Module web loaded in 0.76s, 891 queries (+891 other) 
+2023-10-06 08:51:51,732 1 INFO prueba odoo.modules.loading: Loading module auth_totp (3/8) 
+2023-10-06 08:51:51,762 1 INFO prueba odoo.modules.registry: module auth_totp: creating or updating database tables 
+2023-10-06 08:51:51,831 1 INFO prueba odoo.modules.loading: loading auth_totp/security/security.xml 
+2023-10-06 08:51:51,853 1 INFO prueba odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2023-10-06 08:51:51,863 1 INFO prueba odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2023-10-06 08:51:51,870 1 INFO prueba odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2023-10-06 08:51:51,897 1 INFO prueba odoo.modules.loading: loading auth_totp/views/templates.xml 
+2023-10-06 08:51:51,904 1 INFO prueba odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2023-10-06 08:51:51,916 1 INFO prueba odoo.addons.base.models.ir_module: module auth_totp: loading translation file es for language es_ES 
+2023-10-06 08:51:51,939 1 INFO prueba odoo.modules.loading: Module auth_totp loaded in 0.21s, 180 queries (+180 other) 
+2023-10-06 08:51:51,941 1 INFO prueba odoo.modules.loading: Loading module base_import (4/8) 
+2023-10-06 08:51:51,997 1 INFO prueba odoo.modules.registry: module base_import: creating or updating database tables 
+2023-10-06 08:51:52,607 1 INFO prueba odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2023-10-06 08:51:52,635 1 INFO prueba odoo.addons.base.models.ir_module: module base_import: loading translation file es for language es_ES 
+2023-10-06 08:51:52,664 1 INFO prueba odoo.modules.loading: Module base_import loaded in 0.72s, 895 queries (+895 other) 
+2023-10-06 08:51:52,665 1 INFO prueba odoo.modules.loading: Loading module bus (5/8) 
+2023-10-06 08:51:52,694 1 INFO prueba odoo.modules.registry: module bus: creating or updating database tables 
+2023-10-06 08:51:52,766 1 INFO prueba odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2023-10-06 08:51:52,781 1 INFO prueba odoo.addons.base.models.ir_module: module bus: loading translation file es for language es_ES 
+2023-10-06 08:51:52,795 1 INFO prueba odoo.modules.loading: Module bus loaded in 0.13s, 107 queries (+107 other) 
+2023-10-06 08:51:52,797 1 INFO prueba odoo.modules.loading: Loading module web_kanban_gauge (6/8) 
+2023-10-06 08:51:52,821 1 INFO prueba odoo.addons.base.models.ir_module: module web_kanban_gauge: loading translation file es for language es_ES 
+2023-10-06 08:51:52,834 1 INFO prueba odoo.modules.loading: Module web_kanban_gauge loaded in 0.04s, 13 queries (+13 other) 
+2023-10-06 08:51:52,835 1 INFO prueba odoo.modules.loading: Loading module web_tour (7/8) 
+2023-10-06 08:51:52,854 1 INFO prueba odoo.modules.registry: module web_tour: creating or updating database tables 
+2023-10-06 08:51:52,915 1 INFO prueba odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2023-10-06 08:51:52,924 1 INFO prueba odoo.modules.loading: loading web_tour/security/ir.rule.csv 
+2023-10-06 08:51:52,934 1 INFO prueba odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2023-10-06 08:51:52,956 1 INFO prueba odoo.addons.base.models.ir_module: module web_tour: loading translation file es for language es_ES 
+2023-10-06 08:51:52,972 1 INFO prueba odoo.modules.loading: Module web_tour loaded in 0.14s, 108 queries (+108 other) 
+2023-10-06 08:51:52,973 1 INFO prueba odoo.modules.loading: Loading module web_editor (8/8) 
+2023-10-06 08:51:53,046 1 INFO prueba odoo.modules.registry: module web_editor: creating or updating database tables 
+2023-10-06 08:51:53,509 1 INFO prueba odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2023-10-06 08:51:53,521 1 INFO prueba odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2023-10-06 08:51:53,526 1 INFO prueba odoo.modules.loading: loading web_editor/views/editor.xml 
+2023-10-06 08:51:53,546 1 INFO prueba odoo.modules.loading: loading web_editor/views/snippets.xml 
+2023-10-06 08:51:53,579 1 INFO prueba odoo.addons.base.models.ir_module: module web_editor: loading translation file es for language es_ES 
+2023-10-06 08:51:53,637 1 INFO prueba odoo.modules.loading: Module web_editor loaded in 0.66s, 827 queries (+827 other) 
+2023-10-06 08:51:53,639 1 INFO prueba odoo.modules.loading: 8 modules loaded in 2.67s, 3021 queries (+3021 extra) 
+2023-10-06 08:51:53,827 1 INFO prueba odoo.modules.loading: Modules loaded. 
+2023-10-06 08:51:53,831 1 INFO prueba odoo.modules.registry: Registry loaded in 15.362s 
+2023-10-06 08:51:53,837 1 INFO prueba odoo.addons.base.models.ir_module: module base: loading translation file es for language es_ES 
+2023-10-06 08:51:53,837 1 INFO prueba odoo.addons.base.models.ir_http: Generating routing map for key None 
+2023-10-06 08:51:54,098 1 INFO None odoo.service.db: Create database `prueba`. 
+2023-10-06 08:51:54,146 1 ERROR None odoo.addons.web.controllers.database: Database creation error. 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/database.py", line 81, in create
+    dispatch_rpc('db', 'create_database', [master_pwd, name, bool(post.get('demo')), lang, password, post['login'], country_code, post['phone']])
+  File "/usr/lib/python3/dist-packages/odoo/http.py", line 366, in dispatch_rpc
+    return dispatch(method, params)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 480, in dispatch
+    return g[exp_method_name](*params)
+  File "<decorator-gen-17>", line 2, in exp_create_database
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 43, in if_db_mgt_enabled
+    return method(self, *args, **kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 140, in exp_create_database
+    _create_empty_database(db_name)
+  File "/usr/lib/python3/dist-packages/odoo/service/db.py", line 106, in _create_empty_database
+    raise DatabaseExists("database %r already exists!" % (name,))
+odoo.service.db.DatabaseExists: database 'prueba' already exists!
+2023-10-06 08:51:54,147 1 INFO prueba odoo.addons.base.models.ir_module: module web: loading translation file es for language es_ES 
+2023-10-06 08:51:54,248 1 INFO prueba odoo.addons.base.models.ir_module: module auth_totp: loading translation file es for language es_ES 
+2023-10-06 08:51:54,280 1 INFO prueba odoo.addons.base.models.ir_module: module base_import: loading translation file es for language es_ES 
+2023-10-06 08:51:54,303 1 INFO prueba odoo.addons.base.models.ir_module: module bus: loading translation file es for language es_ES 
+2023-10-06 08:51:54,315 1 INFO prueba odoo.addons.base.models.ir_module: module web_editor: loading translation file es for language es_ES 
+2023-10-06 08:51:54,319 1 INFO None werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:54] "POST /web/database/create HTTP/1.1" 200 - 10 0.033 11.033
+2023-10-06 08:51:54,355 1 INFO prueba odoo.addons.base.models.ir_module: module web_kanban_gauge: loading translation file es for language es_ES 
+2023-10-06 08:51:54,360 1 INFO prueba odoo.addons.base.models.ir_module: module web_tour: loading translation file es for language es_ES 
+2023-10-06 08:51:55,187 1 INFO prueba odoo.addons.base.models.res_users: Login successful for db:prueba login:oscarrodero@hotmail.com from 192.168.65.1 
+2023-10-06 08:51:55,199 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:55] "POST /web/database/create HTTP/1.1" 303 - 15868 11.668 6.885
+2023-10-06 08:51:57,010 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:57] "GET /web?db=prueba HTTP/1.1" 303 - 6 0.003 0.006
+2023-10-06 08:51:59,363 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/login HTTP/1.1" 200 - 69 0.036 2.310
+2023-10-06 08:51:59,415 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/assets/15-88fdc9a/web.assets_frontend.min.css HTTP/1.1" 200 - 7 0.004 0.011
+2023-10-06 08:51:59,417 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/assets/16-d2c9725/web.assets_frontend_minimal.min.js HTTP/1.1" 200 - 6 0.003 0.013
+2023-10-06 08:51:59,453 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/binary/company_logo HTTP/1.1" 200 - 3 0.002 0.006
+2023-10-06 08:51:59,679 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/assets/17-f0f76b1/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 6 0.002 0.006
+2023-10-06 08:51:59,949 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:51:59] "GET /web/webclient/locale/es_ES HTTP/1.1" 200 - 2 0.004 0.014
+2023-10-06 08:52:00,324 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:00] "GET /web/webclient/translations/1696582319898 HTTP/1.1" 200 - 4 0.002 0.391
+2023-10-06 08:52:00,344 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:00] "GET /web/webclient/translations/1696582320331 HTTP/1.1" 200 - 4 0.002 0.006
+2023-10-06 08:52:02,085 1 INFO prueba odoo.addons.base.models.res_users: Login failed for db:prueba login:oscarrodero@hotmail.com from 192.168.65.1 
+2023-10-06 08:52:02,143 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:02] "POST /web/login HTTP/1.1" 200 - 7 0.004 0.369
+2023-10-06 08:52:02,172 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:02] "GET /web/binary/company_logo HTTP/1.1" 304 - 3 0.003 0.008
+2023-10-06 08:52:02,244 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:02] "GET /web/webclient/translations/1696582322229 HTTP/1.1" 200 - 4 0.002 0.007
+2023-10-06 08:52:02,272 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:02] "GET /web/webclient/translations/1696582322259 HTTP/1.1" 200 - 4 0.002 0.008
+2023-10-06 08:52:05,447 1 INFO prueba odoo.addons.base.models.res_users: Login successful for db:prueba login:oscarrodero@hotmail.com from 192.168.65.1 
+2023-10-06 08:52:05,457 1 INFO prueba odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2023-10-06 08:52:05,460 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:05] "POST /web/login HTTP/1.1" 303 - 43 0.018 0.392
+2023-10-06 08:52:09,862 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web HTTP/1.1" 200 - 108 0.065 4.324
+2023-10-06 08:52:09,905 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/assets/18-79990ee/web.assets_common.min.css HTTP/1.1" 200 - 4 0.003 0.018
+2023-10-06 08:52:09,907 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/assets/19-8d55286/web.assets_backend.min.css HTTP/1.1" 200 - 4 0.002 0.019
+2023-10-06 08:52:09,907 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/webclient/load_menus/fe8efa0115a512e639c3757b8a7bd45c55dc85c40568a38b210d3533415651c6 HTTP/1.1" 200 - 2 0.002 0.016
+2023-10-06 08:52:09,912 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/assets/21-8d55286/web.assets_backend.min.js HTTP/1.1" 200 - 4 0.007 0.018
+2023-10-06 08:52:09,912 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/assets/20-79990ee/web.assets_common.min.js HTTP/1.1" 200 - 4 0.004 0.023
+2023-10-06 08:52:09,923 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/assets/22-6bf707c/web.assets_backend_prod_only.min.js HTTP/1.1" 200 - 4 0.004 0.026
+2023-10-06 08:52:09,945 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:09] "GET /web/webclient/translations/5c8d4a37e34917a00d921d1353038ad94bf273f7?lang=es_ES HTTP/1.1" 200 - 3 0.006 0.010
+2023-10-06 08:52:10,380 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /bus/websocket_worker_bundle?v=1.0.5 HTTP/1.1" 200 - 9 0.006 0.030
+2023-10-06 08:52:10,416 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 - 15 0.014 0.013
+2023-10-06 08:52:10,417 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "POST /web/action/load HTTP/1.1" 200 - 11 0.014 0.017
+2023-10-06 08:52:10,421 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.006
+2023-10-06 08:52:10,434 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/static/lib/odoo_ui_icons/fonts/odoo_ui_icons.woff2 HTTP/1.1" 200 - 0 0.000 0.029
+2023-10-06 08:52:10,448 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2023-10-06 08:52:10,457 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/image/res.company/1/favicon HTTP/1.1" 200 - 10 0.030 0.021
+2023-10-06 08:52:10,472 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.004
+2023-10-06 08:52:10,486 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-06 08:52:10,510 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "POST /web/dataset/call_kw/ir.module.module/get_views HTTP/1.1" 200 - 43 0.024 0.048
+2023-10-06 08:52:10,551 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 4 0.003 0.006
+2023-10-06 08:52:10,570 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 40 0.021 0.012
+2023-10-06 08:52:10,707 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /sale_management/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.009
+2023-10-06 08:52:10,711 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /account/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:10,733 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /crm/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.006
+2023-10-06 08:52:10,734 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/mrp_workorder.png HTTP/1.1" 200 - 0 0.000 0.005
+2023-10-06 08:52:10,736 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /website/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.004
+2023-10-06 08:52:10,757 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/account_accountant.png HTTP/1.1" 200 - 0 0.000 0.006
+2023-10-06 08:52:10,758 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /project/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.010
+2023-10-06 08:52:10,762 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /stock/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.019
+2023-10-06 08:52:10,762 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /purchase/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.006
+2023-10-06 08:52:10,771 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /mass_mailing/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.005
+2023-10-06 08:52:10,785 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /website_sale/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:10,786 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/timesheet_grid.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:10,788 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /point_of_sale/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.009
+2023-10-06 08:52:10,789 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /mrp/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.009
+2023-10-06 08:52:10,816 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/knowledge.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:10,827 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.001 0.004
+2023-10-06 08:52:10,848 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /hr_expense/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:10,865 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/web_studio.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:10,875 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /hr_holidays/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:10,890 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /hr_recruitment/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:10,893 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/industry_fsm.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:10,903 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /hr/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:10,910 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /data_recycle/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:10,944 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /maintenance/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.009
+2023-10-06 08:52:10,961 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:10] "GET /base/static/img/icons/sign.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,001 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/helpdesk.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,007 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/sale_subscription.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,009 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/quality_control.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,014 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/planning.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,024 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /website_slides/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.013
+2023-10-06 08:52:11,024 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /website_event/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.006
+2023-10-06 08:52:11,032 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /contacts/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.006
+2023-10-06 08:52:11,032 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/mrp_plm.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:11,033 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /mail/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.010
+2023-10-06 08:52:11,034 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /calendar/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.008
+2023-10-06 08:52:11,038 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/social.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:11,045 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/hr_appraisal.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:11,056 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/marketing_automation.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:11,060 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /fleet/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.008
+2023-10-06 08:52:11,065 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /im_livechat/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.008
+2023-10-06 08:52:11,068 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/web_mobile.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:11,068 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/appointment.png HTTP/1.1" 200 - 0 0.000 0.008
+2023-10-06 08:52:11,069 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /survey/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.007
+2023-10-06 08:52:11,072 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /repair/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:11,080 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /hr_attendance/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.005
+2023-10-06 08:52:11,082 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /mass_mailing_sms/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.004
+2023-10-06 08:52:11,090 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/stock_barcode.png HTTP/1.1" 200 - 0 0.000 0.004
+2023-10-06 08:52:11,091 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /note/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.005
+2023-10-06 08:52:11,092 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /hr_skills/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.004
+2023-10-06 08:52:11,102 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/voip.png HTTP/1.1" 200 - 0 0.000 0.001
+2023-10-06 08:52:11,113 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /website_hr_recruitment/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:11,114 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /lunch/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.008
+2023-10-06 08:52:11,118 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /base/static/img/icons/sale_ebay.png HTTP/1.1" 200 - 0 0.000 0.002
+2023-10-06 08:52:11,122 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:11] "GET /hr_contract/static/description/icon.png HTTP/1.1" 200 - 0 0.000 0.003
+2023-10-06 08:52:21,571 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:21] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.001 0.004
+2023-10-06 08:52:21,641 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:21] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 4 0.003 0.073
+2023-10-06 08:52:21,795 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:52:21] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-06 08:52:29,779 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Base: Auto-vacuum internal data`. 
+2023-10-06 08:52:29,799 1 INFO prueba odoo.addons.base.models.ir_attachment: filestore gc 20 checked, 0 removed 
+2023-10-06 08:52:29,835 1 INFO prueba odoo.addons.base.models.res_users: GC'd 1 user log entries 
+2023-10-06 08:52:29,856 1 INFO prueba odoo.addons.auth_totp.models.auth_totp: GC'd 0 totp devices entries 
+2023-10-06 08:52:29,869 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Base: Auto-vacuum internal data` done. 
+2023-10-06 08:53:27,867 1 INFO prueba odoo.addons.base.models.ir_module: ALLOW access to module.button_immediate_install on ['Ventas', 'Facturación', 'CRM', 'Inventario', 'Compra', 'Empleados'] to user oscarrodero@hotmail.com #2 via 192.168.65.1 
+2023-10-06 08:53:27,876 1 INFO prueba odoo.addons.base.models.ir_module: User #2 triggered module installation 
+2023-10-06 08:53:27,878 1 INFO prueba odoo.addons.base.models.ir_module: ALLOW access to module.button_install on ['Ventas', 'Facturación', 'CRM', 'Inventario', 'Compra', 'Empleados'] to user oscarrodero@hotmail.com #2 via 192.168.65.1 
+2023-10-06 08:53:28,012 1 INFO prueba odoo.modules.loading: loading 1 modules... 
+2023-10-06 08:53:28,022 1 INFO prueba odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-06 08:53:28,038 1 INFO prueba odoo.modules.loading: updating modules list 
+2023-10-06 08:53:28,040 1 INFO prueba odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via 192.168.65.1 
+2023-10-06 08:53:28,451 1 INFO prueba odoo.modules.loading: loading 8 modules... 
+2023-10-06 08:53:28,458 1 INFO prueba odoo.modules.loading: 8 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-06 08:53:28,461 1 INFO prueba odoo.modules.loading: loading 76 modules... 
+2023-10-06 08:53:28,462 1 INFO prueba odoo.modules.loading: Loading module uom (2/76) 
+2023-10-06 08:53:28,489 1 INFO prueba odoo.modules.registry: module uom: creating or updating database tables 
+2023-10-06 08:53:28,583 1 INFO prueba odoo.modules.loading: loading uom/data/uom_data.xml 
+2023-10-06 08:53:28,639 1 INFO prueba odoo.modules.loading: loading uom/security/uom_security.xml 
+2023-10-06 08:53:28,657 1 INFO prueba odoo.modules.loading: loading uom/security/ir.model.access.csv 
+2023-10-06 08:53:28,670 1 INFO prueba odoo.modules.loading: loading uom/views/uom_uom_views.xml 
+2023-10-06 08:53:28,703 1 INFO prueba odoo.addons.base.models.ir_module: module uom: loading translation file es for language es_ES 
+2023-10-06 08:53:28,730 1 INFO prueba odoo.modules.loading: Module uom loaded in 0.27s, 272 queries (+272 other) 
+2023-10-06 08:53:28,731 1 INFO prueba odoo.modules.loading: Loading module barcodes (5/76) 
+2023-10-06 08:53:28,752 1 INFO prueba odoo.modules.registry: module barcodes: creating or updating database tables 
+2023-10-06 08:53:28,815 1 INFO prueba odoo.modules.loading: loading barcodes/data/barcodes_data.xml 
+2023-10-06 08:53:28,824 1 INFO prueba odoo.modules.loading: loading barcodes/views/barcodes_view.xml 
+2023-10-06 08:53:28,842 1 INFO prueba odoo.modules.loading: loading barcodes/security/ir.model.access.csv 
+2023-10-06 08:53:28,855 1 INFO prueba odoo.addons.base.models.ir_module: module barcodes: loading translation file es for language es_ES 
+2023-10-06 08:53:28,879 1 INFO prueba odoo.modules.loading: Module barcodes loaded in 0.15s, 144 queries (+144 other) 
+2023-10-06 08:53:28,881 1 INFO prueba odoo.modules.loading: Loading module base_setup (7/76) 
+2023-10-06 08:53:28,902 1 INFO prueba odoo.modules.registry: module base_setup: creating or updating database tables 
+2023-10-06 08:53:28,942 1 INFO prueba odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2023-10-06 08:53:28,947 1 INFO prueba odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2023-10-06 08:53:28,978 1 INFO prueba odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2023-10-06 08:53:28,990 1 INFO prueba odoo.addons.base.models.ir_module: module base_setup: loading translation file es for language es_ES 
+2023-10-06 08:53:29,017 1 INFO prueba odoo.modules.loading: Module base_setup loaded in 0.14s, 161 queries (+161 other) 
+2023-10-06 08:53:29,019 1 INFO prueba odoo.modules.loading: Loading module http_routing (9/76) 
+2023-10-06 08:53:29,035 1 INFO prueba odoo.modules.registry: module http_routing: creating or updating database tables 
+2023-10-06 08:53:29,045 1 INFO prueba odoo.modules.loading: loading http_routing/views/http_routing_template.xml 
+2023-10-06 08:53:29,071 1 INFO prueba odoo.modules.loading: loading http_routing/views/res_lang_views.xml 
+2023-10-06 08:53:29,086 1 INFO prueba odoo.addons.base.models.ir_module: module http_routing: loading translation file es for language es_ES 
+2023-10-06 08:53:29,103 1 INFO prueba odoo.modules.loading: Module http_routing loaded in 0.08s, 82 queries (+82 other) 
+2023-10-06 08:53:29,104 1 INFO prueba odoo.modules.loading: Loading module resource (10/76) 
+2023-10-06 08:53:29,129 1 INFO prueba odoo.modules.registry: module resource: creating or updating database tables 
+2023-10-06 08:53:29,273 1 INFO prueba odoo.modules.loading: loading resource/data/resource_data.xml 
+2023-10-06 08:53:29,310 1 INFO prueba odoo.modules.loading: loading resource/security/ir.model.access.csv 
+2023-10-06 08:53:29,323 1 INFO prueba odoo.modules.loading: loading resource/security/resource_security.xml 
+2023-10-06 08:53:29,344 1 INFO prueba odoo.modules.loading: loading resource/views/resource_views.xml 
+2023-10-06 08:53:29,431 1 INFO prueba odoo.addons.base.models.ir_module: module resource: loading translation file es for language es_ES 
+2023-10-06 08:53:29,464 1 INFO prueba odoo.modules.loading: Module resource loaded in 0.36s, 434 queries (+434 other) 
+2023-10-06 08:53:29,466 1 INFO prueba odoo.modules.loading: Loading module utm (11/76) 
+2023-10-06 08:53:29,490 1 INFO prueba odoo.modules.registry: module utm: creating or updating database tables 
+2023-10-06 08:53:29,661 1 INFO prueba odoo.modules.loading: loading utm/data/utm_medium_data.xml 
+2023-10-06 08:53:29,682 1 INFO prueba odoo.modules.loading: loading utm/data/utm_source_data.xml 
+2023-10-06 08:53:29,698 1 INFO prueba odoo.modules.loading: loading utm/data/utm_stage_data.xml 
+2023-10-06 08:53:29,703 1 INFO prueba odoo.modules.loading: loading utm/data/utm_tag_data.xml 
+2023-10-06 08:53:29,708 1 INFO prueba odoo.modules.loading: loading utm/views/utm_campaign_views.xml 
+2023-10-06 08:53:29,732 1 INFO prueba odoo.modules.loading: loading utm/views/utm_medium_views.xml 
+2023-10-06 08:53:29,747 1 INFO prueba odoo.modules.loading: loading utm/views/utm_source_views.xml 
+2023-10-06 08:53:29,759 1 INFO prueba odoo.modules.loading: loading utm/views/utm_stage_views.xml 
+2023-10-06 08:53:29,770 1 INFO prueba odoo.modules.loading: loading utm/views/utm_tag_views.xml 
+2023-10-06 08:53:29,778 1 INFO prueba odoo.modules.loading: loading utm/views/utm_menus.xml 
+2023-10-06 08:53:29,814 1 INFO prueba odoo.modules.loading: loading utm/security/ir.model.access.csv 
+2023-10-06 08:53:29,832 1 INFO prueba odoo.addons.base.models.ir_module: module utm: loading translation file es for language es_ES 
+2023-10-06 08:53:29,865 1 INFO prueba odoo.modules.loading: Module utm loaded in 0.40s, 419 queries (+419 other) 
+2023-10-06 08:53:29,866 1 INFO prueba odoo.modules.loading: Loading module barcodes_gs1_nomenclature (14/76) 
+2023-10-06 08:53:29,888 1 INFO prueba odoo.modules.registry: module barcodes_gs1_nomenclature: creating or updating database tables 
+2023-10-06 08:53:29,921 1 INFO prueba odoo.modules.loading: loading barcodes_gs1_nomenclature/data/barcodes_gs1_rules.xml 
+2023-10-06 08:53:29,977 1 INFO prueba odoo.modules.loading: loading barcodes_gs1_nomenclature/views/barcodes_view.xml 
+2023-10-06 08:53:30,000 1 INFO prueba odoo.addons.base.models.ir_module: module barcodes_gs1_nomenclature: loading translation file es for language es_ES 
+2023-10-06 08:53:30,015 1 INFO prueba odoo.modules.loading: Module barcodes_gs1_nomenclature loaded in 0.15s, 201 queries (+201 other) 
+2023-10-06 08:53:30,016 1 INFO prueba odoo.modules.loading: Loading module iap (15/76) 
+2023-10-06 08:53:30,038 1 INFO prueba odoo.modules.registry: module iap: creating or updating database tables 
+2023-10-06 08:53:30,087 1 INFO prueba odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2023-10-06 08:53:30,097 1 INFO prueba odoo.modules.loading: loading iap/security/ir_rule.xml 
+2023-10-06 08:53:30,104 1 INFO prueba odoo.modules.loading: loading iap/views/iap_views.xml 
+2023-10-06 08:53:30,122 1 INFO prueba odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2023-10-06 08:53:30,140 1 INFO prueba odoo.addons.base.models.ir_module: module iap: loading translation file es for language es_ES 
+2023-10-06 08:53:30,160 1 INFO prueba odoo.modules.loading: Module iap loaded in 0.14s, 151 queries (+151 other) 
+2023-10-06 08:53:30,162 1 INFO prueba odoo.modules.loading: Loading module mail (16/76) 
+2023-10-06 08:53:30,263 1 INFO prueba odoo.modules.registry: module mail: creating or updating database tables 
+2023-10-06 08:53:30,643 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.partner_ids 
+2023-10-06 08:53:30,644 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.template_id 
+2023-10-06 08:53:30,645 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_type_id 
+2023-10-06 08:53:30,645 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_date_deadline_range 
+2023-10-06 08:53:30,646 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_user_id 
+2023-10-06 08:53:30,647 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.mail_post_method 
+2023-10-06 08:53:30,648 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_summary 
+2023-10-06 08:53:30,649 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_date_deadline_range_type 
+2023-10-06 08:53:30,650 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_user_type 
+2023-10-06 08:53:30,651 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_user_field_name 
+2023-10-06 08:53:30,652 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.activity_note 
+2023-10-06 08:53:30,652 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.mail_post_autofollow 
+2023-10-06 08:53:30,700 1 INFO prueba odoo.models: Prepare computation of res.partner.email_normalized 
+2023-10-06 08:53:30,708 1 INFO prueba odoo.models: Prepare computation of res.users.notification_type 
+2023-10-06 08:53:31,126 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:53:31] "GET /web/static/img/spin.svg HTTP/1.1" 200 - 0 0.000 0.005
+2023-10-06 08:53:32,037 1 INFO prueba odoo.modules.loading: loading mail/data/mail_groups.xml 
+2023-10-06 08:53:32,369 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_blacklist_remove_views.xml 
+2023-10-06 08:53:32,376 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_compose_message_views.xml 
+2023-10-06 08:53:32,394 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_resend_message_views.xml 
+2023-10-06 08:53:32,407 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_template_preview_views.xml 
+2023-10-06 08:53:32,419 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_wizard_invite_views.xml 
+2023-10-06 08:53:32,427 1 INFO prueba odoo.modules.loading: loading mail/wizard/mail_template_reset_views.xml 
+2023-10-06 08:53:32,439 1 INFO prueba odoo.modules.loading: loading mail/views/fetchmail_views.xml 
+2023-10-06 08:53:32,461 1 INFO prueba odoo.modules.loading: loading mail/views/mail_message_subtype_views.xml 
+2023-10-06 08:53:32,476 1 INFO prueba odoo.modules.loading: loading mail/views/mail_tracking_views.xml 
+2023-10-06 08:53:32,491 1 INFO prueba odoo.modules.loading: loading mail/views/mail_notification_views.xml 
+2023-10-06 08:53:32,506 1 INFO prueba odoo.modules.loading: loading mail/views/mail_message_views.xml 
+2023-10-06 08:53:32,536 1 INFO prueba odoo.modules.loading: loading mail/views/mail_message_schedule_views.xml 
+2023-10-06 08:53:32,553 1 INFO prueba odoo.modules.loading: loading mail/views/mail_mail_views.xml 
+2023-10-06 08:53:32,582 1 INFO prueba odoo.modules.loading: loading mail/views/mail_followers_views.xml 
+2023-10-06 08:53:32,595 1 INFO prueba odoo.modules.loading: loading mail/views/mail_ice_server_views.xml 
+2023-10-06 08:53:32,609 1 INFO prueba odoo.modules.loading: loading mail/views/mail_channel_member_views.xml 
+2023-10-06 08:53:32,623 1 INFO prueba odoo.modules.loading: loading mail/views/mail_channel_rtc_session_views.xml 
+2023-10-06 08:53:32,640 1 INFO prueba odoo.modules.loading: loading mail/views/mail_link_preview_views.xml 
+2023-10-06 08:53:32,649 1 INFO prueba odoo.modules.loading: loading mail/views/mail_channel_views.xml 
+2023-10-06 08:53:32,675 1 INFO prueba odoo.modules.loading: loading mail/views/mail_shortcode_views.xml 
+2023-10-06 08:53:32,690 1 INFO prueba odoo.modules.loading: loading mail/views/mail_activity_views.xml 
+2023-10-06 08:53:32,745 1 INFO prueba odoo.modules.loading: loading mail/views/res_config_settings_views.xml 
+2023-10-06 08:53:32,775 1 INFO prueba odoo.modules.loading: loading mail/data/res_partner_data.xml 
+2023-10-06 08:53:32,801 1 INFO prueba odoo.modules.loading: loading mail/data/mail_message_subtype_data.xml 
+2023-10-06 08:53:32,810 1 INFO prueba odoo.modules.loading: loading mail/data/mail_templates_chatter.xml 
+2023-10-06 08:53:32,828 1 INFO prueba odoo.modules.loading: loading mail/data/mail_templates_email_layouts.xml 
+2023-10-06 08:53:32,855 1 INFO prueba odoo.modules.loading: loading mail/data/mail_templates_mailgateway.xml 
+2023-10-06 08:53:32,872 1 INFO prueba odoo.modules.loading: loading mail/data/mail_channel_data.xml 
+2023-10-06 08:53:32,896 1 INFO prueba odoo.modules.loading: loading mail/data/mail_activity_data.xml 
+2023-10-06 08:53:32,919 1 INFO prueba odoo.modules.loading: loading mail/data/ir_cron_data.xml 
+2023-10-06 08:53:32,951 1 INFO prueba odoo.modules.loading: loading mail/security/mail_security.xml 
+2023-10-06 08:53:33,032 1 INFO prueba odoo.modules.loading: loading mail/security/ir.model.access.csv 
+2023-10-06 08:53:33,094 1 INFO prueba odoo.modules.loading: loading mail/views/discuss_public_templates.xml 
+2023-10-06 08:53:33,106 1 INFO prueba odoo.modules.loading: loading mail/views/mail_alias_views.xml 
+2023-10-06 08:53:33,125 1 INFO prueba odoo.modules.loading: loading mail/views/mail_gateway_allowed_views.xml 
+2023-10-06 08:53:33,139 1 INFO prueba odoo.modules.loading: loading mail/views/mail_guest_views.xml 
+2023-10-06 08:53:33,148 1 INFO prueba odoo.modules.loading: loading mail/views/mail_message_reaction_views.xml 
+2023-10-06 08:53:33,159 1 INFO prueba odoo.modules.loading: loading mail/views/res_users_views.xml 
+2023-10-06 08:53:33,179 1 INFO prueba odoo.modules.loading: loading mail/views/res_users_settings_views.xml 
+2023-10-06 08:53:33,195 1 INFO prueba odoo.modules.loading: loading mail/views/mail_template_views.xml 
+2023-10-06 08:53:33,218 1 INFO prueba odoo.modules.loading: loading mail/views/ir_actions_server_views.xml 
+2023-10-06 08:53:33,231 1 INFO prueba odoo.modules.loading: loading mail/views/ir_model_views.xml 
+2023-10-06 08:53:33,258 1 INFO prueba odoo.modules.loading: loading mail/views/res_partner_views.xml 
+2023-10-06 08:53:33,313 1 INFO prueba odoo.modules.loading: loading mail/views/mail_blacklist_views.xml 
+2023-10-06 08:53:33,333 1 INFO prueba odoo.modules.loading: loading mail/views/mail_menus.xml 
+2023-10-06 08:53:33,452 1 INFO prueba odoo.addons.base.models.ir_module: module mail: loading translation file es for language es_ES 
+2023-10-06 08:53:33,848 1 INFO prueba odoo.modules.loading: Module mail loaded in 3.69s, 3505 queries (+3505 other) 
+2023-10-06 08:53:33,850 1 INFO prueba odoo.modules.loading: Loading module spreadsheet (17/76) 
+2023-10-06 08:53:33,889 1 INFO prueba odoo.modules.registry: module spreadsheet: creating or updating database tables 
+2023-10-06 08:53:33,926 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet: loading translation file es for language es_ES 
+2023-10-06 08:53:33,999 1 INFO prueba odoo.modules.loading: Module spreadsheet loaded in 0.15s, 44 queries (+44 other) 
+2023-10-06 08:53:34,000 1 INFO prueba odoo.modules.loading: Loading module analytic (19/76) 
+2023-10-06 08:53:34,039 1 INFO prueba odoo.modules.registry: module analytic: creating or updating database tables 
+2023-10-06 08:53:34,261 1 INFO prueba odoo.modules.loading: loading analytic/security/analytic_security.xml 
+2023-10-06 08:53:34,299 1 INFO prueba odoo.modules.loading: loading analytic/security/ir.model.access.csv 
+2023-10-06 08:53:34,313 1 INFO prueba odoo.modules.loading: loading analytic/views/analytic_line_views.xml 
+2023-10-06 08:53:34,357 1 INFO prueba odoo.modules.loading: loading analytic/views/analytic_account_views.xml 
+2023-10-06 08:53:34,394 1 INFO prueba odoo.modules.loading: loading analytic/views/analytic_plan_views.xml 
+2023-10-06 08:53:34,415 1 INFO prueba odoo.modules.loading: loading analytic/views/analytic_distribution_model_views.xml 
+2023-10-06 08:53:34,430 1 INFO prueba odoo.modules.loading: loading analytic/data/analytic_data.xml 
+2023-10-06 08:53:34,439 1 INFO prueba odoo.addons.base.models.ir_module: module analytic: loading translation file es for language es_ES 
+2023-10-06 08:53:34,480 1 INFO prueba odoo.modules.loading: Module analytic loaded in 0.48s, 400 queries (+400 other) 
+2023-10-06 08:53:34,481 1 INFO prueba odoo.modules.loading: Loading module auth_signup (20/76) 
+2023-10-06 08:53:34,518 1 INFO prueba odoo.modules.registry: module auth_signup: creating or updating database tables 
+2023-10-06 08:53:34,584 1 INFO prueba odoo.modules.loading: loading auth_signup/data/ir_config_parameter_data.xml 
+2023-10-06 08:53:34,593 1 INFO prueba odoo.modules.loading: loading auth_signup/data/ir_cron_data.xml 
+2023-10-06 08:53:34,605 1 INFO prueba odoo.modules.loading: loading auth_signup/data/mail_template_data.xml 
+2023-10-06 08:53:34,622 1 INFO prueba odoo.modules.loading: loading auth_signup/views/res_config_settings_views.xml 
+2023-10-06 08:53:34,640 1 INFO prueba odoo.modules.loading: loading auth_signup/views/res_users_views.xml 
+2023-10-06 08:53:34,663 1 INFO prueba odoo.modules.loading: loading auth_signup/views/auth_signup_login_templates.xml 
+2023-10-06 08:53:34,685 1 INFO prueba odoo.modules.loading: loading auth_signup/views/webclient_templates.xml 
+2023-10-06 08:53:34,699 1 INFO prueba odoo.addons.base.models.ir_module: module auth_signup: loading translation file es for language es_ES 
+2023-10-06 08:53:34,739 1 INFO prueba odoo.modules.loading: Module auth_signup loaded in 0.26s, 203 queries (+203 other) 
+2023-10-06 08:53:34,741 1 INFO prueba odoo.modules.loading: Loading module auth_totp_mail (21/76) 
+2023-10-06 08:53:34,773 1 INFO prueba odoo.modules.registry: module auth_totp_mail: creating or updating database tables 
+2023-10-06 08:53:34,800 1 INFO prueba odoo.modules.loading: loading auth_totp_mail/data/ir_action_data.xml 
+2023-10-06 08:53:34,883 1 INFO prueba odoo.modules.loading: loading auth_totp_mail/data/mail_template_data.xml 
+2023-10-06 08:53:34,890 1 INFO prueba odoo.modules.loading: loading auth_totp_mail/views/res_users_views.xml 
+2023-10-06 08:53:34,920 1 INFO prueba odoo.addons.base.models.ir_module: module auth_totp_mail: loading translation file es for language es_ES 
+2023-10-06 08:53:34,944 1 INFO prueba odoo.modules.loading: Module auth_totp_mail loaded in 0.20s, 100 queries (+100 other) 
+2023-10-06 08:53:34,946 1 INFO prueba odoo.modules.loading: Loading module base_install_request (22/76) 
+2023-10-06 08:53:34,984 1 INFO prueba odoo.modules.registry: module base_install_request: creating or updating database tables 
+2023-10-06 08:53:35,067 1 INFO prueba odoo.modules.loading: loading base_install_request/security/ir.model.access.csv 
+2023-10-06 08:53:35,083 1 INFO prueba odoo.modules.loading: loading base_install_request/wizard/base_module_install_request_views.xml 
+2023-10-06 08:53:35,100 1 INFO prueba odoo.modules.loading: loading base_install_request/data/mail_template_data.xml 
+2023-10-06 08:53:35,108 1 INFO prueba odoo.modules.loading: loading base_install_request/data/mail_templates_module_install.xml 
+2023-10-06 08:53:35,117 1 INFO prueba odoo.modules.loading: loading base_install_request/views/ir_module_module_views.xml 
+2023-10-06 08:53:35,135 1 INFO prueba odoo.addons.base.models.ir_module: module base_install_request: loading translation file es for language es_ES 
+2023-10-06 08:53:35,166 1 INFO prueba odoo.modules.loading: Module base_install_request loaded in 0.22s, 148 queries (+148 other) 
+2023-10-06 08:53:35,167 1 INFO prueba odoo.modules.loading: Loading module calendar (23/76) 
+2023-10-06 08:53:35,234 1 INFO prueba odoo.modules.registry: module calendar: creating or updating database tables 
+2023-10-06 08:53:35,554 1 INFO prueba odoo.modules.loading: loading calendar/security/ir.model.access.csv 
+2023-10-06 08:53:35,576 1 INFO prueba odoo.modules.loading: loading calendar/security/calendar_security.xml 
+2023-10-06 08:53:35,598 1 INFO prueba odoo.modules.loading: loading calendar/data/calendar_cron.xml 
+2023-10-06 08:53:35,608 1 INFO prueba odoo.modules.loading: loading calendar/data/mail_template_data.xml 
+2023-10-06 08:53:35,624 1 INFO prueba odoo.modules.loading: loading calendar/data/calendar_data.xml 
+2023-10-06 08:53:35,641 1 INFO prueba odoo.modules.loading: loading calendar/data/mail_activity_type_data.xml 
+2023-10-06 08:53:35,649 1 INFO prueba odoo.modules.loading: loading calendar/data/mail_message_subtype_data.xml 
+2023-10-06 08:53:35,654 1 INFO prueba odoo.modules.loading: loading calendar/views/mail_activity_views.xml 
+2023-10-06 08:53:35,667 1 INFO prueba odoo.modules.loading: loading calendar/views/calendar_templates.xml 
+2023-10-06 08:53:35,673 1 INFO prueba odoo.modules.loading: loading calendar/views/calendar_views.xml 
+2023-10-06 08:53:35,771 1 INFO prueba odoo.modules.loading: loading calendar/views/res_partner_views.xml 
+2023-10-06 08:53:35,792 1 INFO prueba odoo.modules.loading: loading calendar/wizard/calendar_provider_config.xml 
+2023-10-06 08:53:35,804 1 INFO prueba odoo.addons.base.models.ir_module: module calendar: loading translation file es for language es_ES 
+2023-10-06 08:53:35,882 1 INFO prueba odoo.modules.loading: Module calendar loaded in 0.72s, 648 queries (+648 other) 
+2023-10-06 08:53:35,883 1 INFO prueba odoo.modules.loading: Loading module contacts (24/76) 
+2023-10-06 08:53:35,919 1 INFO prueba odoo.modules.registry: module contacts: creating or updating database tables 
+2023-10-06 08:53:35,945 1 INFO prueba odoo.modules.loading: loading contacts/views/contact_views.xml 
+2023-10-06 08:53:36,031 1 INFO prueba odoo.addons.base.models.ir_module: module contacts: loading translation file es for language es_ES 
+2023-10-06 08:53:36,049 1 INFO prueba odoo.modules.loading: Module contacts loaded in 0.17s, 223 queries (+223 other) 
+2023-10-06 08:53:36,050 1 INFO prueba odoo.modules.loading: Loading module google_gmail (25/76) 
+2023-10-06 08:53:36,091 1 INFO prueba odoo.modules.registry: module google_gmail: creating or updating database tables 
+2023-10-06 08:53:36,139 1 INFO prueba odoo.modules.loading: loading google_gmail/views/fetchmail_server_views.xml 
+2023-10-06 08:53:36,153 1 INFO prueba odoo.modules.loading: loading google_gmail/views/ir_mail_server_views.xml 
+2023-10-06 08:53:36,166 1 INFO prueba odoo.modules.loading: loading google_gmail/views/res_config_settings_views.xml 
+2023-10-06 08:53:36,197 1 INFO prueba odoo.addons.base.models.ir_module: module google_gmail: loading translation file es for language es_ES 
+2023-10-06 08:53:36,219 1 INFO prueba odoo.modules.loading: Module google_gmail loaded in 0.17s, 129 queries (+129 other) 
+2023-10-06 08:53:36,220 1 INFO prueba odoo.modules.loading: Loading module hr (26/76) 
+2023-10-06 08:53:36,300 1 INFO prueba odoo.modules.registry: module hr: creating or updating database tables 
+2023-10-06 08:53:37,554 1 INFO prueba odoo.modules.loading: loading hr/security/hr_security.xml 
+2023-10-06 08:53:37,689 1 INFO prueba odoo.modules.loading: loading hr/security/ir.model.access.csv 
+2023-10-06 08:53:37,714 1 INFO prueba odoo.modules.loading: loading hr/wizard/hr_plan_wizard_views.xml 
+2023-10-06 08:53:37,727 1 INFO prueba odoo.modules.loading: loading hr/wizard/hr_departure_wizard_views.xml 
+2023-10-06 08:53:37,738 1 INFO prueba odoo.modules.loading: loading hr/views/hr_departure_reason_views.xml 
+2023-10-06 08:53:37,750 1 INFO prueba odoo.modules.loading: loading hr/views/hr_contract_type_views.xml 
+2023-10-06 08:53:37,810 1 INFO prueba odoo.modules.loading: loading hr/views/hr_job_views.xml 
+2023-10-06 08:53:37,835 1 INFO prueba odoo.modules.loading: loading hr/views/hr_plan_views.xml 
+2023-10-06 08:53:37,871 1 INFO prueba odoo.modules.loading: loading hr/views/hr_employee_category_views.xml 
+2023-10-06 08:53:37,885 1 INFO prueba odoo.modules.loading: loading hr/views/hr_employee_public_views.xml 
+2023-10-06 08:53:37,914 1 INFO prueba odoo.modules.loading: loading hr/report/hr_employee_badge.xml 
+2023-10-06 08:53:37,925 1 INFO prueba odoo.modules.loading: loading hr/views/hr_employee_views.xml 
+2023-10-06 08:53:38,000 1 INFO prueba odoo.modules.loading: loading hr/views/hr_department_views.xml 
+2023-10-06 08:53:38,031 1 INFO prueba odoo.modules.loading: loading hr/views/hr_work_location_views.xml 
+2023-10-06 08:53:38,047 1 INFO prueba odoo.modules.loading: loading hr/views/hr_views.xml 
+2023-10-06 08:53:38,132 1 INFO prueba odoo.modules.loading: loading hr/views/res_config_settings_views.xml 
+2023-10-06 08:53:38,161 1 INFO prueba odoo.modules.loading: loading hr/views/mail_channel_views.xml 
+2023-10-06 08:53:38,172 1 INFO prueba odoo.modules.loading: loading hr/views/res_users.xml 
+2023-10-06 08:53:38,243 1 INFO prueba odoo.modules.loading: loading hr/views/res_partner_views.xml 
+2023-10-06 08:53:38,259 1 INFO prueba odoo.modules.loading: loading hr/data/hr_data.xml 
+2023-10-06 08:53:38,622 1 INFO prueba odoo.addons.base.models.ir_module: module hr: loading translation file es for language es_ES 
+2023-10-06 08:53:38,748 1 INFO prueba odoo.modules.loading: Module hr loaded in 2.53s, 2587 queries (+2587 other) 
+2023-10-06 08:53:38,749 1 INFO prueba odoo.modules.loading: Loading module iap_mail (27/76) 
+2023-10-06 08:53:38,793 1 INFO prueba odoo.modules.registry: module iap_mail: creating or updating database tables 
+2023-10-06 08:53:38,873 1 INFO prueba odoo.modules.loading: loading iap_mail/data/mail_templates.xml 
+2023-10-06 08:53:38,897 1 INFO prueba odoo.addons.base.models.ir_module: module iap_mail: loading translation file es for language es_ES 
+2023-10-06 08:53:38,914 1 INFO prueba odoo.modules.loading: Module iap_mail loaded in 0.16s, 40 queries (+40 other) 
+2023-10-06 08:53:38,915 1 INFO prueba odoo.modules.loading: Loading module mail_bot (28/76) 
+2023-10-06 08:53:38,959 1 INFO prueba odoo.modules.registry: module mail_bot: creating or updating database tables 
+2023-10-06 08:53:39,072 1 INFO prueba odoo.modules.loading: loading mail_bot/views/res_users_views.xml 
+2023-10-06 08:53:39,098 1 INFO prueba odoo.modules.loading: loading mail_bot/data/mailbot_data.xml 
+2023-10-06 08:53:39,111 1 INFO prueba odoo.addons.base.models.ir_module: module mail_bot: loading translation file es for language es_ES 
+2023-10-06 08:53:39,131 1 INFO prueba odoo.modules.loading: Module mail_bot loaded in 0.22s, 182 queries (+182 other) 
+2023-10-06 08:53:39,132 1 INFO prueba odoo.modules.loading: Loading module phone_validation (29/76) 
+2023-10-06 08:53:39,226 1 INFO prueba odoo.modules.registry: module phone_validation: creating or updating database tables 
+2023-10-06 08:53:39,340 1 INFO prueba odoo.modules.loading: loading phone_validation/security/ir.model.access.csv 
+2023-10-06 08:53:39,353 1 INFO prueba odoo.modules.loading: loading phone_validation/views/phone_blacklist_views.xml 
+2023-10-06 08:53:39,385 1 INFO prueba odoo.modules.loading: loading phone_validation/wizard/phone_blacklist_remove_view.xml 
+2023-10-06 08:53:39,396 1 INFO prueba odoo.addons.base.models.ir_module: module phone_validation: loading translation file es for language es_ES 
+2023-10-06 08:53:39,427 1 INFO prueba odoo.modules.loading: Module phone_validation loaded in 0.29s, 174 queries (+174 other) 
+2023-10-06 08:53:39,428 1 INFO prueba odoo.modules.loading: Loading module privacy_lookup (30/76) 
+2023-10-06 08:53:39,477 1 INFO prueba odoo.modules.registry: module privacy_lookup: creating or updating database tables 
+2023-10-06 08:53:39,605 1 INFO prueba odoo.modules.loading: loading privacy_lookup/wizard/privacy_lookup_wizard_views.xml 
+2023-10-06 08:53:39,640 1 INFO prueba odoo.modules.loading: loading privacy_lookup/views/privacy_log_views.xml 
+2023-10-06 08:53:39,666 1 INFO prueba odoo.modules.loading: loading privacy_lookup/security/ir.model.access.csv 
+2023-10-06 08:53:39,681 1 INFO prueba odoo.modules.loading: loading privacy_lookup/data/ir_actions_server_data.xml 
+2023-10-06 08:53:39,693 1 INFO prueba odoo.addons.base.models.ir_module: module privacy_lookup: loading translation file es for language es_ES 
+2023-10-06 08:53:39,724 1 INFO prueba odoo.modules.loading: Module privacy_lookup loaded in 0.30s, 233 queries (+233 other) 
+2023-10-06 08:53:39,725 1 INFO prueba odoo.modules.loading: Loading module product (31/76) 
+2023-10-06 08:53:39,852 1 INFO prueba odoo.modules.registry: module product: creating or updating database tables 
+2023-10-06 08:53:40,630 1 INFO prueba odoo.modules.loading: loading product/data/product_data.xml 
+2023-10-06 08:53:40,657 1 INFO prueba odoo.modules.loading: loading product/security/product_security.xml 
+2023-10-06 08:53:40,768 1 INFO prueba odoo.modules.loading: loading product/security/ir.model.access.csv 
+2023-10-06 08:53:40,801 1 INFO prueba odoo.modules.loading: loading product/wizard/product_label_layout_views.xml 
+2023-10-06 08:53:40,816 1 INFO prueba odoo.modules.loading: loading product/views/product_views.xml 
+2023-10-06 08:53:40,899 1 INFO prueba odoo.modules.loading: loading product/views/res_config_settings_views.xml 
+2023-10-06 08:53:40,928 1 INFO prueba odoo.modules.loading: loading product/views/product_attribute_views.xml 
+2023-10-06 08:53:40,962 1 INFO prueba odoo.modules.loading: loading product/views/product_category_views.xml 
+2023-10-06 08:53:40,979 1 INFO prueba odoo.modules.loading: loading product/views/product_packaging_views.xml 
+2023-10-06 08:53:41,007 1 INFO prueba odoo.modules.loading: loading product/views/product_pricelist_item_views.xml 
+2023-10-06 08:53:41,042 1 INFO prueba odoo.modules.loading: loading product/views/product_pricelist_views.xml 
+2023-10-06 08:53:41,074 1 INFO prueba odoo.modules.loading: loading product/views/product_supplierinfo_views.xml 
+2023-10-06 08:53:41,105 1 INFO prueba odoo.modules.loading: loading product/views/product_template_views.xml 
+2023-10-06 08:53:41,148 1 INFO prueba odoo.modules.loading: loading product/views/product_tag_views.xml 
+2023-10-06 08:53:41,164 1 INFO prueba odoo.modules.loading: loading product/views/res_country_group_views.xml 
+2023-10-06 08:53:41,173 1 INFO prueba odoo.modules.loading: loading product/views/res_partner_views.xml 
+2023-10-06 08:53:41,189 1 INFO prueba odoo.modules.loading: loading product/report/product_reports.xml 
+2023-10-06 08:53:41,209 1 INFO prueba odoo.modules.loading: loading product/report/product_product_templates.xml 
+2023-10-06 08:53:41,239 1 INFO prueba odoo.modules.loading: loading product/report/product_template_templates.xml 
+2023-10-06 08:53:41,251 1 INFO prueba odoo.modules.loading: loading product/report/product_packaging.xml 
+2023-10-06 08:53:41,258 1 INFO prueba odoo.modules.loading: loading product/report/product_pricelist_report_templates.xml 
+2023-10-06 08:53:41,274 1 INFO prueba odoo.addons.base.models.ir_module: module product: loading translation file es for language es_ES 
+2023-10-06 08:53:41,439 1 INFO prueba odoo.modules.loading: Module product loaded in 1.71s, 1453 queries (+1453 other) 
+2023-10-06 08:53:41,440 1 INFO prueba odoo.modules.loading: Loading module sales_team (32/76) 
+2023-10-06 08:53:41,494 1 INFO prueba odoo.modules.registry: module sales_team: creating or updating database tables 
+2023-10-06 08:53:41,555 1 INFO prueba odoo.models: Prepare computation of res.users.sale_team_id 
+2023-10-06 08:53:41,686 1 INFO prueba odoo.modules.loading: loading sales_team/security/sales_team_security.xml 
+2023-10-06 08:53:41,844 1 INFO prueba odoo.modules.loading: loading sales_team/security/ir.model.access.csv 
+2023-10-06 08:53:41,861 1 INFO prueba odoo.modules.loading: loading sales_team/data/crm_team_data.xml 
+2023-10-06 08:53:41,913 1 INFO prueba odoo.modules.loading: loading sales_team/views/crm_tag_views.xml 
+2023-10-06 08:53:41,930 1 INFO prueba odoo.modules.loading: loading sales_team/views/crm_team_views.xml 
+2023-10-06 08:53:41,974 1 INFO prueba odoo.modules.loading: loading sales_team/views/crm_team_member_views.xml 
+2023-10-06 08:53:42,016 1 INFO prueba odoo.modules.loading: loading sales_team/views/mail_activity_views.xml 
+2023-10-06 08:53:42,025 1 INFO prueba odoo.modules.loading: loading sales_team/views/res_partner_views.xml 
+2023-10-06 08:53:42,043 1 INFO prueba odoo.addons.base.models.ir_module: module sales_team: loading translation file es for language es_ES 
+2023-10-06 08:53:42,088 1 INFO prueba odoo.modules.loading: Module sales_team loaded in 0.65s, 579 queries (+579 other) 
+2023-10-06 08:53:42,089 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard (33/76) 
+2023-10-06 08:53:42,140 1 INFO prueba odoo.modules.registry: module spreadsheet_dashboard: creating or updating database tables 
+2023-10-06 08:53:42,226 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard/security/security.xml 
+2023-10-06 08:53:42,238 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard/security/ir.model.access.csv 
+2023-10-06 08:53:42,248 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard/views/spreadsheet_dashboard_views.xml 
+2023-10-06 08:53:42,264 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard/views/menu_views.xml 
+2023-10-06 08:53:42,293 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard/data/dashboard.xml 
+2023-10-06 08:53:42,311 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard: loading translation file es for language es_ES 
+2023-10-06 08:53:42,333 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard loaded in 0.24s, 193 queries (+193 other) 
+2023-10-06 08:53:42,334 1 INFO prueba odoo.modules.loading: Loading module web_unsplash (34/76) 
+2023-10-06 08:53:42,388 1 INFO prueba odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2023-10-06 08:53:42,446 1 INFO prueba odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2023-10-06 08:53:42,485 1 INFO prueba odoo.addons.base.models.ir_module: module web_unsplash: loading translation file es for language es_ES 
+2023-10-06 08:53:42,502 1 INFO prueba odoo.modules.loading: Module web_unsplash loaded in 0.17s, 101 queries (+101 other) 
+2023-10-06 08:53:42,503 1 INFO prueba odoo.modules.loading: Loading module hr_org_chart (35/76) 
+2023-10-06 08:53:42,555 1 INFO prueba odoo.modules.registry: module hr_org_chart: creating or updating database tables 
+2023-10-06 08:53:42,604 1 INFO prueba odoo.modules.loading: loading hr_org_chart/views/hr_views.xml 
+2023-10-06 08:53:42,643 1 INFO prueba odoo.addons.base.models.ir_module: module hr_org_chart: loading translation file es for language es_ES 
+2023-10-06 08:53:42,662 1 INFO prueba odoo.modules.loading: Module hr_org_chart loaded in 0.16s, 93 queries (+93 other) 
+2023-10-06 08:53:42,664 1 INFO prueba odoo.modules.loading: Loading module mail_bot_hr (36/76) 
+2023-10-06 08:53:42,721 1 INFO prueba odoo.modules.loading: loading mail_bot_hr/views/res_users_views.xml 
+2023-10-06 08:53:42,782 1 INFO prueba odoo.addons.base.models.ir_module: module mail_bot_hr: no translation for language es 
+2023-10-06 08:53:42,793 1 INFO prueba odoo.modules.loading: Module mail_bot_hr loaded in 0.13s, 57 queries (+57 other) 
+2023-10-06 08:53:42,794 1 INFO prueba odoo.modules.loading: Loading module partner_autocomplete (37/76) 
+2023-10-06 08:53:42,848 1 INFO prueba odoo.modules.registry: module partner_autocomplete: creating or updating database tables 
+2023-10-06 08:53:42,950 1 INFO prueba odoo.modules.loading: loading partner_autocomplete/security/ir.model.access.csv 
+2023-10-06 08:53:42,962 1 INFO prueba odoo.modules.loading: loading partner_autocomplete/views/res_partner_views.xml 
+2023-10-06 08:53:42,987 1 INFO prueba odoo.modules.loading: loading partner_autocomplete/views/res_company_views.xml 
+2023-10-06 08:53:42,998 1 INFO prueba odoo.modules.loading: loading partner_autocomplete/views/res_config_settings_views.xml 
+2023-10-06 08:53:43,017 1 INFO prueba odoo.modules.loading: loading partner_autocomplete/data/cron.xml 
+2023-10-06 08:53:43,031 1 INFO prueba odoo.addons.base.models.ir_module: module partner_autocomplete: loading translation file es for language es_ES 
+2023-10-06 08:53:43,054 1 INFO prueba odoo.modules.loading: Module partner_autocomplete loaded in 0.26s, 181 queries (+181 other) 
+2023-10-06 08:53:43,055 1 INFO prueba odoo.modules.loading: Loading module portal (38/76) 
+2023-10-06 08:53:43,120 1 INFO prueba odoo.modules.registry: module portal: creating or updating database tables 
+2023-10-06 08:53:43,455 1 INFO prueba odoo.modules.loading: loading portal/security/ir.model.access.csv 
+2023-10-06 08:53:43,465 1 INFO prueba odoo.modules.loading: loading portal/data/mail_template_data.xml 
+2023-10-06 08:53:43,475 1 INFO prueba odoo.modules.loading: loading portal/data/mail_templates.xml 
+2023-10-06 08:53:43,481 1 INFO prueba odoo.modules.loading: loading portal/views/portal_templates.xml 
+2023-10-06 08:53:43,595 1 INFO prueba odoo.modules.loading: loading portal/views/res_config_settings_views.xml 
+2023-10-06 08:53:43,613 1 INFO prueba odoo.modules.loading: loading portal/wizard/portal_share_views.xml 
+2023-10-06 08:53:43,625 1 INFO prueba odoo.modules.loading: loading portal/wizard/portal_wizard_views.xml 
+2023-10-06 08:53:43,645 1 INFO prueba odoo.addons.base.models.ir_module: module portal: loading translation file es for language es_ES 
+2023-10-06 08:53:43,705 1 INFO prueba odoo.modules.loading: Module portal loaded in 0.65s, 521 queries (+521 other) 
+2023-10-06 08:53:43,706 1 INFO prueba odoo.modules.loading: Loading module sms (39/76) 
+2023-10-06 08:53:43,773 1 INFO prueba odoo.modules.registry: module sms: creating or updating database tables 
+2023-10-06 08:53:43,780 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.sms_template_id 
+2023-10-06 08:53:43,782 1 INFO prueba odoo.models: Prepare computation of ir.actions.server.sms_method 
+2023-10-06 08:53:43,809 1 INFO prueba odoo.models: Prepare computation of res.partner.phone_sanitized 
+2023-10-06 08:53:44,213 1 INFO prueba odoo.modules.loading: loading sms/data/ir_cron_data.xml 
+2023-10-06 08:53:44,224 1 INFO prueba odoo.modules.loading: loading sms/wizard/sms_composer_views.xml 
+2023-10-06 08:53:44,240 1 INFO prueba odoo.modules.loading: loading sms/wizard/sms_template_preview_views.xml 
+2023-10-06 08:53:44,252 1 INFO prueba odoo.modules.loading: loading sms/wizard/sms_resend_views.xml 
+2023-10-06 08:53:44,268 1 INFO prueba odoo.modules.loading: loading sms/wizard/sms_template_reset_views.xml 
+2023-10-06 08:53:44,280 1 INFO prueba odoo.modules.loading: loading sms/views/ir_actions_server_views.xml 
+2023-10-06 08:53:44,293 1 INFO prueba odoo.modules.loading: loading sms/views/mail_notification_views.xml 
+2023-10-06 08:53:44,310 1 INFO prueba odoo.modules.loading: loading sms/views/res_config_settings_views.xml 
+2023-10-06 08:53:44,329 1 INFO prueba odoo.modules.loading: loading sms/views/res_partner_views.xml 
+2023-10-06 08:53:44,369 1 INFO prueba odoo.modules.loading: loading sms/views/sms_sms_views.xml 
+2023-10-06 08:53:44,399 1 INFO prueba odoo.modules.loading: loading sms/views/sms_template_views.xml 
+2023-10-06 08:53:44,426 1 INFO prueba odoo.modules.loading: loading sms/security/ir.model.access.csv 
+2023-10-06 08:53:44,449 1 INFO prueba odoo.modules.loading: loading sms/security/sms_security.xml 
+2023-10-06 08:53:44,462 1 INFO prueba odoo.addons.base.models.ir_module: module sms: loading translation file es for language es_ES 
+2023-10-06 08:53:44,534 1 INFO prueba odoo.modules.loading: Module sms loaded in 0.83s, 682 queries (+682 other) 
+2023-10-06 08:53:44,535 1 INFO prueba odoo.modules.loading: Loading module snailmail (40/76) 
+2023-10-06 08:53:44,598 1 INFO prueba odoo.modules.registry: module snailmail: creating or updating database tables 
+2023-10-06 08:53:44,889 1 INFO prueba odoo.modules.loading: loading snailmail/data/snailmail_data.xml 
+2023-10-06 08:53:44,902 1 INFO prueba odoo.modules.loading: loading snailmail/views/report_assets.xml 
+2023-10-06 08:53:44,918 1 INFO prueba odoo.modules.loading: loading snailmail/views/snailmail_views.xml 
+2023-10-06 08:53:44,940 1 INFO prueba odoo.modules.loading: loading snailmail/wizard/snailmail_confirm_views.xml 
+2023-10-06 08:53:44,950 1 INFO prueba odoo.modules.loading: loading snailmail/wizard/snailmail_letter_format_error_views.xml 
+2023-10-06 08:53:44,960 1 INFO prueba odoo.modules.loading: loading snailmail/wizard/snailmail_letter_missing_required_fields_views.xml 
+2023-10-06 08:53:44,971 1 INFO prueba odoo.modules.loading: loading snailmail/security/ir.model.access.csv 
+2023-10-06 08:53:44,990 1 INFO prueba odoo.addons.base.models.ir_module: module snailmail: loading translation file es for language es_ES 
+2023-10-06 08:53:45,031 1 INFO prueba odoo.modules.loading: Module snailmail loaded in 0.50s, 455 queries (+455 other) 
+2023-10-06 08:53:45,032 1 INFO prueba odoo.modules.loading: Loading module auth_totp_portal (41/76) 
+2023-10-06 08:53:45,087 1 INFO prueba odoo.modules.registry: module auth_totp_portal: creating or updating database tables 
+2023-10-06 08:53:45,121 1 INFO prueba odoo.modules.loading: loading auth_totp_portal/security/security.xml 
+2023-10-06 08:53:45,145 1 INFO prueba odoo.modules.loading: loading auth_totp_portal/views/templates.xml 
+2023-10-06 08:53:45,160 1 INFO prueba odoo.addons.base.models.ir_module: module auth_totp_portal: loading translation file es for language es_ES 
+2023-10-06 08:53:45,178 1 INFO prueba odoo.modules.loading: Module auth_totp_portal loaded in 0.15s, 72 queries (+72 other) 
+2023-10-06 08:53:45,180 1 INFO prueba odoo.modules.loading: Loading module calendar_sms (42/76) 
+2023-10-06 08:53:45,234 1 INFO prueba odoo.modules.registry: module calendar_sms: creating or updating database tables 
+2023-10-06 08:53:45,240 1 INFO prueba odoo.models: Prepare computation of calendar.alarm.sms_template_id 
+2023-10-06 08:53:45,288 1 INFO prueba odoo.modules.loading: loading calendar_sms/data/sms_data.xml 
+2023-10-06 08:53:45,296 1 INFO prueba odoo.modules.loading: loading calendar_sms/views/calendar_views.xml 
+2023-10-06 08:53:45,325 1 INFO prueba odoo.addons.base.models.ir_module: module calendar_sms: loading translation file es for language es_ES 
+2023-10-06 08:53:45,345 1 INFO prueba odoo.modules.loading: Module calendar_sms loaded in 0.17s, 102 queries (+102 other) 
+2023-10-06 08:53:45,346 1 INFO prueba odoo.modules.loading: Loading module digest (43/76) 
+2023-10-06 08:53:45,406 1 INFO prueba odoo.modules.registry: module digest: creating or updating database tables 
+2023-10-06 08:53:45,538 1 INFO prueba odoo.modules.loading: loading digest/security/ir.model.access.csv 
+2023-10-06 08:53:45,552 1 INFO prueba odoo.modules.loading: loading digest/data/digest_data.xml 
+2023-10-06 08:53:45,574 1 INFO prueba odoo.modules.loading: loading digest/data/digest_tips_data.xml 
+2023-10-06 08:53:45,596 1 INFO prueba odoo.modules.loading: loading digest/data/ir_cron_data.xml 
+2023-10-06 08:53:45,607 1 INFO prueba odoo.modules.loading: loading digest/data/res_config_settings_data.xml 
+2023-10-06 08:53:45,616 1 INFO prueba odoo.modules.loading: loading digest/views/digest_views.xml 
+2023-10-06 08:53:45,666 1 INFO prueba odoo.modules.loading: loading digest/views/digest_templates.xml 
+2023-10-06 08:53:45,673 1 INFO prueba odoo.modules.loading: loading digest/views/res_config_settings_views.xml 
+2023-10-06 08:53:45,697 1 INFO prueba odoo.addons.base.models.ir_module: module digest: loading translation file es for language es_ES 
+2023-10-06 08:53:45,739 1 INFO prueba odoo.modules.loading: Module digest loaded in 0.39s, 310 queries (+310 other) 
+2023-10-06 08:53:45,740 1 INFO prueba odoo.modules.loading: Loading module payment (44/76) 
+2023-10-06 08:53:45,866 1 INFO prueba odoo.modules.registry: module payment: creating or updating database tables 
+2023-10-06 08:53:46,193 1 INFO prueba odoo.modules.loading: loading payment/data/payment_icon_data.xml 
+2023-10-06 08:53:46,462 1 INFO prueba odoo.modules.loading: loading payment/data/payment_provider_data.xml 
+2023-10-06 08:53:46,958 1 INFO prueba odoo.modules.loading: loading payment/data/payment_cron.xml 
+2023-10-06 08:53:46,969 1 INFO prueba odoo.modules.loading: loading payment/views/payment_portal_templates.xml 
+2023-10-06 08:53:46,999 1 INFO prueba odoo.modules.loading: loading payment/views/payment_templates.xml 
+2023-10-06 08:53:47,033 1 INFO prueba odoo.modules.loading: loading payment/views/payment_provider_views.xml 
+2023-10-06 08:53:47,067 1 INFO prueba odoo.modules.loading: loading payment/views/payment_icon_views.xml 
+2023-10-06 08:53:47,083 1 INFO prueba odoo.modules.loading: loading payment/views/payment_transaction_views.xml 
+2023-10-06 08:53:47,112 1 INFO prueba odoo.modules.loading: loading payment/views/payment_token_views.xml 
+2023-10-06 08:53:47,134 1 INFO prueba odoo.modules.loading: loading payment/views/res_partner_views.xml 
+2023-10-06 08:53:47,152 1 INFO prueba odoo.modules.loading: loading payment/security/ir.model.access.csv 
+2023-10-06 08:53:47,257 1 INFO prueba odoo.modules.loading: loading payment/security/payment_security.xml 
+2023-10-06 08:53:47,279 1 INFO prueba odoo.modules.loading: loading payment/wizards/payment_link_wizard_views.xml 
+2023-10-06 08:53:47,289 1 INFO prueba odoo.modules.loading: loading payment/wizards/payment_onboarding_views.xml 
+2023-10-06 08:53:47,302 1 INFO prueba odoo.addons.base.models.ir_module: module payment: loading translation file es for language es_ES 
+2023-10-06 08:53:47,382 1 INFO prueba odoo.modules.loading: Module payment loaded in 1.64s, 857 queries (+857 other) 
+2023-10-06 08:53:47,384 1 INFO prueba odoo.modules.loading: Loading module account (45/76) 
+2023-10-06 08:53:47,552 1 INFO prueba odoo.modules.registry: module account: creating or updating database tables 
+2023-10-06 08:53:48,375 1 INFO prueba odoo.models: Prepare computation of res.company.account_fiscal_country_id 
+2023-10-06 08:53:48,376 1 INFO prueba odoo.models: Prepare computation of res.company.early_pay_discount_computation 
+2023-10-06 08:53:48,378 1 INFO prueba odoo.models: Prepare computation of res.company.invoice_terms_html 
+2023-10-06 08:53:50,706 1 INFO prueba odoo.modules.loading: loading account/security/account_security.xml 
+2023-10-06 08:53:51,231 1 INFO prueba odoo.modules.loading: loading account/security/ir.model.access.csv 
+2023-10-06 08:53:51,329 1 INFO prueba odoo.modules.loading: loading account/data/account_data.xml 
+2023-10-06 08:53:51,405 1 INFO prueba odoo.modules.loading: loading account/data/digest_data.xml 
+2023-10-06 08:53:51,416 1 INFO prueba odoo.modules.loading: loading account/views/account_report.xml 
+2023-10-06 08:53:51,436 1 INFO prueba odoo.modules.loading: loading account/data/mail_template_data.xml 
+2023-10-06 08:53:51,451 1 INFO prueba odoo.modules.loading: loading account/views/account_payment_view.xml 
+2023-10-06 08:53:51,530 1 INFO prueba odoo.modules.loading: loading account/wizard/account_automatic_entry_wizard_views.xml 
+2023-10-06 08:53:51,544 1 INFO prueba odoo.modules.loading: loading account/wizard/account_unreconcile_view.xml 
+2023-10-06 08:53:51,558 1 INFO prueba odoo.modules.loading: loading account/wizard/account_move_reversal_view.xml 
+2023-10-06 08:53:51,572 1 INFO prueba odoo.modules.loading: loading account/wizard/account_resequence_views.xml 
+2023-10-06 08:53:51,583 1 INFO prueba odoo.modules.loading: loading account/wizard/account_payment_register_views.xml 
+2023-10-06 08:53:51,595 1 INFO prueba odoo.modules.loading: loading account/views/account_move_views.xml 
+2023-10-06 08:53:51,958 1 INFO prueba odoo.modules.loading: loading account/wizard/setup_wizards_view.xml 
+2023-10-06 08:53:51,976 1 INFO prueba odoo.modules.loading: loading account/views/account_account_views.xml 
+2023-10-06 08:53:52,010 1 INFO prueba odoo.modules.loading: loading account/views/account_group_views.xml 
+2023-10-06 08:53:52,028 1 INFO prueba odoo.modules.loading: loading account/views/account_journal_views.xml 
+2023-10-06 08:53:52,080 1 INFO prueba odoo.modules.loading: loading account/views/account_account_tag_views.xml 
+2023-10-06 08:53:52,096 1 INFO prueba odoo.modules.loading: loading account/views/account_bank_statement_views.xml 
+2023-10-06 08:53:52,126 1 INFO prueba odoo.modules.loading: loading account/views/account_reconcile_model_views.xml 
+2023-10-06 08:53:52,161 1 INFO prueba odoo.modules.loading: loading account/views/account_tax_views.xml 
+2023-10-06 08:53:52,222 1 INFO prueba odoo.modules.loading: loading account/views/account_full_reconcile_views.xml 
+2023-10-06 08:53:52,229 1 INFO prueba odoo.modules.loading: loading account/views/account_payment_term_views.xml 
+2023-10-06 08:53:52,254 1 INFO prueba odoo.modules.loading: loading account/views/account_chart_template_views.xml 
+2023-10-06 08:53:52,289 1 INFO prueba odoo.modules.loading: loading account/views/res_partner_bank_views.xml 
+2023-10-06 08:53:52,303 1 INFO prueba odoo.modules.loading: loading account/views/report_statement.xml 
+2023-10-06 08:53:52,311 1 INFO prueba odoo.modules.loading: loading account/views/terms_template.xml 
+2023-10-06 08:53:52,326 1 INFO prueba odoo.modules.loading: loading account/wizard/account_validate_move_view.xml 
+2023-10-06 08:53:52,339 1 INFO prueba odoo.modules.loading: loading account/views/res_company_views.xml 
+2023-10-06 08:53:52,354 1 INFO prueba odoo.modules.loading: loading account/views/product_view.xml 
+2023-10-06 08:53:52,382 1 INFO prueba odoo.modules.loading: loading account/views/account_analytic_plan_views.xml 
+2023-10-06 08:53:52,394 1 INFO prueba odoo.modules.loading: loading account/views/account_analytic_account_views.xml 
+2023-10-06 08:53:52,403 1 INFO prueba odoo.modules.loading: loading account/views/account_analytic_distribution_model_views.xml 
+2023-10-06 08:53:52,418 1 INFO prueba odoo.modules.loading: loading account/views/account_analytic_line_views.xml 
+2023-10-06 08:53:52,454 1 INFO prueba odoo.modules.loading: loading account/views/report_invoice.xml 
+2023-10-06 08:53:52,484 1 INFO prueba odoo.modules.loading: loading account/report/account_invoice_report_view.xml 
+2023-10-06 08:53:52,534 1 INFO prueba odoo.modules.loading: loading account/views/account_cash_rounding_view.xml 
+2023-10-06 08:53:52,555 1 INFO prueba odoo.modules.loading: loading account/views/ir_module_views.xml 
+2023-10-06 08:53:52,566 1 INFO prueba odoo.modules.loading: loading account/views/res_config_settings_views.xml 
+2023-10-06 08:53:52,613 1 INFO prueba odoo.modules.loading: loading account/views/partner_view.xml 
+2023-10-06 08:53:52,688 1 INFO prueba odoo.modules.loading: loading account/views/account_journal_dashboard_view.xml 
+2023-10-06 08:53:52,710 1 INFO prueba odoo.modules.loading: loading account/views/account_portal_templates.xml 
+2023-10-06 08:53:52,747 1 INFO prueba odoo.modules.loading: loading account/views/report_payment_receipt_templates.xml 
+2023-10-06 08:53:52,761 1 INFO prueba odoo.modules.loading: loading account/views/account_onboarding_templates.xml 
+2023-10-06 08:53:52,807 1 INFO prueba odoo.modules.loading: loading account/data/service_cron.xml 
+2023-10-06 08:53:52,816 1 INFO prueba odoo.modules.loading: loading account/views/account_incoterms_view.xml 
+2023-10-06 08:53:52,834 1 INFO prueba odoo.modules.loading: loading account/data/account_incoterms_data.xml 
+2023-10-06 08:53:52,857 1 INFO prueba odoo.modules.loading: loading account/views/digest_views.xml 
+2023-10-06 08:53:52,869 1 INFO prueba odoo.modules.loading: loading account/wizard/account_invoice_send_views.xml 
+2023-10-06 08:53:52,885 1 INFO prueba odoo.modules.loading: loading account/report/account_hash_integrity_templates.xml 
+2023-10-06 08:53:52,892 1 INFO prueba odoo.modules.loading: loading account/views/res_currency.xml 
+2023-10-06 08:53:52,904 1 INFO prueba odoo.modules.loading: loading account/views/account_menuitem.xml 
+2023-10-06 08:53:53,128 1 INFO prueba odoo.modules.loading: loading account/wizard/account_tour_upload_bill.xml 
+2023-10-06 08:53:53,144 1 INFO prueba odoo.modules.loading: loading account/wizard/accrued_orders.xml 
+2023-10-06 08:53:53,152 1 INFO prueba odoo.modules.loading: loading account/views/bill_preview_template.xml 
+2023-10-06 08:53:53,165 1 INFO prueba odoo.modules.loading: loading account/data/account_reports_data.xml 
+2023-10-06 08:53:53,191 1 INFO prueba odoo.addons.base.models.ir_module: module account: loading translation file es for language es_ES 
+2023-10-06 08:53:53,637 1 INFO prueba odoo.modules.loading: Module account loaded in 6.25s, 5966 queries (+5966 other) 
+2023-10-06 08:53:53,639 1 INFO prueba odoo.modules.loading: Loading module crm (46/76) 
+2023-10-06 08:53:53,754 1 INFO prueba odoo.modules.registry: module crm: creating or updating database tables 
+2023-10-06 08:53:54,202 1 INFO prueba odoo.addons.mail.models.mail_alias_mixin: Mail alias created for crm.team Sales (id 1) 
+2023-10-06 08:53:54,205 1 INFO prueba odoo.addons.mail.models.mail_alias_mixin: Mail alias created for crm.team eBay (id 4) 
+2023-10-06 08:53:54,208 1 INFO prueba odoo.addons.mail.models.mail_alias_mixin: Mail alias created for crm.team Point of Sale (id 3) 
+2023-10-06 08:53:54,212 1 INFO prueba odoo.addons.mail.models.mail_alias_mixin: Mail alias created for crm.team Website (id 2) 
+2023-10-06 08:53:54,528 1 INFO prueba odoo.modules.loading: loading crm/security/crm_security.xml 
+2023-10-06 08:53:54,603 1 INFO prueba odoo.modules.loading: loading crm/security/ir.model.access.csv 
+2023-10-06 08:53:54,633 1 INFO prueba odoo.modules.loading: loading crm/data/crm_lead_merge_template.xml 
+2023-10-06 08:53:54,642 1 INFO prueba odoo.modules.loading: loading crm/data/crm_lead_prediction_data.xml 
+2023-10-06 08:53:54,775 1 INFO prueba odoo.modules.loading: loading crm/data/crm_lost_reason_data.xml 
+2023-10-06 08:53:54,784 1 INFO prueba odoo.modules.loading: loading crm/data/crm_stage_data.xml 
+2023-10-06 08:53:54,796 1 INFO prueba odoo.modules.loading: loading crm/data/crm_team_data.xml 
+2023-10-06 08:53:54,822 1 INFO prueba odoo.modules.loading: loading crm/data/digest_data.xml 
+2023-10-06 08:53:54,841 1 INFO prueba odoo.modules.loading: loading crm/data/ir_action_data.xml 
+2023-10-06 08:53:54,857 1 INFO prueba odoo.modules.loading: loading crm/data/ir_cron_data.xml 
+2023-10-06 08:53:54,866 1 INFO prueba odoo.modules.loading: loading crm/data/mail_message_subtype_data.xml 
+2023-10-06 08:53:54,897 1 INFO prueba odoo.modules.loading: loading crm/data/crm_recurring_plan_data.xml 
+2023-10-06 08:53:54,909 1 INFO prueba odoo.modules.loading: loading crm/wizard/crm_lead_lost_views.xml 
+2023-10-06 08:53:54,921 1 INFO prueba odoo.modules.loading: loading crm/wizard/crm_lead_to_opportunity_views.xml 
+2023-10-06 08:53:54,936 1 INFO prueba odoo.modules.loading: loading crm/wizard/crm_lead_to_opportunity_mass_views.xml 
+2023-10-06 08:53:54,951 1 INFO prueba odoo.modules.loading: loading crm/wizard/crm_merge_opportunities_views.xml 
+2023-10-06 08:53:54,966 1 INFO prueba odoo.modules.loading: loading crm/wizard/crm_lead_pls_update_views.xml 
+2023-10-06 08:53:54,975 1 INFO prueba odoo.modules.loading: loading crm/views/calendar_views.xml 
+2023-10-06 08:53:54,986 1 INFO prueba odoo.modules.loading: loading crm/views/crm_recurring_plan_views.xml 
+2023-10-06 08:53:55,005 1 INFO prueba odoo.modules.loading: loading crm/views/crm_lost_reason_views.xml 
+2023-10-06 08:53:55,025 1 INFO prueba odoo.modules.loading: loading crm/views/crm_stage_views.xml 
+2023-10-06 08:53:55,048 1 INFO prueba odoo.modules.loading: loading crm/views/crm_lead_views.xml 
+2023-10-06 08:53:55,267 1 INFO prueba odoo.modules.loading: loading crm/views/crm_team_member_views.xml 
+2023-10-06 08:53:55,298 1 INFO prueba odoo.modules.loading: loading crm/views/digest_views.xml 
+2023-10-06 08:53:55,308 1 INFO prueba odoo.modules.loading: loading crm/views/mail_activity_views.xml 
+2023-10-06 08:53:55,315 1 INFO prueba odoo.modules.loading: loading crm/views/res_config_settings_views.xml 
+2023-10-06 08:53:55,350 1 INFO prueba odoo.modules.loading: loading crm/views/res_partner_views.xml 
+2023-10-06 08:53:55,379 1 INFO prueba odoo.modules.loading: loading crm/views/utm_campaign_views.xml 
+2023-10-06 08:53:55,397 1 INFO prueba odoo.modules.loading: loading crm/report/crm_activity_report_views.xml 
+2023-10-06 08:53:55,427 1 INFO prueba odoo.modules.loading: loading crm/report/crm_opportunity_report_views.xml 
+2023-10-06 08:53:55,475 1 INFO prueba odoo.modules.loading: loading crm/views/crm_team_views.xml 
+2023-10-06 08:53:55,536 1 INFO prueba odoo.modules.loading: loading crm/views/crm_menu_views.xml 
+2023-10-06 08:53:55,637 1 INFO prueba odoo.modules.loading: loading crm/views/crm_helper_templates.xml 
+2023-10-06 08:53:55,647 1 INFO prueba odoo.addons.base.models.ir_module: module crm: loading translation file es for language es_ES 
+2023-10-06 08:53:55,792 1 INFO prueba odoo.modules.loading: Module crm loaded in 2.15s, 1995 queries (+1995 other) 
+2023-10-06 08:53:55,793 1 INFO prueba odoo.modules.loading: Loading module stock (47/76) 
+2023-10-06 08:53:55,971 1 INFO prueba odoo.modules.registry: module stock: creating or updating database tables 
+2023-10-06 08:53:58,318 1 INFO prueba odoo.modules.loading: loading stock/security/stock_security.xml 
+2023-10-06 08:53:58,739 1 INFO prueba odoo.modules.loading: loading stock/security/ir.model.access.csv 
+2023-10-06 08:53:58,824 1 INFO prueba odoo.modules.loading: loading stock/data/digest_data.xml 
+2023-10-06 08:53:58,830 1 INFO prueba odoo.modules.loading: loading stock/data/mail_templates.xml 
+2023-10-06 08:53:58,843 1 INFO prueba odoo.modules.loading: loading stock/data/default_barcode_patterns.xml 
+2023-10-06 08:53:58,855 1 INFO prueba odoo.modules.loading: loading stock/data/stock_data.xml 
+2023-10-06 08:53:59,160 1 INFO prueba odoo.modules.loading: loading stock/data/stock_sequence_data.xml 
+2023-10-06 08:53:59,185 1 INFO prueba odoo.modules.loading: loading stock/data/stock_traceability_report_data.xml 
+2023-10-06 08:53:59,192 1 INFO prueba odoo.modules.loading: loading stock/report/report_stock_forecasted.xml 
+2023-10-06 08:53:59,206 1 INFO prueba odoo.modules.loading: loading stock/report/report_stock_quantity.xml 
+2023-10-06 08:53:59,213 1 INFO prueba odoo.modules.loading: loading stock/report/report_stock_reception.xml 
+2023-10-06 08:53:59,234 1 INFO prueba odoo.modules.loading: loading stock/report/stock_report_views.xml 
+2023-10-06 08:53:59,277 1 INFO prueba odoo.modules.loading: loading stock/report/report_package_barcode.xml 
+2023-10-06 08:53:59,294 1 INFO prueba odoo.modules.loading: loading stock/report/report_lot_barcode.xml 
+2023-10-06 08:53:59,300 1 INFO prueba odoo.modules.loading: loading stock/report/report_location_barcode.xml 
+2023-10-06 08:53:59,312 1 INFO prueba odoo.modules.loading: loading stock/report/report_stockpicking_operations.xml 
+2023-10-06 08:53:59,328 1 INFO prueba odoo.modules.loading: loading stock/report/report_deliveryslip.xml 
+2023-10-06 08:53:59,359 1 INFO prueba odoo.modules.loading: loading stock/report/report_stockinventory.xml 
+2023-10-06 08:53:59,366 1 INFO prueba odoo.modules.loading: loading stock/report/report_stock_rule.xml 
+2023-10-06 08:53:59,397 1 INFO prueba odoo.modules.loading: loading stock/report/package_templates.xml 
+2023-10-06 08:53:59,404 1 INFO prueba odoo.modules.loading: loading stock/report/picking_templates.xml 
+2023-10-06 08:53:59,421 1 INFO prueba odoo.modules.loading: loading stock/report/product_templates.xml 
+2023-10-06 08:53:59,434 1 INFO prueba odoo.modules.loading: loading stock/report/product_packaging.xml 
+2023-10-06 08:53:59,440 1 INFO prueba odoo.modules.loading: loading stock/data/mail_template_data.xml 
+2023-10-06 08:53:59,450 1 INFO prueba odoo.modules.loading: loading stock/views/stock_menu_views.xml 
+2023-10-06 08:53:59,516 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_assign_serial_views.xml 
+2023-10-06 08:53:59,526 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_change_product_qty_views.xml 
+2023-10-06 08:53:59,537 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_picking_return_views.xml 
+2023-10-06 08:53:59,551 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_scheduler_compute_views.xml 
+2023-10-06 08:53:59,566 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_immediate_transfer_views.xml 
+2023-10-06 08:53:59,573 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_inventory_conflict.xml 
+2023-10-06 08:53:59,586 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_backorder_confirmation_views.xml 
+2023-10-06 08:53:59,594 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_quantity_history.xml 
+2023-10-06 08:53:59,603 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_request_count.xml 
+2023-10-06 08:53:59,613 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_replenishment_info.xml 
+2023-10-06 08:53:59,632 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_rules_report_views.xml 
+2023-10-06 08:53:59,642 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_warn_insufficient_qty_views.xml 
+2023-10-06 08:53:59,658 1 INFO prueba odoo.modules.loading: loading stock/wizard/product_replenish_views.xml 
+2023-10-06 08:53:59,671 1 INFO prueba odoo.modules.loading: loading stock/wizard/product_label_layout_views.xml 
+2023-10-06 08:53:59,681 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_track_confirmation_views.xml 
+2023-10-06 08:53:59,688 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_orderpoint_snooze_views.xml 
+2023-10-06 08:53:59,699 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_package_destination_views.xml 
+2023-10-06 08:53:59,707 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_inventory_adjustment_name.xml 
+2023-10-06 08:53:59,719 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_inventory_warning.xml 
+2023-10-06 08:53:59,730 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_label_type.xml 
+2023-10-06 08:53:59,738 1 INFO prueba odoo.modules.loading: loading stock/wizard/stock_lot_label_layout.xml 
+2023-10-06 08:53:59,744 1 INFO prueba odoo.modules.loading: loading stock/views/res_partner_views.xml 
+2023-10-06 08:53:59,780 1 INFO prueba odoo.modules.loading: loading stock/views/product_strategy_views.xml 
+2023-10-06 08:53:59,814 1 INFO prueba odoo.modules.loading: loading stock/views/stock_lot_views.xml 
+2023-10-06 08:53:59,845 1 INFO prueba odoo.modules.loading: loading stock/views/stock_scrap_views.xml 
+2023-10-06 08:53:59,889 1 INFO prueba odoo.modules.loading: loading stock/views/stock_quant_views.xml 
+2023-10-06 08:54:00,363 1 INFO prueba odoo.modules.loading: loading stock/views/stock_warehouse_views.xml 
+2023-10-06 08:54:00,394 1 INFO prueba odoo.modules.loading: loading stock/views/stock_move_line_views.xml 
+2023-10-06 08:54:00,448 1 INFO prueba odoo.modules.loading: loading stock/views/stock_picking_views.xml 
+2023-10-06 08:54:00,562 1 INFO prueba odoo.modules.loading: loading stock/views/stock_picking_type_views.xml 
+2023-10-06 08:54:00,610 1 INFO prueba odoo.modules.loading: loading stock/views/stock_move_views.xml 
+2023-10-06 08:54:00,725 1 INFO prueba odoo.modules.loading: loading stock/views/product_views.xml 
+2023-10-06 08:54:00,907 1 INFO prueba odoo.modules.loading: loading stock/views/stock_location_views.xml 
+2023-10-06 08:54:00,988 1 INFO prueba odoo.modules.loading: loading stock/views/stock_orderpoint_views.xml 
+2023-10-06 08:54:01,055 1 INFO prueba odoo.modules.loading: loading stock/views/stock_storage_category_views.xml 
+2023-10-06 08:54:01,086 1 INFO prueba odoo.modules.loading: loading stock/views/res_config_settings_views.xml 
+2023-10-06 08:54:01,145 1 INFO prueba odoo.modules.loading: loading stock/views/report_stock_traceability.xml 
+2023-10-06 08:54:01,164 1 INFO prueba odoo.modules.loading: loading stock/views/stock_template.xml 
+2023-10-06 08:54:01,177 1 INFO prueba odoo.modules.loading: loading stock/views/stock_rule_views.xml 
+2023-10-06 08:54:01,224 1 INFO prueba odoo.modules.loading: loading stock/views/stock_package_level_views.xml 
+2023-10-06 08:54:01,254 1 INFO prueba odoo.modules.loading: loading stock/views/stock_package_type_view.xml 
+2023-10-06 08:54:01,308 1 INFO prueba odoo.modules.loading: loading stock/views/stock_forecasted.xml 
+2023-10-06 08:54:01,324 1 INFO prueba odoo.addons.base.models.ir_module: module stock: loading translation file es for language es_ES 
+2023-10-06 08:54:01,663 1 INFO prueba odoo.modules.loading: Module stock loaded in 5.87s, 5314 queries (+5314 other) 
+2023-10-06 08:54:01,664 1 INFO prueba odoo.modules.loading: Loading module account_edi (48/76) 
+2023-10-06 08:54:01,840 1 INFO prueba odoo.modules.registry: module account_edi: creating or updating database tables 
+2023-10-06 08:54:02,092 1 INFO prueba odoo.modules.loading: loading account_edi/security/ir.model.access.csv 
+2023-10-06 08:54:02,105 1 INFO prueba odoo.modules.loading: loading account_edi/views/account_edi_document_views.xml 
+2023-10-06 08:54:02,117 1 INFO prueba odoo.modules.loading: loading account_edi/views/account_move_views.xml 
+2023-10-06 08:54:02,208 1 INFO prueba odoo.modules.loading: loading account_edi/views/account_payment_views.xml 
+2023-10-06 08:54:02,228 1 INFO prueba odoo.modules.loading: loading account_edi/views/account_journal_views.xml 
+2023-10-06 08:54:02,241 1 INFO prueba odoo.modules.loading: loading account_edi/data/cron.xml 
+2023-10-06 08:54:02,257 1 INFO prueba odoo.addons.base.models.ir_module: module account_edi: loading translation file es for language es_ES 
+2023-10-06 08:54:02,292 1 INFO prueba odoo.modules.loading: Module account_edi loaded in 0.63s, 321 queries (+321 other) 
+2023-10-06 08:54:02,293 1 INFO prueba odoo.modules.loading: Loading module account_payment (49/76) 
+2023-10-06 08:54:02,403 1 INFO prueba odoo.modules.registry: module account_payment: creating or updating database tables 
+2023-10-06 08:54:02,590 1 INFO prueba odoo.modules.loading: loading account_payment/security/ir.model.access.csv 
+2023-10-06 08:54:02,600 1 INFO prueba odoo.modules.loading: loading account_payment/security/ir_rules.xml 
+2023-10-06 08:54:02,615 1 INFO prueba odoo.modules.loading: loading account_payment/views/account_payment_menus.xml 
+2023-10-06 08:54:02,640 1 INFO prueba odoo.modules.loading: loading account_payment/views/account_portal_templates.xml 
+2023-10-06 08:54:02,675 1 INFO prueba odoo.modules.loading: loading account_payment/views/payment_templates.xml 
+2023-10-06 08:54:02,690 1 INFO prueba odoo.modules.loading: loading account_payment/views/account_move_views.xml 
+2023-10-06 08:54:02,711 1 INFO prueba odoo.modules.loading: loading account_payment/views/account_journal_views.xml 
+2023-10-06 08:54:02,726 1 INFO prueba odoo.modules.loading: loading account_payment/views/account_payment_views.xml 
+2023-10-06 08:54:02,742 1 INFO prueba odoo.modules.loading: loading account_payment/views/payment_provider_views.xml 
+2023-10-06 08:54:02,755 1 INFO prueba odoo.modules.loading: loading account_payment/views/payment_transaction_views.xml 
+2023-10-06 08:54:02,768 1 INFO prueba odoo.modules.loading: loading account_payment/wizards/account_payment_register_views.xml 
+2023-10-06 08:54:02,792 1 INFO prueba odoo.modules.loading: loading account_payment/wizards/payment_link_wizard_views.xml 
+2023-10-06 08:54:02,800 1 INFO prueba odoo.modules.loading: loading account_payment/wizards/payment_refund_wizard_views.xml 
+2023-10-06 08:54:02,814 1 INFO prueba odoo.addons.base.models.ir_module: module account_payment: loading translation file es for language es_ES 
+2023-10-06 08:54:02,852 1 INFO prueba odoo.modules.loading: Module account_payment loaded in 0.56s, 424 queries (+424 other) 
+2023-10-06 08:54:02,853 1 INFO prueba odoo.modules.loading: Loading module account_sequence (50/76) 
+2023-10-06 08:54:02,957 1 INFO prueba odoo.modules.registry: module account_sequence: creating or updating database tables 
+2023-10-06 08:54:03,025 1 INFO prueba odoo.addons.base.models.ir_module: module account_sequence: loading translation file es for language es_ES 
+2023-10-06 08:54:03,060 1 INFO prueba odoo.modules.loading: Module account_sequence loaded in 0.21s, 60 queries (+60 other) 
+2023-10-06 08:54:03,062 1 INFO prueba odoo.modules.loading: Loading module crm_sms (51/76) 
+2023-10-06 08:54:03,166 1 INFO prueba odoo.modules.loading: loading crm_sms/views/crm_lead_views.xml 
+2023-10-06 08:54:03,304 1 INFO prueba odoo.modules.loading: loading crm_sms/security/ir.model.access.csv 
+2023-10-06 08:54:03,315 1 INFO prueba odoo.modules.loading: loading crm_sms/security/sms_security.xml 
+2023-10-06 08:54:03,327 1 INFO prueba odoo.addons.base.models.ir_module: module crm_sms: loading translation file es for language es_ES 
+2023-10-06 08:54:03,341 1 INFO prueba odoo.modules.loading: Module crm_sms loaded in 0.28s, 69 queries (+69 other) 
+2023-10-06 08:54:03,343 1 INFO prueba odoo.modules.loading: Loading module iap_crm (52/76) 
+2023-10-06 08:54:03,440 1 INFO prueba odoo.modules.registry: module iap_crm: creating or updating database tables 
+2023-10-06 08:54:03,503 1 INFO prueba odoo.addons.base.models.ir_module: module iap_crm: no translation for language es 
+2023-10-06 08:54:03,511 1 INFO prueba odoo.modules.loading: Module iap_crm loaded in 0.17s, 43 queries (+43 other) 
+2023-10-06 08:54:03,512 1 INFO prueba odoo.modules.loading: Loading module purchase (53/76) 
+2023-10-06 08:54:03,628 1 INFO prueba odoo.modules.registry: module purchase: creating or updating database tables 
+2023-10-06 08:54:04,088 1 INFO prueba odoo.modules.loading: loading purchase/security/purchase_security.xml 
+2023-10-06 08:54:04,324 1 INFO prueba odoo.modules.loading: loading purchase/security/ir.model.access.csv 
+2023-10-06 08:54:04,362 1 INFO prueba odoo.modules.loading: loading purchase/data/digest_data.xml 
+2023-10-06 08:54:04,371 1 INFO prueba odoo.modules.loading: loading purchase/views/account_move_views.xml 
+2023-10-06 08:54:04,394 1 INFO prueba odoo.modules.loading: loading purchase/data/purchase_data.xml 
+2023-10-06 08:54:04,425 1 INFO prueba odoo.modules.loading: loading purchase/data/ir_cron_data.xml 
+2023-10-06 08:54:04,436 1 INFO prueba odoo.modules.loading: loading purchase/report/purchase_reports.xml 
+2023-10-06 08:54:04,445 1 INFO prueba odoo.modules.loading: loading purchase/views/purchase_views.xml 
+2023-10-06 08:54:04,665 1 INFO prueba odoo.modules.loading: loading purchase/views/res_config_settings_views.xml 
+2023-10-06 08:54:04,709 1 INFO prueba odoo.modules.loading: loading purchase/views/product_views.xml 
+2023-10-06 08:54:04,787 1 INFO prueba odoo.modules.loading: loading purchase/views/res_partner_views.xml 
+2023-10-06 08:54:04,863 1 INFO prueba odoo.modules.loading: loading purchase/report/purchase_bill_views.xml 
+2023-10-06 08:54:04,876 1 INFO prueba odoo.modules.loading: loading purchase/report/purchase_report_views.xml 
+2023-10-06 08:54:04,916 1 INFO prueba odoo.modules.loading: loading purchase/data/mail_templates.xml 
+2023-10-06 08:54:04,927 1 INFO prueba odoo.modules.loading: loading purchase/data/mail_template_data.xml 
+2023-10-06 08:54:04,942 1 INFO prueba odoo.modules.loading: loading purchase/views/portal_templates.xml 
+2023-10-06 08:54:04,995 1 INFO prueba odoo.modules.loading: loading purchase/report/purchase_order_templates.xml 
+2023-10-06 08:54:05,011 1 INFO prueba odoo.modules.loading: loading purchase/report/purchase_quotation_templates.xml 
+2023-10-06 08:54:05,024 1 INFO prueba odoo.modules.loading: loading purchase/views/product_packaging_views.xml 
+2023-10-06 08:54:05,044 1 INFO prueba odoo.modules.loading: loading purchase/views/analytic_account_views.xml 
+2023-10-06 08:54:05,062 1 INFO prueba odoo.addons.base.models.ir_module: module purchase: loading translation file es for language es_ES 
+2023-10-06 08:54:05,185 1 INFO prueba odoo.modules.loading: Module purchase loaded in 1.67s, 1639 queries (+1639 other) 
+2023-10-06 08:54:05,186 1 INFO prueba odoo.modules.loading: Loading module snailmail_account (54/76) 
+2023-10-06 08:54:05,359 1 INFO prueba odoo.modules.registry: module snailmail_account: creating or updating database tables 
+2023-10-06 08:54:05,474 1 INFO prueba odoo.modules.loading: loading snailmail_account/views/res_config_settings_views.xml 
+2023-10-06 08:54:05,512 1 INFO prueba odoo.modules.loading: loading snailmail_account/wizard/account_invoice_send_views.xml 
+2023-10-06 08:54:05,528 1 INFO prueba odoo.modules.loading: loading snailmail_account/security/ir.model.access.csv 
+2023-10-06 08:54:05,541 1 INFO prueba odoo.addons.base.models.ir_module: module snailmail_account: loading translation file es for language es_ES 
+2023-10-06 08:54:05,562 1 INFO prueba odoo.modules.loading: Module snailmail_account loaded in 0.38s, 120 queries (+120 other) 
+2023-10-06 08:54:05,564 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_account (55/76) 
+2023-10-06 08:54:05,664 1 INFO prueba odoo.modules.registry: module spreadsheet_account: creating or updating database tables 
+2023-10-06 08:54:05,720 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_account: loading translation file es for language es_ES 
+2023-10-06 08:54:05,758 1 INFO prueba odoo.modules.loading: Module spreadsheet_account loaded in 0.19s, 52 queries (+52 other) 
+2023-10-06 08:54:05,759 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard_account (56/76) 
+2023-10-06 08:54:05,867 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard_account/data/dashboards.xml 
+2023-10-06 08:54:05,920 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard_account: loading translation file es for language es_ES 
+2023-10-06 08:54:05,933 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard_account loaded in 0.17s, 29 queries (+29 other) 
+2023-10-06 08:54:05,934 1 INFO prueba odoo.modules.loading: Loading module stock_account (57/76) 
+2023-10-06 08:54:06,051 1 INFO prueba odoo.modules.registry: module stock_account: creating or updating database tables 
+2023-10-06 08:54:06,456 1 INFO prueba odoo.modules.loading: loading stock_account/security/stock_account_security.xml 
+2023-10-06 08:54:06,487 1 INFO prueba odoo.modules.loading: loading stock_account/security/ir.model.access.csv 
+2023-10-06 08:54:06,505 1 INFO prueba odoo.modules.loading: loading stock_account/data/stock_account_data.xml 
+2023-10-06 08:54:06,514 1 INFO prueba odoo.modules.loading: loading stock_account/views/stock_account_views.xml 
+2023-10-06 08:54:07,040 1 INFO prueba odoo.modules.loading: loading stock_account/views/res_config_settings_views.xml 
+2023-10-06 08:54:07,081 1 INFO prueba odoo.modules.loading: loading stock_account/data/product_data.xml 
+2023-10-06 08:54:07,092 1 INFO prueba odoo.modules.loading: loading stock_account/views/report_invoice.xml 
+2023-10-06 08:54:07,101 1 INFO prueba odoo.modules.loading: loading stock_account/views/stock_valuation_layer_views.xml 
+2023-10-06 08:54:07,157 1 INFO prueba odoo.modules.loading: loading stock_account/views/stock_quant_views.xml 
+2023-10-06 08:54:07,178 1 INFO prueba odoo.modules.loading: loading stock_account/views/product_views.xml 
+2023-10-06 08:54:07,223 1 INFO prueba odoo.modules.loading: loading stock_account/wizard/stock_request_count.xml 
+2023-10-06 08:54:07,233 1 INFO prueba odoo.modules.loading: loading stock_account/wizard/stock_valuation_layer_revaluation_views.xml 
+2023-10-06 08:54:07,242 1 INFO prueba odoo.modules.loading: loading stock_account/wizard/stock_quantity_history.xml 
+2023-10-06 08:54:07,254 1 INFO prueba odoo.modules.loading: loading stock_account/report/report_stock_forecasted.xml 
+2023-10-06 08:54:07,269 1 INFO prueba odoo.addons.base.models.ir_module: module stock_account: loading translation file es for language es_ES 
+2023-10-06 08:54:07,320 1 INFO prueba odoo.modules.loading: Module stock_account loaded in 1.39s, 646 queries (+646 other) 
+2023-10-06 08:54:07,323 1 INFO prueba odoo.modules.loading: Loading module stock_sms (58/76) 
+2023-10-06 08:54:07,429 1 INFO prueba odoo.modules.registry: module stock_sms: creating or updating database tables 
+2023-10-06 08:54:07,555 1 INFO prueba odoo.modules.loading: loading stock_sms/data/sms_data.xml 
+2023-10-06 08:54:07,565 1 INFO prueba odoo.modules.loading: loading stock_sms/views/res_config_settings_views.xml 
+2023-10-06 08:54:07,642 1 INFO prueba odoo.modules.loading: loading stock_sms/wizard/confirm_stock_sms_views.xml 
+2023-10-06 08:54:07,651 1 INFO prueba odoo.modules.loading: loading stock_sms/security/ir.model.access.csv 
+2023-10-06 08:54:07,664 1 INFO prueba odoo.modules.loading: loading stock_sms/security/sms_security.xml 
+2023-10-06 08:54:07,675 1 INFO prueba odoo.addons.base.models.ir_module: module stock_sms: loading translation file es for language es_ES 
+2023-10-06 08:54:07,705 1 INFO prueba odoo.modules.loading: Module stock_sms loaded in 0.38s, 204 queries (+204 other) 
+2023-10-06 08:54:07,706 1 INFO prueba odoo.modules.loading: Loading module account_edi_ubl_cii (59/76) 
+2023-10-06 08:54:07,888 1 INFO prueba odoo.modules.registry: module account_edi_ubl_cii: creating or updating database tables 
+2023-10-06 08:54:07,955 1 INFO prueba odoo.modules.loading: loading account_edi_ubl_cii/data/account_edi_data.xml 
+2023-10-06 08:54:07,974 1 INFO prueba odoo.modules.loading: loading account_edi_ubl_cii/data/cii_22_templates.xml 
+2023-10-06 08:54:08,001 1 INFO prueba odoo.modules.loading: loading account_edi_ubl_cii/data/ubl_20_templates.xml 
+2023-10-06 08:54:08,040 1 INFO prueba odoo.modules.loading: loading account_edi_ubl_cii/data/ubl_21_templates.xml 
+2023-10-06 08:54:08,059 1 INFO prueba odoo.addons.base.models.ir_module: module account_edi_ubl_cii: loading translation file es for language es_ES 
+2023-10-06 08:54:08,084 1 INFO prueba odoo.modules.loading: Module account_edi_ubl_cii loaded in 0.38s, 192 queries (+192 other) 
+2023-10-06 08:54:08,085 1 INFO prueba odoo.modules.loading: Loading module account_payment_invoice_online_payment_patch (60/76) 
+2023-10-06 08:54:08,191 1 INFO prueba odoo.modules.registry: module account_payment_invoice_online_payment_patch: creating or updating database tables 
+2023-10-06 08:54:08,353 1 INFO prueba odoo.modules.loading: loading account_payment_invoice_online_payment_patch/data/ir_config_parameter.xml 
+2023-10-06 08:54:08,362 1 INFO prueba odoo.modules.loading: loading account_payment_invoice_online_payment_patch/views/account_portal_templates.xml 
+2023-10-06 08:54:08,384 1 INFO prueba odoo.modules.loading: loading account_payment_invoice_online_payment_patch/wizards/res_config_settings_views.xml 
+2023-10-06 08:54:08,466 1 INFO prueba odoo.addons.base.models.ir_module: module account_payment_invoice_online_payment_patch: loading translation file es for language es_ES 
+2023-10-06 08:54:08,485 1 INFO prueba odoo.modules.loading: Module account_payment_invoice_online_payment_patch loaded in 0.40s, 154 queries (+154 other) 
+2023-10-06 08:54:08,486 1 INFO prueba odoo.modules.loading: Loading module crm_iap_enrich (61/76) 
+2023-10-06 08:54:08,591 1 INFO prueba odoo.modules.registry: module crm_iap_enrich: creating or updating database tables 
+2023-10-06 08:54:08,669 1 INFO prueba odoo.modules.loading: loading crm_iap_enrich/data/ir_cron.xml 
+2023-10-06 08:54:08,682 1 INFO prueba odoo.modules.loading: loading crm_iap_enrich/data/ir_action.xml 
+2023-10-06 08:54:08,690 1 INFO prueba odoo.modules.loading: loading crm_iap_enrich/data/mail_templates.xml 
+2023-10-06 08:54:08,702 1 INFO prueba odoo.modules.loading: loading crm_iap_enrich/views/crm_lead_views.xml 
+2023-10-06 08:54:08,716 1 INFO prueba odoo.modules.loading: loading crm_iap_enrich/views/res_config_settings_view.xml 
+2023-10-06 08:54:08,760 1 INFO prueba odoo.addons.base.models.ir_module: module crm_iap_enrich: loading translation file es for language es_ES 
+2023-10-06 08:54:08,783 1 INFO prueba odoo.modules.loading: Module crm_iap_enrich loaded in 0.30s, 118 queries (+118 other) 
+2023-10-06 08:54:08,784 1 INFO prueba odoo.modules.loading: Loading module crm_iap_mine (62/76) 
+2023-10-06 08:54:08,894 1 INFO prueba odoo.modules.registry: module crm_iap_mine: creating or updating database tables 
+2023-10-06 08:54:09,178 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.industry.csv 
+2023-10-06 08:54:09,189 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.role.csv 
+2023-10-06 08:54:09,197 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.seniority.csv 
+2023-10-06 08:54:09,205 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/data/mail_template_data.xml 
+2023-10-06 08:54:09,212 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/data/ir_sequence_data.xml 
+2023-10-06 08:54:09,220 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/security/ir.model.access.csv 
+2023-10-06 08:54:09,233 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/views/crm_lead_views.xml 
+2023-10-06 08:54:09,261 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/views/crm_iap_lead_mining_request_views.xml 
+2023-10-06 08:54:09,288 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/views/res_config_settings_views.xml 
+2023-10-06 08:54:09,330 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/views/mail_templates.xml 
+2023-10-06 08:54:09,339 1 INFO prueba odoo.modules.loading: loading crm_iap_mine/views/crm_menus.xml 
+2023-10-06 08:54:09,356 1 INFO prueba odoo.addons.base.models.ir_module: module crm_iap_mine: loading translation file es for language es_ES 
+2023-10-06 08:54:09,403 1 INFO prueba odoo.modules.loading: Module crm_iap_mine loaded in 0.62s, 387 queries (+387 other) 
+2023-10-06 08:54:09,404 1 INFO prueba odoo.modules.loading: Loading module purchase_stock (63/76) 
+2023-10-06 08:54:09,530 1 INFO prueba odoo.modules.registry: module purchase_stock: creating or updating database tables 
+2023-10-06 08:54:09,957 1 INFO prueba odoo.modules.loading: loading purchase_stock/security/ir.model.access.csv 
+2023-10-06 08:54:09,977 1 INFO prueba odoo.modules.loading: loading purchase_stock/data/purchase_stock_data.xml 
+2023-10-06 08:54:10,059 1 INFO prueba odoo.modules.loading: loading purchase_stock/data/mail_templates.xml 
+2023-10-06 08:54:10,068 1 INFO prueba odoo.modules.loading: loading purchase_stock/report/vendor_delay_report.xml 
+2023-10-06 08:54:10,084 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/purchase_views.xml 
+2023-10-06 08:54:10,124 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/stock_views.xml 
+2023-10-06 08:54:10,158 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/stock_rule_views.xml 
+2023-10-06 08:54:10,170 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/res_config_settings_views.xml 
+2023-10-06 08:54:10,284 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/res_partner_views.xml 
+2023-10-06 08:54:10,308 1 INFO prueba odoo.modules.loading: loading purchase_stock/views/stock_lot_views.xml 
+2023-10-06 08:54:10,319 1 INFO prueba odoo.modules.loading: loading purchase_stock/report/purchase_report_views.xml 
+2023-10-06 08:54:10,329 1 INFO prueba odoo.modules.loading: loading purchase_stock/report/purchase_report_templates.xml 
+2023-10-06 08:54:10,344 1 INFO prueba odoo.modules.loading: loading purchase_stock/report/report_stock_forecasted.xml 
+2023-10-06 08:54:10,354 1 INFO prueba odoo.modules.loading: loading purchase_stock/report/report_stock_rule.xml 
+2023-10-06 08:54:10,363 1 INFO prueba odoo.modules.loading: loading purchase_stock/wizard/stock_replenishment_info.xml 
+2023-10-06 08:54:10,384 1 INFO prueba odoo.addons.base.models.ir_module: module purchase_stock: loading translation file es for language es_ES 
+2023-10-06 08:54:10,429 1 INFO prueba odoo.modules.loading: Module purchase_stock loaded in 1.03s, 765 queries (+765 other) 
+2023-10-06 08:54:10,431 1 INFO prueba odoo.modules.loading: Loading module sale (64/76) 
+2023-10-06 08:54:10,572 1 INFO prueba odoo.modules.registry: module sale: creating or updating database tables 
+2023-10-06 08:54:11,327 1 INFO prueba odoo.modules.loading: loading sale/security/ir.model.access.csv 
+2023-10-06 08:54:11,379 1 INFO prueba odoo.modules.loading: loading sale/security/res_groups.xml 
+2023-10-06 08:54:11,439 1 INFO prueba odoo.modules.loading: loading sale/security/ir_rules.xml 
+2023-10-06 08:54:11,549 1 INFO prueba odoo.modules.loading: loading sale/report/account_invoice_report_views.xml 
+2023-10-06 08:54:11,570 1 INFO prueba odoo.modules.loading: loading sale/report/ir_actions_report_templates.xml 
+2023-10-06 08:54:11,589 1 INFO prueba odoo.modules.loading: loading sale/report/ir_actions_report.xml 
+2023-10-06 08:54:11,600 1 INFO prueba odoo.modules.loading: loading sale/report/sale_report_views.xml 
+2023-10-06 08:54:11,634 1 INFO prueba odoo.modules.loading: loading sale/data/ir_sequence_data.xml 
+2023-10-06 08:54:11,643 1 INFO prueba odoo.modules.loading: loading sale/data/mail_activity_type_data.xml 
+2023-10-06 08:54:11,652 1 INFO prueba odoo.modules.loading: loading sale/data/mail_message_subtype_data.xml 
+2023-10-06 08:54:11,670 1 INFO prueba odoo.modules.loading: loading sale/data/mail_template_data.xml 
+2023-10-06 08:54:11,684 1 INFO prueba odoo.modules.loading: loading sale/data/sale_data.xml 
+2023-10-06 08:54:11,700 1 INFO prueba odoo.modules.loading: loading sale/wizard/account_accrued_orders_wizard_views.xml 
+2023-10-06 08:54:11,707 1 INFO prueba odoo.modules.loading: loading sale/wizard/payment_link_wizard_views.xml 
+2023-10-06 08:54:11,717 1 INFO prueba odoo.modules.loading: loading sale/wizard/sale_make_invoice_advance_views.xml 
+2023-10-06 08:54:11,731 1 INFO prueba odoo.modules.loading: loading sale/wizard/sale_order_cancel_views.xml 
+2023-10-06 08:54:11,740 1 INFO prueba odoo.modules.loading: loading sale/views/sale_order_views.xml 
+2023-10-06 08:54:11,898 1 INFO prueba odoo.modules.loading: loading sale/views/account_views.xml 
+2023-10-06 08:54:11,948 1 INFO prueba odoo.modules.loading: loading sale/views/crm_team_views.xml 
+2023-10-06 08:54:11,987 1 INFO prueba odoo.modules.loading: loading sale/views/mail_activity_views.xml 
+2023-10-06 08:54:11,995 1 INFO prueba odoo.modules.loading: loading sale/views/payment_templates.xml 
+2023-10-06 08:54:12,012 1 INFO prueba odoo.modules.loading: loading sale/views/payment_views.xml 
+2023-10-06 08:54:12,034 1 INFO prueba odoo.modules.loading: loading sale/views/product_packaging_views.xml 
+2023-10-06 08:54:12,054 1 INFO prueba odoo.modules.loading: loading sale/views/product_views.xml 
+2023-10-06 08:54:12,109 1 INFO prueba odoo.modules.loading: loading sale/views/res_config_settings_views.xml 
+2023-10-06 08:54:12,169 1 INFO prueba odoo.modules.loading: loading sale/views/res_partner_views.xml 
+2023-10-06 08:54:12,241 1 INFO prueba odoo.modules.loading: loading sale/views/variant_templates.xml 
+2023-10-06 08:54:12,253 1 INFO prueba odoo.modules.loading: loading sale/views/sale_onboarding_views.xml 
+2023-10-06 08:54:12,273 1 INFO prueba odoo.modules.loading: loading sale/views/sale_order_line_views.xml 
+2023-10-06 08:54:12,297 1 INFO prueba odoo.modules.loading: loading sale/views/sale_portal_templates.xml 
+2023-10-06 08:54:12,348 1 INFO prueba odoo.modules.loading: loading sale/views/utm_campaign_views.xml 
+2023-10-06 08:54:12,368 1 INFO prueba odoo.modules.loading: loading sale/views/sale_menus.xml 
+2023-10-06 08:54:12,521 1 INFO prueba odoo.addons.base.models.ir_module: module sale: loading translation file es for language es_ES 
+2023-10-06 08:54:12,714 1 INFO prueba odoo.modules.loading: Module sale loaded in 2.28s, 2190 queries (+2190 other) 
+2023-10-06 08:54:12,716 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard_purchase (65/76) 
+2023-10-06 08:54:12,925 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard_purchase/data/dashboards.xml 
+2023-10-06 08:54:12,974 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard_purchase: loading translation file es for language es_ES 
+2023-10-06 08:54:12,985 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard_purchase loaded in 0.27s, 28 queries (+28 other) 
+2023-10-06 08:54:12,986 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard_stock_account (66/76) 
+2023-10-06 08:54:13,102 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard_stock_account/data/dashboards.xml 
+2023-10-06 08:54:13,151 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard_stock_account: loading translation file es for language es_ES 
+2023-10-06 08:54:13,163 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard_stock_account loaded in 0.18s, 28 queries (+28 other) 
+2023-10-06 08:54:13,164 1 INFO prueba odoo.modules.loading: Loading module purchase_price_diff (67/76) 
+2023-10-06 08:54:13,273 1 INFO prueba odoo.modules.registry: module purchase_price_diff: creating or updating database tables 
+2023-10-06 08:54:13,366 1 INFO prueba odoo.modules.loading: loading purchase_price_diff/views/product_views.xml 
+2023-10-06 08:54:13,399 1 INFO prueba odoo.addons.base.models.ir_module: module purchase_price_diff: loading translation file es for language es_ES 
+2023-10-06 08:54:13,417 1 INFO prueba odoo.modules.loading: Module purchase_price_diff loaded in 0.25s, 124 queries (+124 other) 
+2023-10-06 08:54:13,418 1 INFO prueba odoo.modules.loading: Loading module sale_crm (68/76) 
+2023-10-06 08:54:13,531 1 INFO prueba odoo.modules.registry: module sale_crm: creating or updating database tables 
+2023-10-06 08:54:13,745 1 INFO prueba odoo.modules.loading: loading sale_crm/security/ir.model.access.csv 
+2023-10-06 08:54:13,755 1 INFO prueba odoo.modules.loading: loading sale_crm/data/crm_lead_merge_template.xml 
+2023-10-06 08:54:13,764 1 INFO prueba odoo.modules.loading: loading sale_crm/views/partner_views.xml 
+2023-10-06 08:54:13,788 1 INFO prueba odoo.modules.loading: loading sale_crm/views/sale_order_views.xml 
+2023-10-06 08:54:13,814 1 INFO prueba odoo.modules.loading: loading sale_crm/views/crm_lead_views.xml 
+2023-10-06 08:54:13,836 1 INFO prueba odoo.modules.loading: loading sale_crm/views/crm_team_views.xml 
+2023-10-06 08:54:13,852 1 INFO prueba odoo.modules.loading: loading sale_crm/wizard/crm_opportunity_to_quotation_views.xml 
+2023-10-06 08:54:13,878 1 INFO prueba odoo.addons.base.models.ir_module: module sale_crm: loading translation file es for language es_ES 
+2023-10-06 08:54:13,910 1 INFO prueba odoo.modules.loading: Module sale_crm loaded in 0.49s, 232 queries (+232 other) 
+2023-10-06 08:54:13,912 1 INFO prueba odoo.modules.loading: Loading module sale_management (69/76) 
+2023-10-06 08:54:14,155 1 INFO prueba odoo.modules.registry: module sale_management: creating or updating database tables 
+2023-10-06 08:54:14,448 1 INFO prueba odoo.modules.loading: loading sale_management/data/digest_data.xml 
+2023-10-06 08:54:14,460 1 INFO prueba odoo.modules.loading: loading sale_management/security/ir.model.access.csv 
+2023-10-06 08:54:14,473 1 INFO prueba odoo.modules.loading: loading sale_management/security/sale_management_security.xml 
+2023-10-06 08:54:14,502 1 INFO prueba odoo.modules.loading: loading sale_management/report/sale_report_templates.xml 
+2023-10-06 08:54:14,512 1 INFO prueba odoo.modules.loading: loading sale_management/views/sale_order_template_views.xml 
+2023-10-06 08:54:14,540 1 INFO prueba odoo.modules.loading: loading sale_management/views/digest_views.xml 
+2023-10-06 08:54:14,553 1 INFO prueba odoo.modules.loading: loading sale_management/views/res_config_settings_views.xml 
+2023-10-06 08:54:14,645 1 INFO prueba odoo.modules.loading: loading sale_management/views/sale_order_views.xml 
+2023-10-06 08:54:14,665 1 INFO prueba odoo.modules.loading: loading sale_management/views/sale_portal_templates.xml 
+2023-10-06 08:54:14,677 1 INFO prueba odoo.modules.loading: loading sale_management/views/sale_management_menus.xml 
+2023-10-06 08:54:14,692 1 INFO prueba odoo.addons.base.models.ir_module: module sale_management: loading translation file es for language es_ES 
+2023-10-06 08:54:14,744 1 INFO prueba odoo.modules.loading: Module sale_management loaded in 0.83s, 467 queries (+467 other) 
+2023-10-06 08:54:14,746 1 INFO prueba odoo.modules.loading: Loading module sale_product_configurator (70/76) 
+2023-10-06 08:54:14,857 1 INFO prueba odoo.modules.registry: module sale_product_configurator: creating or updating database tables 
+2023-10-06 08:54:14,962 1 INFO prueba odoo.modules.loading: loading sale_product_configurator/views/product_template_views.xml 
+2023-10-06 08:54:14,981 1 INFO prueba odoo.modules.loading: loading sale_product_configurator/views/sale_order_views.xml 
+2023-10-06 08:54:15,001 1 INFO prueba odoo.modules.loading: loading sale_product_configurator/views/templates.xml 
+2023-10-06 08:54:15,035 1 INFO prueba odoo.addons.base.models.ir_module: module sale_product_configurator: loading translation file es for language es_ES 
+2023-10-06 08:54:15,062 1 INFO prueba odoo.modules.loading: Module sale_product_configurator loaded in 0.32s, 145 queries (+145 other) 
+2023-10-06 08:54:15,064 1 INFO prueba odoo.modules.loading: Loading module sale_purchase (71/76) 
+2023-10-06 08:54:15,256 1 INFO prueba odoo.modules.registry: module sale_purchase: creating or updating database tables 
+2023-10-06 08:54:15,396 1 INFO prueba odoo.modules.loading: loading sale_purchase/data/mail_templates.xml 
+2023-10-06 08:54:15,413 1 INFO prueba odoo.modules.loading: loading sale_purchase/views/product_views.xml 
+2023-10-06 08:54:15,434 1 INFO prueba odoo.modules.loading: loading sale_purchase/views/sale_order_views.xml 
+2023-10-06 08:54:15,453 1 INFO prueba odoo.modules.loading: loading sale_purchase/views/purchase_order_views.xml 
+2023-10-06 08:54:15,470 1 INFO prueba odoo.modules.loading: loading sale_purchase/wizards/sale_order_cancel_views.xml 
+2023-10-06 08:54:15,483 1 INFO prueba odoo.addons.base.models.ir_module: module sale_purchase: loading translation file es for language es_ES 
+2023-10-06 08:54:15,508 1 INFO prueba odoo.modules.loading: Module sale_purchase loaded in 0.44s, 205 queries (+205 other) 
+2023-10-06 08:54:15,509 1 INFO prueba odoo.modules.loading: Loading module sale_sms (72/76) 
+2023-10-06 08:54:15,628 1 INFO prueba odoo.modules.loading: loading sale_sms/security/ir.model.access.csv 
+2023-10-06 08:54:15,663 1 INFO prueba odoo.modules.loading: loading sale_sms/security/security.xml 
+2023-10-06 08:54:15,678 1 INFO prueba odoo.addons.base.models.ir_module: module sale_sms: no translation for language es 
+2023-10-06 08:54:15,687 1 INFO prueba odoo.modules.loading: Module sale_sms loaded in 0.18s, 36 queries (+36 other) 
+2023-10-06 08:54:15,689 1 INFO prueba odoo.modules.loading: Loading module sale_stock (73/76) 
+2023-10-06 08:54:15,807 1 INFO prueba odoo.modules.registry: module sale_stock: creating or updating database tables 
+2023-10-06 08:54:16,130 1 INFO prueba odoo.modules.loading: loading sale_stock/security/sale_stock_security.xml 
+2023-10-06 08:54:16,161 1 INFO prueba odoo.modules.loading: loading sale_stock/security/ir.model.access.csv 
+2023-10-06 08:54:16,185 1 INFO prueba odoo.modules.loading: loading sale_stock/views/sale_order_views.xml 
+2023-10-06 08:54:16,268 1 INFO prueba odoo.modules.loading: loading sale_stock/views/stock_route_views.xml 
+2023-10-06 08:54:16,278 1 INFO prueba odoo.modules.loading: loading sale_stock/views/res_config_settings_views.xml 
+2023-10-06 08:54:16,412 1 INFO prueba odoo.modules.loading: loading sale_stock/views/sale_stock_portal_template.xml 
+2023-10-06 08:54:16,426 1 INFO prueba odoo.modules.loading: loading sale_stock/views/stock_lot_views.xml 
+2023-10-06 08:54:16,440 1 INFO prueba odoo.modules.loading: loading sale_stock/views/res_users_views.xml 
+2023-10-06 08:54:16,472 1 INFO prueba odoo.modules.loading: loading sale_stock/report/report_stock_forecasted.xml 
+2023-10-06 08:54:16,481 1 INFO prueba odoo.modules.loading: loading sale_stock/report/sale_order_report_templates.xml 
+2023-10-06 08:54:16,499 1 INFO prueba odoo.modules.loading: loading sale_stock/report/stock_report_deliveryslip.xml 
+2023-10-06 08:54:16,511 1 INFO prueba odoo.modules.loading: loading sale_stock/data/mail_templates.xml 
+2023-10-06 08:54:16,526 1 INFO prueba odoo.modules.loading: loading sale_stock/data/sale_stock_data.xml 
+2023-10-06 08:54:16,532 1 INFO prueba odoo.modules.loading: loading sale_stock/wizard/stock_rules_report_views.xml 
+2023-10-06 08:54:16,648 1 INFO prueba odoo.modules.loading: loading sale_stock/wizard/sale_order_cancel_views.xml 
+2023-10-06 08:54:16,666 1 INFO prueba odoo.addons.base.models.ir_module: module sale_stock: loading translation file es for language es_ES 
+2023-10-06 08:54:16,702 1 INFO prueba odoo.modules.loading: Module sale_stock loaded in 1.01s, 703 queries (+703 other) 
+2023-10-06 08:54:16,704 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard_purchase_stock (74/76) 
+2023-10-06 08:54:16,823 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard_purchase_stock/data/dashboards.xml 
+2023-10-06 08:54:16,876 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard_purchase_stock: loading translation file es for language es_ES 
+2023-10-06 08:54:16,891 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard_purchase_stock loaded in 0.19s, 28 queries (+28 other) 
+2023-10-06 08:54:16,892 1 INFO prueba odoo.modules.loading: Loading module spreadsheet_dashboard_sale (75/76) 
+2023-10-06 08:54:17,009 1 INFO prueba odoo.modules.loading: loading spreadsheet_dashboard_sale/data/dashboards.xml 
+2023-10-06 08:54:17,068 1 INFO prueba odoo.addons.base.models.ir_module: module spreadsheet_dashboard_sale: loading translation file es for language es_ES 
+2023-10-06 08:54:17,082 1 INFO prueba odoo.modules.loading: Module spreadsheet_dashboard_sale loaded in 0.19s, 33 queries (+33 other) 
+2023-10-06 08:54:17,083 1 INFO prueba odoo.modules.loading: Loading module sale_purchase_stock (76/76) 
+2023-10-06 08:54:17,193 1 INFO prueba odoo.modules.registry: module sale_purchase_stock: creating or updating database tables 
+2023-10-06 08:54:17,241 1 INFO prueba odoo.addons.base.models.ir_module: module sale_purchase_stock: no translation for language es 
+2023-10-06 08:54:17,275 1 INFO prueba odoo.modules.loading: Module sale_purchase_stock loaded in 0.19s, 47 queries (+47 other) 
+2023-10-06 08:54:17,276 1 INFO prueba odoo.modules.loading: 76 modules loaded in 48.81s, 38900 queries (+38900 extra) 
+2023-10-06 08:54:18,160 1 INFO prueba odoo.modules.loading: Modules loaded. 
+2023-10-06 08:54:18,170 1 INFO prueba odoo.modules.registry: Registry loaded in 50.166s 
+2023-10-06 08:54:18,172 1 INFO prueba odoo.addons.base.models.ir_module: getting next ir.actions.todo() 
+2023-10-06 08:54:18,180 1 INFO prueba odoo.modules.registry: Registry changed, signaling through the database 
+2023-10-06 08:54:18,183 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:18] "POST /web/dataset/call_button HTTP/1.1" 200 - 41103 25.097 25.225
+2023-10-06 08:54:18,213 1 INFO prueba odoo.addons.base.models.ir_http: Generating routing map for key None 
+2023-10-06 08:54:24,143 1 INFO prueba odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2023-10-06 08:54:24,146 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web HTTP/1.1" 200 - 176 0.103 5.833
+2023-10-06 08:54:24,193 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/assets/121-4c6a8f2/web.assets_common.min.css HTTP/1.1" 200 - 9 0.015 0.014
+2023-10-06 08:54:24,196 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/assets/122-1c5656c/web.assets_backend.min.css HTTP/1.1" 200 - 7 0.009 0.021
+2023-10-06 08:54:24,197 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/assets/124-1c5656c/web.assets_backend.min.js HTTP/1.1" 200 - 8 0.015 0.012
+2023-10-06 08:54:24,198 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/assets/123-4c6a8f2/web.assets_common.min.js HTTP/1.1" 200 - 8 0.015 0.017
+2023-10-06 08:54:24,198 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/assets/125-6e7f40c/web.assets_backend_prod_only.min.js HTTP/1.1" 200 - 7 0.014 0.016
+2023-10-06 08:54:24,239 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/webclient/translations/033d3aef2e0db393b96980c91b14d47d8cd8336a?lang=es_ES HTTP/1.1" 200 - 2 0.009 0.020
+2023-10-06 08:54:24,271 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /web/webclient/load_menus/7f577769d0aa9ca1ebfc40cb631459693c5251bdfbf01957b587981c6f14f044 HTTP/1.1" 200 - 32 0.052 0.047
+2023-10-06 08:54:24,866 1 INFO prueba odoo.addons.partner_autocomplete.models.res_company: Starting enrich of company My Company (1) 
+2023-10-06 08:54:24,891 1 INFO prueba odoo.modules.registry: At least one model cache has been invalidated, signaling through the database. 
+2023-10-06 08:54:24,897 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "POST /web/dataset/call_kw/res.company/iap_enrich_auto HTTP/1.1" 200 - 20 0.016 0.025
+2023-10-06 08:54:24,906 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /bus/websocket_worker_bundle?v=1.0.5 HTTP/1.1" 304 - 10 0.010 0.012
+2023-10-06 08:54:24,943 1 INFO ? werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:24] "GET /mail/static/src/audio/ting.ogg HTTP/1.1" 206 - 0 0.000 0.003
+2023-10-06 08:54:25,027 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "POST /web/dataset/call_kw/res.users/systray_get_activities HTTP/1.1" 200 - 12 0.013 0.016
+2023-10-06 08:54:25,031 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.018
+2023-10-06 08:54:25,063 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 8 0.010 0.027
+2023-10-06 08:54:25,079 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.017 0.021
+2023-10-06 08:54:25,080 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "POST /web/action/load HTTP/1.1" 200 - 8 0.019 0.022
+2023-10-06 08:54:25,114 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.006 0.016
+2023-10-06 08:54:25,163 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "POST /mail/init_messaging HTTP/1.1" 200 - 105 0.098 0.135
+2023-10-06 08:54:25,168 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.007 0.014
+2023-10-06 08:54:25,181 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-06 08:54:25,199 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.004 0.006
+2023-10-06 08:54:25,202 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "POST /mail/load_message_failures HTTP/1.1" 200 - 3 0.003 0.008
+2023-10-06 08:54:25,210 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.012
+2023-10-06 08:54:25,243 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/mail.channel/1/avatar_128?unique=d04fbeebbbb985d7f815dd825b29fde9348f74e9d7c63f80208d8ad67729b2e6818bebeaa3860424c98436172376d5b49d2a28c9f59fda57f53a156a372b105a HTTP/1.1" 200 - 4 0.004 0.009
+2023-10-06 08:54:25,245 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.partner/2/avatar_128 HTTP/1.1" 200 - 7 0.006 0.010
+2023-10-06 08:54:25,263 1 INFO prueba werkzeug: 192.168.65.1 - - [06/Oct/2023 08:54:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-06 08:54:29,947 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Procurement: run scheduler`. 
+2023-10-06 08:54:29,963 1 INFO prueba odoo.addons.stock.models.stock_rule: _run_scheduler_tasks is finished and committed 
+2023-10-06 08:54:29,964 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Procurement: run scheduler` done. 
+2023-10-06 08:54:29,974 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-06 08:54:29,978 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-06 08:54:29,987 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-06 08:54:29,993 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-06 08:54:30,001 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Notification: Delete Notifications older than 6 Month`. 
+2023-10-06 08:54:30,005 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Notification: Delete Notifications older than 6 Month` done. 
+2023-10-06 08:54:30,013 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Users: Notify About Unregistered Users`. 
+2023-10-06 08:54:30,020 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Users: Notify About Unregistered Users` done. 
+2023-10-06 08:54:30,028 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Calendar: Event Reminder`. 
+2023-10-06 08:54:30,034 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Calendar: Event Reminder` done. 
+2023-10-06 08:54:30,042 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `HR Employee: check work permit validity`. 
+2023-10-06 08:54:30,046 1 INFO prueba odoo.addons.base.models.ir_cron: Job `HR Employee: check work permit validity` done. 
+2023-10-06 08:54:30,055 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-06 08:54:30,058 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-06 08:54:30,064 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Purchase reminder`. 
+2023-10-06 08:54:30,074 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Purchase reminder` done. 
+2023-10-06 08:54:30,080 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-06 08:54:30,085 1 INFO prueba odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-06 08:54:30,091 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-06 08:54:30,094 1 INFO prueba odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-06 08:54:30,101 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-06 08:54:30,105 1 INFO prueba odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-06 08:54:30,110 1 INFO prueba odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-06 08:54:30,114 1 INFO prueba odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-06 08:54:59,147 1 INFO ? odoo.service.server: Initiating shutdown 
+2023-10-06 08:54:59,149 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2023-10-06 08:54:59,354 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 9 connections  
