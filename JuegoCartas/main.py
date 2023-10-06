@@ -17,14 +17,10 @@ def valorCarta(carta):
     rango = carta[1]
     if rango.isdigit():
         return int(rango)
+    elif rango in ["J", "Q", "K"]:
+        return 10
     elif rango == "A":
         return 1
-    elif rango == "J":
-        return 11
-    elif rango == "Q":
-        return 12
-    elif rango == "K":
-        return 13
 
 def calcularPuntos(cartas):
     puntos = 0
