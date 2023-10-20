@@ -1,22 +1,24 @@
 <odoo>
   <data>
+  
     <!-- Vista tree para el modelo Oscar -->
-    <record id="view_oscar_rodero_tree" model="ir.ui.view">
-      <field name="name">modulo_personalizado.oscar_rodero.tree</field>
+    <record model="ir.ui.view" id="view_oscar_rodero_tree">
+      <field name="name">modulo_personalizado oscar_rodero tree</field>
       <field name="model">modulo_personalizado.oscar_rodero</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name" />
+          <field name="date"/>
+          <field name="description"/>
         </tree>
       </field>
     </record>
-
 
     <!-- Acción de ventana para el modelo Oscar -->
     <record model="ir.actions.act_window" id="modulo_personalizado.oscar_rodero_window">
       <field name="name">Oscar</field>
       <field name="res_model">modulo_personalizado.oscar_rodero</field>
-      <field name="view_mode">tree, form</field>
+      <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Top menu item -->
@@ -25,6 +27,6 @@
     <menuitem name="Mis Modelos" id="modulo_personalizado.menu_modelos" parent="modulo_personalizado.menu_root"/>
     <!-- actions -->
     <menuitem name="Modelos" id="modulo_personalizado.menu_1_list" parent="modulo_personalizado.menu_modelos"
-              action="modulo_personalizado.oscar_rodero_window"/>
+     action="modulo_personalizado.oscar_rodero_window"/>
   </data>
 </odoo>
