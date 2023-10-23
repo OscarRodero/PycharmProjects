@@ -7168,3 +7168,14 @@ Falta el valor requerido para el campo 'Model' (model_id)
 2023-10-20 09:56:25,280 1 INFO MiDocker werkzeug: 172.18.0.1 - - [20/Oct/2023 09:56:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.081
 2023-10-20 09:56:26,438 1 INFO MiDocker werkzeug: 172.18.0.1 - - [20/Oct/2023 09:56:26] "POST /web/dataset/call_kw/modulo_personalizado.oscar_rodero/web_search_read HTTP/1.1" 200 - 3 0.002 0.004
 2023-10-20 09:56:26,487 1 INFO MiDocker werkzeug: 172.18.0.1 - - [20/Oct/2023 09:56:26] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.006
+2023-10-20 10:01:53,195 1 INFO MiDocker odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-20 10:01:53,201 1 INFO MiDocker odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-20 10:12:03,624 1 INFO MiDocker odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-20 10:12:03,630 1 INFO MiDocker odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-20 10:22:14,155 1 INFO MiDocker odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-20 10:22:14,162 1 INFO MiDocker odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-20 10:32:24,734 1 INFO MiDocker odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-20 10:32:24,741 1 INFO MiDocker odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-20 10:36:42,300 1 INFO ? odoo.service.server: Initiating shutdown 
+2023-10-20 10:36:42,301 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2023-10-20 10:36:42,334 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 8 connections  
