@@ -10761,3 +10761,194 @@ lxml.etree.XMLSyntaxError: Opening and ending tag mismatch: group line 13 and tr
 2023-10-25 08:41:33,209 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
 2023-10-25 08:51:22,135 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
 2023-10-25 08:51:22,146 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:01:32,624 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-25 09:01:32,632 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-25 09:01:32,641 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-25 09:01:32,649 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-25 09:01:32,658 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-25 09:01:32,666 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-25 09:01:32,675 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-25 09:01:32,681 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-25 09:01:32,691 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-25 09:01:32,701 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-25 09:01:32,710 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:01:32,716 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:02:33,800 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-25 09:02:33,815 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-25 09:11:34,338 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:11:34,346 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:21:35,325 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:21:35,340 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:31:35,783 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:31:35,805 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:41:36,131 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:41:36,140 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 09:51:35,857 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 09:51:35,866 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 10:01:46,332 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-25 10:01:46,344 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-25 10:01:46,360 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-25 10:01:46,366 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-25 10:01:46,377 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-25 10:01:46,387 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-25 10:01:46,397 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-25 10:01:46,403 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-25 10:01:46,414 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-25 10:01:46,420 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-25 10:01:46,430 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-25 10:01:46,441 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-25 10:01:46,451 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 10:01:46,459 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 10:11:50,470 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 10:11:50,481 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 10:21:50,868 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 10:21:50,878 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-25 10:31:51,178 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-25 10:31:51,184 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 08:35:18,590 1 WARNING ? py.warnings: /usr/lib/python3/dist-packages/odoo/tools/config.py:565: DeprecationWarning: The longpolling-port is a deprecated alias to the gevent-port option, please use the latter.
+  File "/usr/bin/odoo", line 8, in <module>
+    odoo.cli.main()
+  File "/usr/lib/python3/dist-packages/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 127, in main
+    odoo.tools.config.parse_config(args)
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 378, in parse_config
+    self._warn_deprecated_options()
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 565, in _warn_deprecated_options
+    warnings.warn(
+ 
+2023-10-27 08:35:18,595 1 INFO ? odoo: Odoo version 16.0-20230925 
+2023-10-27 08:35:18,599 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2023-10-27 08:35:18,600 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/16.0', '/mnt/extra-addons'] 
+2023-10-27 08:35:18,601 1 INFO ? odoo: database: odoo@db:5432 
+2023-10-27 08:35:18,783 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2023-10-27 08:35:19,150 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 31b4d07c8df6:8069 
+2023-10-27 08:35:19,404 1 INFO DB_Oscar odoo.modules.loading: loading 1 modules... 
+2023-10-27 08:35:19,412 1 INFO DB_Oscar odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2023-10-27 08:35:19,559 1 WARNING DB_Oscar odoo.modules.module: Missing `license` key in manifest for 'tareas', defaulting to LGPL-3 
+2023-10-27 08:35:19,589 1 INFO DB_Oscar odoo.modules.loading: loading 79 modules... 
+2023-10-27 08:35:20,724 1 INFO DB_Oscar odoo.modules.loading: 79 modules loaded in 1.13s, 0 queries (+0 extra) 
+2023-10-27 08:35:20,828 1 WARNING DB_Oscar odoo.fields: Field tareas.tecnologias.imagen: unknown parameter 'maxwidth', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2023-10-27 08:35:20,829 1 WARNING DB_Oscar odoo.fields: Field tareas.tecnologias.imagen: unknown parameter 'maxheight', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2023-10-27 08:35:20,895 1 INFO DB_Oscar odoo.modules.loading: Modules loaded. 
+2023-10-27 08:35:20,907 1 INFO DB_Oscar odoo.modules.registry: Registry loaded in 1.568s 
+2023-10-27 08:35:20,912 1 INFO DB_Oscar odoo.addons.base.models.ir_http: Generating routing map for key None 
+2023-10-27 08:35:20,913 1 INFO DB_Oscar odoo.addons.base.models.ir_http: Generating routing map for key None 
+2023-10-27 08:35:21,220 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:21] "GET / HTTP/1.1" 303 - 9 0.032 0.591
+2023-10-27 08:35:21,221 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:21] "GET / HTTP/1.1" 303 - 25 0.132 1.752
+2023-10-27 08:35:23,538 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:23] "GET /web HTTP/1.1" 200 - 85 0.120 2.192
+2023-10-27 08:35:24,124 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:24] "GET /bus/websocket_worker_bundle?v=1.0.5 HTTP/1.1" 304 - 6 0.003 0.005
+2023-10-27 08:35:24,233 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:24] "GET /websocket HTTP/1.1" 101 - 1 0.001 0.013
+2023-10-27 08:35:24,266 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:24] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 8 0.019 0.021
+2023-10-27 08:35:24,280 1 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2023-10-27 08:35:24,290 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:24] "POST /mail/init_messaging HTTP/1.1" 200 - 56 0.113 0.028
+2023-10-27 08:35:24,334 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:24] "POST /mail/load_message_failures HTTP/1.1" 200 - 4 0.006 0.008
+2023-10-27 08:35:25,654 1 WARNING ? odoo.modules.module: Missing `license` key in manifest for 'modulo_personalizado', defaulting to LGPL-3 
+2023-10-27 08:35:25,654 1 WARNING ? odoo.modules.module: Missing `license` key in manifest for 'modulo_personalizado', defaulting to LGPL-3 
+2023-10-27 08:35:25,654 1 WARNING ? odoo.modules.module: Missing `license` key in manifest for 'modulo_personalizado', defaulting to LGPL-3 
+2023-10-27 08:35:25,655 1 WARNING ? odoo.modules.module: Missing `license` key in manifest for 'modulo_personalizado', defaulting to LGPL-3 
+2023-10-27 08:35:25,660 1 INFO ? werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /mail/static/src/audio/ting.ogg HTTP/1.1" 206 - 0 0.000 1.507
+2023-10-27 08:35:25,674 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.004 1.416
+2023-10-27 08:35:25,682 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "POST /web/action/load HTTP/1.1" 200 - 8 0.014 1.445
+2023-10-27 08:35:25,692 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.007
+2023-10-27 08:35:25,693 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "POST /web/dataset/call_kw/res.users/systray_get_activities HTTP/1.1" 200 - 11 0.024 1.465
+2023-10-27 08:35:25,709 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.003 0.007
+2023-10-27 08:35:25,720 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "POST /mail/inbox/messages HTTP/1.1" 200 - 7 0.011 0.006
+2023-10-27 08:35:25,745 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /web/image/res.partner/2/avatar_128 HTTP/1.1" 304 - 7 0.004 0.009
+2023-10-27 08:35:25,789 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:35:25] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.004 0.007
+2023-10-27 08:36:19,267 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Calendar: Event Reminder`. 
+2023-10-27 08:36:19,276 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Calendar: Event Reminder` done. 
+2023-10-27 08:36:19,284 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Purchase reminder`. 
+2023-10-27 08:36:19,323 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Purchase reminder` done. 
+2023-10-27 08:36:19,325 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Purchase reminder`. 
+2023-10-27 08:36:19,328 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Purchase reminder` done. 
+2023-10-27 08:36:19,336 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-27 08:36:19,341 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-27 08:36:19,349 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-27 08:36:19,353 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-27 08:36:19,361 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-27 08:36:19,366 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-27 08:36:19,373 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-27 08:36:19,380 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-27 08:36:19,387 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-27 08:36:19,399 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-27 08:36:19,408 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 08:36:19,414 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 08:36:19,421 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Digest Emails`. 
+2023-10-27 08:36:19,624 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Digest Emails` done. 
+2023-10-27 08:36:19,635 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Delete Notifications older than 6 Month`. 
+2023-10-27 08:36:19,640 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Delete Notifications older than 6 Month` done. 
+2023-10-27 08:36:19,648 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Users: Notify About Unregistered Users`. 
+2023-10-27 08:36:19,654 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Users: Notify About Unregistered Users` done. 
+2023-10-27 08:36:19,661 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Base: Auto-vacuum internal data`. 
+2023-10-27 08:36:19,684 1 INFO DB_Oscar odoo.addons.base.models.ir_attachment: filestore gc 4 checked, 0 removed 
+2023-10-27 08:36:19,738 1 INFO DB_Oscar odoo.addons.base.models.res_users: GC'd 0 user log entries 
+2023-10-27 08:36:19,769 1 INFO DB_Oscar odoo.addons.auth_totp.models.auth_totp: GC'd 0 totp devices entries 
+2023-10-27 08:36:19,807 1 INFO DB_Oscar odoo.models.unlink: User #1 deleted bus.bus records with IDs: [120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200] 
+2023-10-27 08:36:20,085 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Base: Auto-vacuum internal data` done. 
+2023-10-27 08:36:20,093 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Account: Post draft entries with auto_post enabled and accounting date up to today`. 
+2023-10-27 08:36:20,103 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Account: Post draft entries with auto_post enabled and accounting date up to today` done. 
+2023-10-27 08:36:20,110 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Procurement: run scheduler`. 
+2023-10-27 08:36:20,128 1 INFO DB_Oscar odoo.addons.stock.models.stock_rule: _run_scheduler_tasks is finished and committed 
+2023-10-27 08:36:20,129 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Procurement: run scheduler` done. 
+2023-10-27 08:36:20,135 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-27 08:36:20,139 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-27 08:36:31,758 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:36:31] "POST /web/action/load HTTP/1.1" 200 - 10 0.013 0.006
+2023-10-27 08:36:31,791 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:36:31] "POST /web/dataset/call_kw/tareas.tareas/get_views HTTP/1.1" 200 - 23 0.013 0.013
+2023-10-27 08:36:31,823 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:36:31] "POST /web/dataset/call_kw/res.users/has_group HTTP/1.1" 200 - 2 0.002 0.003
+2023-10-27 08:36:31,826 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:36:31] "POST /web/dataset/call_kw/tareas.tareas/web_search_read HTTP/1.1" 200 - 4 0.003 0.005
+2023-10-27 08:36:31,909 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:36:31] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-27 08:38:00,611 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:38:00] "POST /web/dataset/call_kw/tareas.tareas/onchange HTTP/1.1" 200 - 2 0.001 0.005
+2023-10-27 08:38:00,675 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 08:38:00] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-10-27 08:41:20,362 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 08:41:20,366 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 08:51:20,721 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 08:51:20,728 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:01:21,191 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-27 09:01:21,202 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-27 09:01:21,213 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-27 09:01:21,218 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-27 09:01:21,225 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:01:21,228 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:01:21,236 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-27 09:01:21,239 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-27 09:01:21,246 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-27 09:01:21,249 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-27 09:01:21,256 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-27 09:01:21,260 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-27 09:01:46,565 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-27 09:01:46,580 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-27 09:11:21,680 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:11:21,687 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:21:22,312 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:21:22,325 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:31:22,902 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:31:22,916 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:41:23,227 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:41:23,244 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:51:23,728 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 09:51:23,748 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 09:56:35,171 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 09:56:35] "GET /websocket HTTP/1.1" 101 - 1 0.002 0.012
+2023-10-27 10:01:24,075 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Partner Autocomplete : Sync with remote DB`. 
+2023-10-27 10:01:24,084 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Partner Autocomplete : Sync with remote DB` done. 
+2023-10-27 10:01:24,096 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `SMS: SMS Queue Manager`. 
+2023-10-27 10:01:24,099 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `SMS: SMS Queue Manager` done. 
+2023-10-27 10:01:24,106 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Snailmail: process letters queue`. 
+2023-10-27 10:01:24,110 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Snailmail: process letters queue` done. 
+2023-10-27 10:01:24,116 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Notification: Send scheduled message notifications`. 
+2023-10-27 10:01:24,120 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Notification: Send scheduled message notifications` done. 
+2023-10-27 10:01:24,126 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `Mail: Email Queue Manager`. 
+2023-10-27 10:01:24,130 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `Mail: Email Queue Manager` done. 
+2023-10-27 10:01:24,137 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 10:01:24,141 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 10:01:48,671 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `CRM: enrich leads (IAP)`. 
+2023-10-27 10:01:48,685 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `CRM: enrich leads (IAP)` done. 
+2023-10-27 10:11:24,486 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 10:11:24,495 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 10:21:24,924 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 10:21:24,940 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 
+2023-10-27 10:35:07,436 1 INFO DB_Oscar werkzeug: 172.18.0.1 - - [27/Oct/2023 10:35:07] "GET /websocket HTTP/1.1" 101 - 1 0.000 0.004
+2023-10-27 10:35:26,585 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Starting job `payment: post-process transactions`. 
+2023-10-27 10:35:26,591 1 INFO DB_Oscar odoo.addons.base.models.ir_cron: Job `payment: post-process transactions` done. 

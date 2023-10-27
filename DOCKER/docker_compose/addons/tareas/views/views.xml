@@ -12,6 +12,7 @@
         </tree>
       </field>
     </record>
+    
     <!--Sprints-->
     <record id="view_sprint_tree" model="ir.ui.view">
       <field name="name">Sprint Tree</field>
