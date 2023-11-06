@@ -15880,3 +15880,26 @@ Entrada de diario (id): INV/2023/00005 (11)
 2023-11-03 11:37:53,278 1 INFO 3dGames werkzeug: 172.18.0.1 - - [03/Nov/2023 11:37:53] "POST /web/dataset/call_kw/hr.employee/web_search_read HTTP/1.1" 200 - 18 0.008 0.017
 2023-11-03 11:37:53,314 1 INFO 3dGames werkzeug: 172.18.0.1 - - [03/Nov/2023 11:37:53] "GET /web/image?model=hr.employee&id=4&field=image_1024&unique=1699011472000 HTTP/1.1" 200 - 5 0.002 0.005
 2023-11-03 11:37:53,341 1 INFO 3dGames werkzeug: 172.18.0.1 - - [03/Nov/2023 11:37:53] "GET /web/image/res.company/1/favicon HTTP/1.1" 304 - 5 0.002 0.005
+2023-11-03 11:38:52,289 1 INFO ? odoo.service.server: Initiating shutdown 
+2023-11-03 11:38:52,292 1 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2023-11-03 11:38:52,479 1 INFO ? odoo.sql_db: ConnectionPool(used=0/count=0/max=64): Closed 9 connections  
+2023-11-06 11:47:27,585 1 WARNING ? py.warnings: /usr/lib/python3/dist-packages/odoo/tools/config.py:565: DeprecationWarning: The longpolling-port is a deprecated alias to the gevent-port option, please use the latter.
+  File "/usr/bin/odoo", line 8, in <module>
+    odoo.cli.main()
+  File "/usr/lib/python3/dist-packages/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 180, in run
+    main(args)
+  File "/usr/lib/python3/dist-packages/odoo/cli/server.py", line 127, in main
+    odoo.tools.config.parse_config(args)
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 378, in parse_config
+    self._warn_deprecated_options()
+  File "/usr/lib/python3/dist-packages/odoo/tools/config.py", line 565, in _warn_deprecated_options
+    warnings.warn(
+ 
+2023-11-06 11:47:27,588 1 INFO ? odoo: Odoo version 16.0-20230925 
+2023-11-06 11:47:27,591 1 INFO ? odoo: Using configuration file at /etc/odoo/odoo.conf 
+2023-11-06 11:47:27,593 1 INFO ? odoo: addons paths: ['/usr/lib/python3/dist-packages/odoo/addons', '/var/lib/odoo/addons/16.0', '/mnt/extra-addons'] 
+2023-11-06 11:47:27,594 1 INFO ? odoo: database: odoo@db:5432 
+2023-11-06 11:47:27,747 1 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2023-11-06 11:47:28,109 1 INFO ? odoo.service.server: HTTP service (werkzeug) running on 31b4d07c8df6:8069 
