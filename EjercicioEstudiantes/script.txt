@@ -1,0 +1,3 @@
+INSERT INTO Estudiantes VALUES ('1','Airon', 'SanchézMedinaMoralera', '17/09/2002', '10');
+INSERT INTO Estudiantes VALUES ('2','pepe', 'pepe', 'pepe', 'pepe');
+INSERT INTO Estudiantes VALUES ('3','Óscar', 'RoderoRodríguez-Peral', '28/01/1999', '5');
