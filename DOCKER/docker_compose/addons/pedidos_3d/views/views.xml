@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- Vistas de Pedidos-->
+    <record id="view_pedidos_tree" model="ir.ui.view">
+      <field name="name">pedidos_3d.pedidos.tree</field>
+      <field name="model">pedidos_3d.pedidos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id_pedido"/>
+          <field name="id_cliente"/>
+          <field name="dimensiones"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_pedidos_form" model="ir.ui.view">
+      <field name="name">pedidos_3d.pedidos.form</field>
+      <field name="model">pedidos_3d.pedidos</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="id_pedido" readonly="1"/>
+            <field name="id_cliente"/>
+            <field name="email_cliente"/>
+            <field name="dimensiones"/>
+            <field name="archivos_adjuntos" widget="many2many_binary" options="{'widget': 'binary', 'multiple': true}"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_pedidos_kanban" model="ir.ui.view">
+      <field name="name">pedidos_3d.pedidos.kanban</field>
+      <field name="model">pedidos_3d.pedidos</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div>
+                <strong>
+                  ID del Pedido: <field name="id_pedido" string="ID del Pedido"/>
+                </strong>
+                <p>
+                  Cliente: <field name="id_cliente" string="Cliente"/>
+                </p>
+                <p>
+                  Email: <field name="email_cliente" string="Email"/>
+                </p>
+                <p>
+                  Dimensiones: <field name="dimensiones" string="Dimensiones"/>
+                </p>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pedidos_3d.pedidos_action_window">
+      <field name="name">pedidos window</field>
+      <field name="res_model">pedidos_3d.pedidos</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Pedidos 3D" id="pedidos_3d.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Pedidos de Impresión" id="pedidos_3d.pedidos_impresion" parent="pedidos_3d.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Lista de Pedidos" id="pedidos_3d.pedidos_impresion_lista_pedidos" parent="pedidos_3d.pedidos_impresion" action="pedidos_3d.pedidos_action_window"/>
+  </data>
+</odoo>
