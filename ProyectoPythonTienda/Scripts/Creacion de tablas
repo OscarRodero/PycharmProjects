@@ -1,0 +1,66 @@
+CREATE TABLE Cliente (
+    id VARCHAR(50) PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    cif VARCHAR(20) NOT NULL,
+    direccion VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Inventario (
+    id VARCHAR(50) PRIMARY KEY,
+    id_producto INT NOT NULL,
+    fecha_actualizacion DATETIME NOT NULL,
+    cantidad_existente INT NOT NULL,
+    cantidad_entrante INT NOT NULL,
+    cantidad_saliente INT NOT NULL,
+    id_venta VARCHAR(50),
+    id_reposicion VARCHAR(50),
+    FOREIGN KEY (id_producto) REFERENCES Producto(id),
+    FOREIGN KEY (id_venta) REFERENCES Venta(id),
+    FOREIGN KEY (id_reposicion) REFERENCES Reposicion(id)
+);
+
+CREATE TABLE Marca (
+    id VARCHAR(50) PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE MarcaModelo (
+    id VARCHAR(50) PRIMARY KEY,
+    id_marca VARCHAR(50) NOT NULL,
+    id_modelo VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_marca) REFERENCES Marca(id),
+    FOREIGN KEY (id_modelo) REFERENCES Modelo(id)
+);
+
+CREATE TABLE Modelo (
+    id VARCHAR(50) PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Producto (
+    id VARCHAR(50) PRIMARY KEY,
+    descripcion VARCHAR(255) NOT NULL,
+    precio FLOAT NOT NULL,
+    id_marca_modelo VARCHAR(50) NOT NULL,
+    fecha_creacion DATETIME NOT NULL,
+    FOREIGN KEY (id_marca_modelo) REFERENCES MarcaModelo(id)
+);
+
+CREATE TABLE Reposicion (
+    id VARCHAR(50) PRIMARY KEY,
+    producto VARCHAR(255) NOT NULL,
+    cantidad INT NOT NULL,
+    fecha_inicio_reposicion DATETIME NOT NULL,
+    fecha_fin_reposicion DATETIME NOT NULL
+);
+
+CREATE TABLE Venta (
+    id VARCHAR(50) PRIMARY KEY,
+    id_producto VARCHAR(50) NOT NULL,
+    cantidad INT NOT NULL,
+    id_cliente VARCHAR(50) NOT NULL,
+    fecha_inicio_compra DATETIME NOT NULL,
+    fecha_fin_compra DATETIME NOT NULL,
+    FOREIGN KEY (id_producto) REFERENCES Producto(id),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id)
+);

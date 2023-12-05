@@ -1,5 +1,5 @@
-class Modelo:
-    def __init__(self, id, descripcion):
+class Marca:
+    def __init__(self, id: str, descripcion: str):
         self.id = id
         self.descripcion = descripcion
 

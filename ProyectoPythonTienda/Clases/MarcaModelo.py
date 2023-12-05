@@ -1,5 +1,5 @@
 class MarcaModelo:
-    def __init__(self, id, id_marca, id_modelo):
+    def __init__(self, id:str , id_marca: str, id_modelo: str):
         self.id = id
         self.id_marca = id_marca
         self.id_modelo = id_modelo
