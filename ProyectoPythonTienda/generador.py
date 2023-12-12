@@ -1,32 +1,45 @@
 import os
 
+# Directorio de salida para los archivos SQL
+directorio_salida = 'Scripts'
+
+# Asegúrate de que el directorio exista
+if not os.path.exists(directorio_salida):
+    os.makedirs(directorio_salida)
+
 # Función para generar los inserts y escribir en el archivo
-def generar_inserts(archivo_salida, tabla, valores):
+def generar_inserts(archivo_salida, inserts):
     with open(archivo_salida, 'w') as archivo:
-        for i in range(1, 1001):
-            insert_command = f"INSERT INTO {tabla} VALUES ({i}, {valores[i-1]});"
-            if i < 1000:
-                insert_command += "\n"
-            archivo.write(insert_command)
+        archivo.writelines(inserts)
 
-# Generar datos ficticios para las relaciones entre marca y modelo
-relaciones_marcamodelo = [(i, i) for i in range(1, 1001)]
+# Bucle para la tabla cliente
+inserts_cliente = [f"INSERT INTO cliente (nombre, cif, direccion) VALUES ('cliente{i}', 'CIF{i}', 'Direccion{i}');\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_cliente.sql'), inserts_cliente)
 
-# Generar inserts para la tabla cliente
-archivo_salida = 'Scripts/insert_cliente.sql'
-valores_cliente = [(f"'cliente{i}'", f"'CIF{i}'", f"'Direccion{i}'") for i in range(1, 1001)]
-generar_inserts(archivo_salida, 'cliente', valores_cliente)
+# Bucle para la tabla modelo
+inserts_modelo = [f"INSERT INTO modelo (descripcion) VALUES ('DescripcionModelo{i}');\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_modelo.sql'), inserts_modelo)
 
-# Generar inserts para la tabla modelo
-archivo_salida = 'Scripts/insert_modelo.sql'
-valores_modelo = [(f"'DescripcionModelo{i}'",) for i in range(1, 1001)]
-generar_inserts(archivo_salida, 'modelo', valores_modelo)
+# Bucle para la tabla marca
+inserts_marca = [f"INSERT INTO marca (descripcion) VALUES ('DescripcionMarca{i}');\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_marca.sql'), inserts_marca)
 
-# Generar inserts para la tabla marca
-archivo_salida = 'Scripts/insert_marca.sql'
-valores_marca = [(f"'DescripcionMarca{i}'",) for i in range(1, 1001)]
-generar_inserts(archivo_salida, 'marca', valores_marca)
+# Bucle para la tabla marca_modelo (relaciones)
+inserts_relacion = [f"INSERT INTO marca_modelo (id_marca, id_modelo) VALUES ({i}, {i});\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_marca_modelo.sql'), inserts_relacion)
 
-# Generar inserts para la tabla marca_modelo
-archivo_salida = 'Scripts/insert_marcamodelo.sql'
-generar_inserts(archivo_salida, 'marca_modelo', relaciones_marcamodelo)
+# Bucle para la tabla producto
+inserts_producto = [f"INSERT INTO producto (descripcion, precio, id_marca_modelo, fecha_creacion) VALUES ('DescripcionProducto{i}', {i * 10.5}, {i}, CURRENT_DATE);\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_producto.sql'), inserts_producto)
+
+# Bucle para la tabla ventas
+inserts_venta = [f"INSERT INTO ventas (id_producto, cantidad, id_cliente, fecha_inicio_compra, fecha_fin_compra) VALUES ({i}, {i * 2}, {i}, CURRENT_DATE, CURRENT_DATE + INTERVAL '{i} days');\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_ventas.sql'), inserts_venta)
+
+# Bucle para la tabla reposicion
+inserts_reposicion = [f"INSERT INTO reposicion (id_producto, cantidad, fecha_inicio_reposicion, fecha_fin_reposicion) VALUES ({i}, {i * 3}, CURRENT_DATE, CURRENT_DATE + INTERVAL '{i} days');\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_reposicion.sql'), inserts_reposicion)
+
+# Bucle para la tabla inventario
+inserts_inventario = [f"INSERT INTO inventario (id_producto, fecha_actualizacion, cantidad_existente, cantidad_entrante, cantidad_saliente, id_venta, id_reposicion) VALUES ({i}, CURRENT_DATE, {i * 4}, {i * 5}, {i * 6}, {i}, {i});\n" for i in range(1, 101)]
+generar_inserts(os.path.join(directorio_salida, 'insert_inventario.sql'), inserts_inventario)

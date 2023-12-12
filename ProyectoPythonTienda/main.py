@@ -47,10 +47,13 @@ class PostgreSQLConnection:
         except Exception as e:
             print(f"Error al ejecutar la consulta: {e}")
             return None
+def imprimir_menu():
+    print("1. Consultar ventas por cliente")
+    print("2. Salir")
+    opcion = input("\n"+"Seleccione una opción: ")
+    return opcion
 
-# Ejemplo de uso
 if __name__ == "__main__":
-    # Configuración de la conexión
     db_config = {
         'dbname': 'postgres',
         'user': 'postgres',
@@ -59,19 +62,26 @@ if __name__ == "__main__":
         'port': '5432',
     }
 
-    # Crear una instancia de la clase PostgreSQLConnection
     db_connection = PostgreSQLConnection(**db_config)
-
-    # Conectar a la base de datos
     db_connection.connect()
 
-    # Ejecutar una consulta
-    query = 'SELECT * FROM "public"."Inventario";'
-    result = db_connection.execute_query(query)
+    while True:
+        choice = imprimir_menu()
+        if choice == '1':
+            try:
+                cliente_id = int(input("Ingrese el ID del cliente: "))
+            except ValueError:
+                print("Error: Ingrese un número válido para el ID del cliente.")
+                continue
+            query = sql.SQL('SELECT * FROM "public"."ventas" WHERE cliente_id = {}').format(sql.Literal(cliente_id))
+            result = db_connection.execute_query(query)
+            if result:
+                print(result)
+            else:
+                print("No se encontraron ventas para el cliente especificado.")
+        elif choice == '2':
+            break
+        else:
+            print("Opción no válida. Inténtelo de nuevo.")
 
-    # Imprimir el resultado
-    if result:
-        print(result)
-
-    # Desconectar de la base de datos
     db_connection.disconnect()
