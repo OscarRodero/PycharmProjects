@@ -41,5 +41,6 @@ inserts_reposicion = [f"INSERT INTO reposicion (id_producto, cantidad, fecha_ini
 generar_inserts(os.path.join(directorio_salida, 'insert_reposicion.sql'), inserts_reposicion)
 
 # Bucle para la tabla inventario
-inserts_inventario = [f"INSERT INTO inventario (id_producto, fecha_actualizacion, cantidad_existente, cantidad_entrante, cantidad_saliente, id_venta, id_reposicion) VALUES ({i}, CURRENT_DATE, {i * 4}, {i * 5}, {i * 6}, {i}, {i});\n" for i in range(1, 101)]
+inserts_inventario = [f"INSERT INTO inventario (id_producto, fecha_actualizacion, cantidad_existente, cantidad_entrante, cantidad_saliente, id_venta, id_reposicion) VALUES ({i}, CURRENT_DATE, 50, {i * 5}, 1, {i}, {i});\n" for i in range(1, 101)]
 generar_inserts(os.path.join(directorio_salida, 'insert_inventario.sql'), inserts_inventario)
+

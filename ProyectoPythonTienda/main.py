@@ -1,8 +1,17 @@
-from Clases import *
 import os
+import logging
 import psycopg2
+import subprocess
 from psycopg2 import sql
+from Clases import *
+from datetime import datetime
 
+log_directory = 'Logs'
+if not os.path.exists(log_directory):
+    os.makedirs(log_directory)
+
+log_filename = f'Logs/{datetime.now().strftime("%d-%m-%Y")}.log'
+logging.basicConfig(filename=log_filename, level=logging.INFO)
 class PostgreSQLConnection:
     def __init__(self, dbname, user, password, host, port):
         self.dbname = dbname
@@ -34,7 +43,6 @@ class PostgreSQLConnection:
         if not self.connection:
             print("Error: No hay conexión a la base de datos.")
             return
-
         try:
             with self.connection.cursor() as cursor:
                 if parameters:
@@ -53,6 +61,29 @@ def imprimir_menu():
     opcion = input("\n"+"Seleccione una opción: ")
     return opcion
 
+def ejecutar_generador():
+    try:
+        subprocess.run(["python", "generador.py"], check=True)
+        print("Script generador.py ejecutado con éxito.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error al ejecutar el script generador.py: {e}")
+def cargarDatos():
+    try:
+        ejecutar_generador()
+        script_file = os.path.join('Scripts', 'insert_cliente.sql')
+
+        with open(script_file, 'r') as file:
+            script_content = file.read()
+
+        db_connection.execute_query(script_content)
+        logging.info("Carga de datos exitosa.")
+
+    except Exception as e:
+        error_message = f"Error al cargar datos: {e}"
+        logging.error(error_message)
+        print(error_message)
+
+
 if __name__ == "__main__":
     db_config = {
         'dbname': 'postgres',
@@ -64,6 +95,7 @@ if __name__ == "__main__":
 
     db_connection = PostgreSQLConnection(**db_config)
     db_connection.connect()
+    cargarDatos()
 
     while True:
         choice = imprimir_menu()
