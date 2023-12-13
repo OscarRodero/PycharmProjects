@@ -76,7 +76,9 @@ if __name__ == "__main__":
             query = sql.SQL('SELECT * FROM "public"."ventas" WHERE cliente_id = {}').format(sql.Literal(cliente_id))
             result = db_connection.execute_query(query)
             if result:
-                print(result)
+                for r in result:
+                    obj_venta = Venta(*r)
+                    print(obj_venta)
             else:
                 print("No se encontraron ventas para el cliente especificado.")
         elif choice == '2':
