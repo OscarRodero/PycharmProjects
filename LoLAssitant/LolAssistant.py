@@ -1,5 +1,5 @@
 import threading
-from datetime import time
+import time
 import speech_recognition as sr
 import pyttsx3
 
@@ -22,13 +22,22 @@ def ObtenerTiempo(palabra):
 def lanzar_cronometro(primera_palabra, ultima_palabra):
     print("Primera palabra:", primera_palabra)
     print("Última palabra:", ultima_palabra)
-    talk("Lanzando un cronómetro para el "+ultima_palabra+" del "+primera_palabra)
-    if primera_palabra in ["top", "mid", "jungla", "adc", "supp"]:
+    if primera_palabra == "meet" or primera_palabra == "need":
+        primera_palabra = "mid"
+    elif primera_palabra == "sub":
+        primera_palabra = "support"
+
+    if ultima_palabra == "curar":
+        ultima_palabra = "heal"
+
+    if primera_palabra in ["top", "mid", "jungla", "adc", "support"] and ultima_palabra in ["flash", "ghost", "ignite", "exhaust", "heal", "barrier"]:
+        talk("Lanzando un cronómetro para el " + ultima_palabra + " del " + primera_palabra)
         tiempo_cronometro = ObtenerTiempo(ultima_palabra)
         if tiempo_cronometro > 0:
-            print(f"Durmiendo por {tiempo_cronometro} minutos...")
-            time.sleep(tiempo_cronometro)
-            print("Despertando del sueño")
+            print(f"Durmiendo por {tiempo_cronometro-5} segundos...")
+            time.sleep(tiempo_cronometro-5)
+            talk(f"El {primera_palabra} vuelve a tener flash en 5 segundos.")
+            
 def talk(msg):
     newVoiceRate = 160
     engine = pyttsx3.init()
@@ -44,21 +53,23 @@ def audio_to_text():
             audio = r.listen(origen, timeout=3)
             return r.recognize_google(audio, language='es-ES')
         except sr.WaitTimeoutError:
-            talk('No se ha detectado ninguna voz. Intenta de nuevo.')
+            print("Esperando...")
 
 talk("Iniciado el asistente de League of Legends.")
 talk('Puedes comenzar a hablar')
 while True:
     try:
-        mensaje = audio_to_text().lower()
-        palabras = mensaje.split()
-        print("Frase: "+mensaje)
-        if palabras:
-            primera_palabra = palabras[0]
-            ultima_palabra = palabras[-1]
-            if primera_palabra:
-                mi_hilo = threading.Thread(target=lanzar_cronometro(primera_palabra, ultima_palabra))
-
+        mensaje = audio_to_text()
+        if mensaje is not None:
+            palabras = mensaje.lower().split()
+            print("Frase: "+mensaje)
+            if palabras:
+                primera_palabra = palabras[0]
+                ultima_palabra = palabras[-1]
+                if primera_palabra:
+                    #mi_hilo = threading.Thread(target=lanzar_cronometro(primera_palabra, ultima_palabra))
+                    mi_hilo = threading.Thread(target=lambda: lanzar_cronometro(primera_palabra, ultima_palabra))
+                    mi_hilo.start()
 
     except sr.UnknownValueError:
         talk('No se pudo entender lo que dijiste. Por favor, intenta de nuevo.')
