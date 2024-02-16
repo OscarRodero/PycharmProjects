@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reservas_reserva,reservas.reserva,model_reservas_reserva,base.group_user,1,1,1,1
+access_reservas_sala,reservas.sala,model_reservas_sala,base.group_user,1,1,1,1
+access_reservas_grupo,reservas.grupo,model_reservas_grupo,base.group_user,1,1,1,1

@@ -1,0 +1,157 @@
+<odoo>
+  <data>
+    <!-- ____________________Vistas Tree____________________ -->
+    <!--Tareas-->
+    <record model="ir.ui.view" id="tareas.tareas_tree">
+      <field name="name">Tareas tree</field>
+      <field name="model">tareas.tareas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idTarea"/>
+          <field name="nombre"/>
+          <field name="sprint_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--Sprints-->
+    <record model="ir.ui.view" id="tareas.sprints_tree">
+      <field name="name">Sprint Tree</field>
+      <field name="model">tareas.sprint</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="fechaInicio"/>
+          <field name="duracion"/>
+          <field name="fechaFin"/>
+          <field name="proyecto_id"/>
+          <field name="tareas"/>
+        </tree>
+      </field>
+    </record>
+    <!--Historias de usuario -->
+    <record model="ir.ui.view" id="tareas.historia_usuario_tree">
+      <field name="name">Historias tree</field>
+      <field name="model">tareas.historia_usuario</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="descripcion"/>
+          <field name="tareas"/>
+        </tree>
+      </field>
+    </record>
+    <!--Proyectos-->
+    <record model="ir.ui.view" id="tareas.proyectos_tree">
+      <field name="name">Proyectos tree</field>
+      <field name="model">tareas.proyecto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="descripcion"/>
+          <field name="sprints"/>
+        </tree>
+      </field>
+    </record>
+    <!-- ____________________Vistas Form____________________ -->
+    <!--Tareas-->
+    <record id="view_tareas_form" model="ir.ui.view">
+      <field name="name">tareas.tareas.form</field>
+      <field name="model">tareas.tareas</field>
+      <field name="arch" type="xml">
+        <form string="Tarea">
+          <sheet>
+            <group>
+              <field name="idTarea" string="ID:"/>
+              <field name="nombre" string="Nombre:"/>
+              <field name="sprint_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!--Sprints-->
+    <record id="view_sprint_form" model="ir.ui.view">
+      <field name="name">tareas.sprint.form</field>
+      <field name="model">tareas.sprint</field>
+      <field name="arch" type="xml">
+        <form string="Sprint">
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="fechaInicio" string="Fecha de Inicio:"/>
+              <field name="duracion" string="Duración: "/>
+              <field name="fechaFin" string="Fecha de finalización: "/>
+              <field name="proyecto_id"/>
+              <field name="tareas"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!--Historias de usuarios-->
+    <record id="view_historia_usuario_form" model="ir.ui.view">
+      <field name="name">tareas.historia_usuario.form</field>
+      <field name="model">tareas.historia_usuario</field>
+      <field name="arch" type="xml">
+        <form string="Historias de Usuario">
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="descripcion"/>
+              <field name="tareas"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!--Proyectos-->
+    <record id="view_proyectos_form" model="ir.ui.view">
+      <field name="name">tareas.proyectos.form</field>
+      <field name="model">tareas.proyecto</field>
+      <field name="arch" type="xml">
+        <form string="Proyectos">
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="descripcion"/>
+              <field name="sprints"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--Acciones de ventana-->
+    <record id="action_tareas_list" model="ir.actions.act_window">
+      <field name="name">Tareas</field>
+      <field name="res_model">tareas.tareas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_sprint_list" model="ir.actions.act_window">
+      <field name="name">Sprint</field>
+      <field name="res_model">tareas.sprint</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_historias_list" model="ir.actions.act_window">
+      <field name="name">Historias</field>
+      <field name="res_model">tareas.historia_usuario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_proyectos_list" model="ir.actions.act_window">
+      <field name="name">Proyectos</field>
+      <field name="res_model">tareas.proyecto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Tareas" id="tareas.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Mis Tareas" id="tareas.menu_1" parent="tareas.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Tareas" id="tareas.menu_tareas" parent="tareas.menu_1" action="tareas.action_tareas_list"/>
+    <menuitem name="Sprints" id="tareas.menu_sprints" parent="tareas.menu_1" action="tareas.action_sprint_list"/>
+    <menuitem name="Historias" id="tareas.menu_historias" parent="tareas.menu_1" action="tareas.action_historias_list"/>
+    <menuitem name="Proyectos" id="tareas.menu_proyectos" parent="tareas.menu_1" action="tareas.action_proyectos_list"/>
+  </data>
+</odoo>

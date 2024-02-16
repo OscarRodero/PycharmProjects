@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="computados.computados_list_view">
+      <field name="name">computados.computados_list_view</field>
+      <field name="model">computados.computados</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="num1" string="Número 1"/>
+          <field name="num2" string="Número 2"/>
+          <field name="res" string="Resultado"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="computados.computados_form_view">
+      <field name="name">computados.computados_form_view</field>
+      <field name="model">computados.computados</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="num1" string="Número 1"/>
+            <field name="num2" string="Número 2"/>
+            <field name="res" string="Resultado" readonly="1"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="computados.computados_kanban_view">
+      <field name="name">computados.computados_kanban_view</field>
+      <field name="model">computados.computados</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div>
+                <strong>
+                  Número 1: <field name="num1"/>
+                </strong>
+                <p>
+                  Número 2: <field name="num2"/>
+                </p>
+                <p>
+                  Resultado: <field name="res"/>
+                </p>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="computados.computados_action_window">
+      <field name="name">computados.computados_action_window</field>
+      <field name="res_model">computados.computados</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Computados" id="computados.menu_principal"/>
+
+    <!-- menu categories -->
+    <menuitem name="Ver Computados" id="computados.menu_1" parent="computados.menu_principal"/>
+    <!-- actions -->
+    <menuitem name="Los computadiños" id="computados.menu_1_list" parent="computados.menu_1"
+              action="computados.computados_action_window"/>
+  </data>
+</odoo>

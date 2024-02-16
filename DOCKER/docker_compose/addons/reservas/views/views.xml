@@ -1,0 +1,194 @@
+<odoo>
+  <data>
+    <!-- Vistas para el modelo 'reservas.sala' -->
+    <record id="view_sala_tree" model="ir.ui.view">
+      <field name="name">reservas.sala.tree</field>
+      <field name="model">reservas.sala</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="capacidad"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_sala_form" model="ir.ui.view">
+      <field name="name">reservas.sala.form</field>
+      <field name="model">reservas.sala</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="capacidad"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sala_kanban" model="ir.ui.view">
+      <field name="name">reservas.sala.kanban</field>
+      <field name="model">reservas.sala</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+                <div class="oe_kanban_content">
+                  <div class="oe_kanban_primary">
+                    <field name="nombre"/>
+                  </div>
+                  <div class="oe_kanban_secondary">
+                    <field name="capacidad"/>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- Vistas para el modelo 'reservas.grupo' -->
+    <record id="view_grupo_tree" model="ir.ui.view">
+      <field name="name">reservas.grupo.tree</field>
+      <field name="model">reservas.grupo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="descripcion"/>
+          <field name="numero_integrantes"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_grupo_form" model="ir.ui.view">
+      <field name="name">reservas.grupo.form</field>
+      <field name="model">reservas.grupo</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="nombre"/>
+              <field name="descripcion"/>
+              <field name="numero_integrantes"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_grupo_kanban" model="ir.ui.view">
+      <field name="name">reservas.grupo.kanban</field>
+      <field name="model">reservas.grupo</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+                <div class="oe_kanban_content">
+                  <div class="oe_kanban_primary">
+                    <field name="nombre"/>
+                  </div>
+                  <div class="oe_kanban_secondary">
+                    <field name="descripcion"/>
+                    <field name="numero_integrantes"/>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- Vistas para el modelo 'reservas.reserva' -->
+    <record id="view_reserva_tree" model="ir.ui.view">
+      <field name="name">reservas.reserva.tree</field>
+      <field name="model">reservas.reserva</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="codigo_reserva"/>
+          <field name="fecha_reserva"/>
+          <field name="numero_horas"/>
+          <field name="fecha_fin_reserva"/>
+          <field name="grupo_de_trabajo"/>
+          <field name="sala_de_reuniones"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_reserva_form" model="ir.ui.view">
+      <field name="name">reservas.reserva.form</field>
+      <field name="model">reservas.reserva</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="codigo_reserva"/>
+              <field name="fecha_reserva"/>
+              <field name="numero_horas"/>
+              <field name="fecha_fin_reserva"/>
+              <field name="grupo_de_trabajo"/>
+              <field name="sala_de_reuniones"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_reserva_kanban" model="ir.ui.view">
+      <field name="name">reservas.reserva.kanban</field>
+      <field name="model">reservas.reserva</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+                <div class="oe_kanban_content">
+                  <div class="oe_kanban_primary">
+                    <field name="codigo_reserva"/>
+                    <field name="fecha_reserva"/>
+                    <field name="numero_horas"/>
+                    <field name="fecha_fin_reserva"/>
+                  </div>
+                  <div class="oe_kanban_secondary">
+                    <field name="grupo_de_trabajo"/>
+                    <field name="sala_de_reuniones"/>
+                  </div>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- Acciones -->
+    <record model="ir.actions.act_window" id="reservas.sala_action_window">
+      <field name="name">sala window</field>
+      <field name="res_model">reservas.sala</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record model="ir.actions.act_window" id="reservas.grupo_action_window">
+      <field name="name">grupo window</field>
+      <field name="res_model">reservas.grupo</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record model="ir.actions.act_window" id="reservas.reserva_action_window">
+      <field name="name">reserva window</field>
+      <field name="res_model">reservas.reserva</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="reservas" id="reservas.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Reservas" id="reservas.menu" parent="reservas.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Salas" id="reservas.menu_1" parent="reservas.menu" action="reservas.sala_action_window"/>
+    <menuitem name="Grupos" id="reservas.menu_2" parent="reservas.menu" action="reservas.grupo_action_window"/>
+    <menuitem name="Reservas" id="reservas.menu_3" parent="reservas.menu" action="reservas.reserva_action_window"/>
+  </data>
+</odoo>
