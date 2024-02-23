@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- Vista tree para Producto -->
+    <record model="ir.ui.view" id="para_oscar.producto_tree_view">
+      <field name="name">producto.tree</field>
+      <field name="model">para_oscar.producto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="price"/>
+          <field name="stock"/>
+          <field name="caducity"/>
+          <field name="category_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Producto -->
+    <record model="ir.ui.view" id="para_oscar.producto_form_view">
+      <field name="name">producto.form</field>
+      <field name="model">para_oscar.producto</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="price"/>
+              <field name="stock"/>
+              <field name="caducity"/>
+              <field name="category_id"/>
+              <field name="image"/>
+              <field name="expiration_criticality"/>
+              <field name="product_code" readonly="1"/>
+              <field name="category" readonly="1"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista tree para Categoria -->
+    <record model="ir.ui.view" id="para_oscar.categoria_tree_view">
+      <field name="name">categoria.tree</field>
+      <field name="model">para_oscar.categoria</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Categoria -->
+    <record model="ir.ui.view" id="para_oscar.categoria_form_view">
+      <field name="name">categoria.form</field>
+      <field name="model">para_oscar.categoria</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="code"/>
+              <field name="products"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.producto_action_window">
+      <field name="name">Productos</field>
+      <field name="res_model">para_oscar.producto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.categoria_action_window">
+      <field name="name">Categorías</field>
+      <field name="res_model">para_oscar.categoria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="para_oscar.action_server">
+      <field name="name">ParafarmaciaOscarRodero server</field>
+      <field name="model_id" ref="model_para_oscar_para_oscar"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <menuitem name="ParafarmaciaOscarRodero" id="para_oscar.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Productos" id="para_oscar.productos" parent="para_oscar.menu_root"/>
+    <menuitem name="Categorías" id="para_oscar.categorias" parent="para_oscar.menu_root"/>
+    <!-- actions -->
+    <menuitem name="Mis Productos" id="para_oscar.menu_1_list" parent="para_oscar.productos"
+              action="para_oscar.producto_action_window"/>
+    <menuitem name="Mis Categorías" id="para_oscar" parent="para_oscar.categorias"
+              action="para_oscar.categoria_action_window"/>
+  </data>
+</odoo>

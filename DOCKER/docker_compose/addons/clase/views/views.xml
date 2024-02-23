@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="clase.list">
+      <field name="name">clase list</field>
+      <field name="model">clase.clase</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clase.alumno">
+      <field name="name">clase list</field>
+      <field name="model">clase.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombreCompleto"/>         
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.ui.view" id="clase.alumno">
+      <field name="name">clase list</field>
+      <field name="model">clase.alumno</field>
+      <field name="arch" type="xml">
+         <form>
+          <group>
+          <field name="nombre"/>
+          <field name="apellido1"/>
+          <field name="apellido2"/>
+          <field name="nombreCompleto"/>     
+        </group>
+        </form>
+      </field>
+    </record>
+  
+
+     <record model="ir.ui.view" id="clase.modulo">
+      <field name="name">clase list</field>
+      <field name="model">clase.modulo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="description"/>         
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="clase.action_window">
+      <field name="name">clase window</field>
+      <field name="res_model">clase.clase</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="clase.action_window_alumno">
+        <field name="name">clase window</field>
+        <field name="res_model">clase.alumno</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+    
+    <record model="ir.actions.act_window" id="clase.action_window_modulo">
+        <field name="name">clase window</field>
+        <field name="res_model">clase.modulo</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="clase.action_server">
+      <field name="name">clase server</field>
+      <field name="model_id" ref="model_clase_clase"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="clase" id="clase.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Alumno" id="clase.menu_1" parent="clase.menu_root"/>
+    <menuitem name="Clase" id="clase.menu_2" parent="clase.menu_root"/>
+    <menuitem name="Modulo" id="clase.menu_3" parent="clase.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="clase.menu_1_list" parent="clase.menu_1"
+              action="clase.action_window_alumno"/>
+    <menuitem name="List" id="clase.menu_2_list" parent="clase.menu_2"
+              action="clase.action_window"/>
+    <menuitem name="List" id="clase.menu_3_list" parent="clase.menu_3"
+              action="clase.action_window_modulo"/>
+   
+
+  </data>
+</odoo>

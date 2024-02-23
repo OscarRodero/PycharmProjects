@@ -167,17 +167,17 @@
 
     <!-- Acciones -->
     <record model="ir.actions.act_window" id="reservas.sala_action_window">
-      <field name="name">sala window</field>
+      <field name="name">Salas</field>
       <field name="res_model">reservas.sala</field>
       <field name="view_mode">tree,form,kanban</field>
     </record>
     <record model="ir.actions.act_window" id="reservas.grupo_action_window">
-      <field name="name">grupo window</field>
+      <field name="name">Grupos</field>
       <field name="res_model">reservas.grupo</field>
       <field name="view_mode">tree,form,kanban</field>
     </record>
     <record model="ir.actions.act_window" id="reservas.reserva_action_window">
-      <field name="name">reserva window</field>
+      <field name="name">Reservas</field>
       <field name="res_model">reservas.reserva</field>
       <field name="view_mode">tree,form,kanban</field>
     </record>

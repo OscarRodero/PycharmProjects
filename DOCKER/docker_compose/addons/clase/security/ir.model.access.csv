@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_clase_clase,clase.clase,model_clase_clase,base.group_user,1,1,1,1
+access_clase_alumno,clase.alumno,model_clase_alumno,base.group_user,1,1,1,1
+access_clase_modulo,clase.modulo,model_clase_modulo,base.group_user,1,1,1,1
