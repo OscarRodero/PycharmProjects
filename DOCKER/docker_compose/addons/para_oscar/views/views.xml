@@ -70,6 +70,71 @@
       </field>
     </record>
 
+    <!-- Vista tree para Etiqueta -->
+    <record model="ir.ui.view" id="para_oscar.etiqueta_tree_view">
+      <field name="name">etiqueta.tree</field>
+      <field name="model">para_oscar.etiqueta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Etiqueta -->
+    <record model="ir.ui.view" id="para_oscar.etiqueta_form_view">
+      <field name="name">etiqueta.form</field>
+      <field name="model">para_oscar.etiqueta</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="description"/>
+              <field name="products"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista tree para Lote -->
+    <record model="ir.ui.view" id="para_oscar.lote_tree_view">
+      <field name="name">lote.tree</field>
+      <field name="model">para_oscar.lote</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="number"/>
+          <field name="code"/>
+          <field name="product"/>
+          <field name="quantity"/>
+          <field name="type"/>
+          <field name="m3"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Lote -->
+    <record model="ir.ui.view" id="para_oscar.lote_form_view">
+      <field name="name">lote.form</field>
+      <field name="model">para_oscar.lote</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="number"/>
+              <field name="code"/>
+              <field name="product"/>
+              <field name="quantity"/>
+              <field name="type"/>
+              <field name="m3"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <record model="ir.actions.act_window" id="para_oscar.producto_action_window">
       <field name="name">Productos</field>
       <field name="res_model">para_oscar.producto</field>
@@ -79,6 +144,18 @@
     <record model="ir.actions.act_window" id="para_oscar.categoria_action_window">
       <field name="name">Categorías</field>
       <field name="res_model">para_oscar.categoria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.etiqueta_action_window">
+      <field name="name">Etiquetas</field>
+      <field name="res_model">para_oscar.etiqueta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.lote_action_window">
+      <field name="name">Lotes</field>
+      <field name="res_model">para_oscar.lote</field>
       <field name="view_mode">tree,form</field>
     </record>
     <!-- server action to the one above -->
@@ -102,10 +179,16 @@
     <!-- menu categories -->
     <menuitem name="Productos" id="para_oscar.productos" parent="para_oscar.menu_root"/>
     <menuitem name="Categorías" id="para_oscar.categorias" parent="para_oscar.menu_root"/>
+    <menuitem name="Etiquetas" id="para_oscar.etiquetas" parent="para_oscar.menu_root"/>
+    <menuitem name="Lotes" id="para_oscar.lotes" parent="para_oscar.menu_root"/>
     <!-- actions -->
     <menuitem name="Mis Productos" id="para_oscar.menu_1_list" parent="para_oscar.productos"
               action="para_oscar.producto_action_window"/>
-    <menuitem name="Mis Categorías" id="para_oscar" parent="para_oscar.categorias"
+    <menuitem name="Mis Categorías" id="para_oscar.menu_2_list" parent="para_oscar.categorias"
               action="para_oscar.categoria_action_window"/>
+    <menuitem name="Mis Etiquetas" id="para_oscar.menu_3_list" parent="para_oscar.etiquetas"
+              action="para_oscar.etiqueta_action_window"/>
+    <menuitem name="Mis Lotes" id="para_oscar.menu_4_list" parent="para_oscar.lotes"
+              action="para_oscar.lote_action_window"/>
   </data>
 </odoo>

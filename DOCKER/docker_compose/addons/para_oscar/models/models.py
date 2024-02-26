@@ -15,6 +15,7 @@ class Producto(models.Model):
     expiration_criticality = fields.Selection([("1", 'Baja'), ("2", 'Media'), ("3", 'Alta')], string="Criticidad de Caducidad", compute='_compute_expiration_criticality', store=True)
     product_code = fields.Char(string="Código de Producto", compute='_compute_product_code', store=True)
     category = fields.Char(string="Categoría", compute='_compute_category', store=True)
+    tags = fields.Many2many('para_oscar.etiqueta', string="Etiquetas")
 
     @api.depends('caducity')
     def _compute_expiration_criticality(self):
@@ -59,3 +60,22 @@ class Categoria(models.Model):
                 words = category.name.split()
                 code_parts = [word[:3].upper() for word in words]
                 category.code = '-'.join(code_parts[:3])
+
+class Etiqueta(models.Model):
+    _name = 'para_oscar.etiqueta'
+    _description = 'para_oscar.etiqueta'
+
+    name = fields.Char(string="Nombre", required=True)
+    description = fields.Text(string="Descripción", required=False)
+    products = fields.Many2many('para_oscar.producto', string="Productos")
+
+class Lote(models.Model):
+    _name = 'para_oscar.lote'
+    _description = 'para_oscar.lote'
+
+    number = fields.Char(string="Número", required=True)
+    code = fields.Char(string="Código", required=True)
+    product = fields.Many2one('para_oscar.producto', string="Producto", required=True)
+    quantity = fields.Integer(string="Cantidad", required=True)
+    type = fields.Selection([("1", 'Rectangular'), ("2", 'Cuadrado')], string="Tipo", required=True)
+    m3 = fields.Float(string="Metros Cúbicos", compute='_compute_m3', store=True)
