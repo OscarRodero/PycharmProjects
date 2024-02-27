@@ -79,3 +79,36 @@ class Lote(models.Model):
     quantity = fields.Integer(string="Cantidad", required=True)
     type = fields.Selection([("1", 'Rectangular'), ("2", 'Cuadrado')], string="Tipo", required=True)
     m3 = fields.Float(string="Metros Cúbicos", compute='_compute_m3', store=True)
+
+    @api.constrains('number')
+    def _check_number_length(self):
+        for lote in self:
+            if lote.number and len(lote.number) != 4:
+                raise ValidationError("El número de lote debe tener exactamente 4 caracteres.")
+            
+    @api.depends('number')
+    def _compute_code(self):
+        for lote in self:
+            lote.code = "COD-" + lote.number
+
+class Entrega(models.Model):
+    _name = 'para_oscar.entrega'
+    _description = 'Entrega'
+
+    deliver_date = fields.Datetime(string="Fecha y Hora de Entrega", required=True)
+    storage_id = fields.Many2one('para_oscar.almacen', string="Almacén de Entrega", required=True)
+
+class Estanteria(models.Model):
+    _name = 'para_oscar.estanteria'
+    _description = 'Estantería'
+
+    name = fields.Char(string="Nombre", required=True)
+    storage_id = fields.Many2one('para_oscar.almacen', string="Almacén", required=True)
+    product_id = fields.Many2one('para_oscar.producto', string="Producto")
+
+class Almacen(models.Model):
+    _name = 'para_oscar.almacen'
+    _description = 'Almacén'
+
+    name = fields.Char(string="Nombre", required=True)
+    shelves_ids = fields.One2many('para_oscar.estanteria', 'almacen_id', string="Estanterías")
