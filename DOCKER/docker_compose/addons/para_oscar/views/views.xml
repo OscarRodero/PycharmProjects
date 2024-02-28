@@ -1,6 +1,5 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
     <!-- Vista tree para Producto -->
     <record model="ir.ui.view" id="para_oscar.producto_tree_view">
       <field name="name">producto.tree</field>
@@ -10,8 +9,10 @@
           <field name="name"/>
           <field name="price"/>
           <field name="stock"/>
+          <field name="tags"/>
           <field name="caducity"/>
           <field name="category_id"/>
+          <field name="expiration_criticality"/>
         </tree>
       </field>
     </record>
@@ -24,16 +25,16 @@
         <form>
           <sheet>
             <group>
+              <field name="product_code" readonly="1"/>
               <field name="name"/>
               <field name="description"/>
+              <field name="category_id"/>
               <field name="price"/>
               <field name="stock"/>
               <field name="caducity"/>
-              <field name="category_id"/>
-              <field name="image"/>
-              <field name="expiration_criticality"/>
-              <field name="product_code" readonly="1"/>
-              <field name="category" readonly="1"/>
+              <field name="expiration_criticality"/>     
+              <field name="tags"/>              
+              <field name="image"/>                       
             </group>
           </sheet>
         </form>
@@ -92,7 +93,6 @@
             <group>
               <field name="name"/>
               <field name="description"/>
-              <field name="products"/>
             </group>
           </sheet>
         </form>
@@ -107,10 +107,9 @@
         <tree>
           <field name="number"/>
           <field name="code"/>
-          <field name="product"/>
+          <field name="product_id"/>
           <field name="quantity"/>
           <field name="type"/>
-          <field name="m3"/>
         </tree>
       </field>
     </record>
@@ -125,9 +124,72 @@
             <group>
               <field name="number"/>
               <field name="code"/>
-              <field name="product"/>
+              <field name="product_id"/>
               <field name="quantity"/>
               <field name="type"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista tree para Almacen -->
+    <record model="ir.ui.view" id="para_oscar.almacen_tree_view">
+      <field name="name">almacen.tree</field>
+      <field name="model">para_oscar.almacen</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="location"/>
+          <field name="opening_time" widget="float_time"/>
+          <field name="closing_time" widget="float_time"/>
+          <field name="estanterias_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Almacen -->
+    <record model="ir.ui.view" id="para_oscar.almacen_form_view">
+      <field name="name">almacen.form</field>
+      <field name="model">para_oscar.almacen</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="location"/>
+              <field name="opening_time" widget="float_time"/>
+              <field name="closing_time" widget="float_time"/>              
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista tree para Estanteria -->
+    <record model="ir.ui.view" id="para_oscar.estanteria_tree_view">
+      <field name="name">estanteria.tree</field>
+      <field name="model">para_oscar.estanteria</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="codigo"/>
+          <field name="almacen_id"/>
+          <field name="lote_id"/>
+          <field name="m3"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Estanteria -->
+    <record model="ir.ui.view" id="para_oscar.estanteria_form_view">
+      <field name="name">estanteria.form</field>
+      <field name="model">para_oscar.estanteria</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="codigo"/>
+              <field name="almacen_id"/>
               <field name="m3"/>
             </group>
           </sheet>
@@ -135,6 +197,39 @@
       </field>
     </record>
 
+    <!-- Vista tree para Entrega -->
+    <record model="ir.ui.view" id="para_oscar.entrega_tree_view">
+      <field name="name">entrega.tree</field>
+      <field name="model">para_oscar.entrega</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fecha_hora_entrega"/>
+          <field name="almacen_id"/>
+          <field name="estanteria_id"/>
+          <field name="lote_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Vista form para Entrega -->
+    <record model="ir.ui.view" id="para_oscar.entrega_form_view">
+      <field name="name">entrega.form</field>
+      <field name="model">para_oscar.entrega</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="fecha_hora_entrega"/>
+              <field name="almacen_id"/>
+              <field name="estanteria_id"/>
+              <field name="lote_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Definición de acciones -->
     <record model="ir.actions.act_window" id="para_oscar.producto_action_window">
       <field name="name">Productos</field>
       <field name="res_model">para_oscar.producto</field>
@@ -158,37 +253,44 @@
       <field name="res_model">para_oscar.lote</field>
       <field name="view_mode">tree,form</field>
     </record>
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="para_oscar.action_server">
-      <field name="name">ParafarmaciaOscarRodero server</field>
-      <field name="model_id" ref="model_para_oscar_para_oscar"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
 
-    <!-- Top menu item -->
+    <record model="ir.actions.act_window" id="para_oscar.almacen_action_window">
+      <field name="name">Almacenes</field>
+      <field name="res_model">para_oscar.almacen</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.entrega_action_window">
+      <field name="name">Entregas</field>
+      <field name="res_model">para_oscar.entrega</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="para_oscar.estanteria_action_window">
+      <field name="name">Estanterías</field>
+      <field name="res_model">para_oscar.estanteria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Elementos de menú -->
     <menuitem name="ParafarmaciaOscarRodero" id="para_oscar.menu_root"/>
-    <!-- menu categories -->
-    <menuitem name="Productos" id="para_oscar.productos" parent="para_oscar.menu_root"/>
-    <menuitem name="Categorías" id="para_oscar.categorias" parent="para_oscar.menu_root"/>
-    <menuitem name="Etiquetas" id="para_oscar.etiquetas" parent="para_oscar.menu_root"/>
-    <menuitem name="Lotes" id="para_oscar.lotes" parent="para_oscar.menu_root"/>
-    <!-- actions -->
-    <menuitem name="Mis Productos" id="para_oscar.menu_1_list" parent="para_oscar.productos"
+
+    <menuitem name="Gestion" id="para_oscar.gestion" parent="para_oscar.menu_root"/>
+    <menuitem name="Almacenaje" id="para_oscar.almacenaje" parent="para_oscar.menu_root"/>
+
+    <menuitem name="Mis Productos" id="para_oscar.menu_1_list" parent="para_oscar.gestion"
               action="para_oscar.producto_action_window"/>
-    <menuitem name="Mis Categorías" id="para_oscar.menu_2_list" parent="para_oscar.categorias"
+    <menuitem name="Mis Categorías" id="para_oscar.menu_2_list" parent="para_oscar.gestion"
               action="para_oscar.categoria_action_window"/>
-    <menuitem name="Mis Etiquetas" id="para_oscar.menu_3_list" parent="para_oscar.etiquetas"
+    <menuitem name="Mis Etiquetas" id="para_oscar.menu_3_list" parent="para_oscar.gestion"
               action="para_oscar.etiqueta_action_window"/>
-    <menuitem name="Mis Lotes" id="para_oscar.menu_4_list" parent="para_oscar.lotes"
+    <menuitem name="Mis Lotes" id="para_oscar.menu_4_list" parent="para_oscar.gestion"
               action="para_oscar.lote_action_window"/>
+    <menuitem name="Mis Almacenes" id="para_oscar.menu_5_list" parent="para_oscar.almacenaje"
+              action="para_oscar.almacen_action_window"/>
+    <menuitem name="Mis Entregas" id="para_oscar.menu_6_list" parent="para_oscar.almacenaje"
+              action="para_oscar.entrega_action_window"/>
+    <menuitem name="Mis Estanterías" id="para_oscar.menu_7_list" parent="para_oscar.almacenaje"
+              action="para_oscar.estanteria_action_window"/>          
   </data>
 </odoo>

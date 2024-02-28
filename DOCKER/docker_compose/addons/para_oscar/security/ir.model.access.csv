@@ -3,3 +3,6 @@ access_para_oscar_producto,para_oscar.producto,model_para_oscar_producto,base.gr
 access_para_oscar_categoria,para_oscar.categoria,model_para_oscar_categoria,base.group_user,1,1,1,1
 access_para_oscar_etiqueta,para_oscar.etiqueta,model_para_oscar_etiqueta,base.group_user,1,1,1,1
 access_para_oscar_lote,para_oscar.lote,model_para_oscar_lote,base.group_user,1,1,1,1
+access_para_oscar_almacen,para_oscar.almacen,model_para_oscar_almacen,base.group_user,1,1,1,1
+access_para_oscar_estanteria,para_oscar.estanteria,model_para_oscar_estanteria,base.group_user,1,1,1,1
+access_para_oscar_entrega,para_oscar.entrega,model_para_oscar_entrega,base.group_user,1,1,1,1
