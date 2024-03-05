@@ -206,7 +206,7 @@
           <field name="fecha_hora_entrega"/>
           <field name="almacen_id"/>
           <field name="estanteria_id"/>
-          <field name="lote_id"/>
+          <field name="lote_id" widget="many2one"/>
         </tree>
       </field>
     </record>
